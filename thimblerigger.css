@@ -1,0 +1,150 @@
+.thimblerigger-talk-btn {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 255, 0.25),
+    rgba(0, 150, 150, 0.35)
+  );
+  color: #00ffff;
+  border-color: #00ffff;
+}
+
+.thimblerigger-play-btn {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.25),
+    rgba(200, 150, 0, 0.35)
+  );
+  color: #ffd700;
+  border-color: #ffd700;
+}
+
+.thimblerigger-talk-btn:hover,
+.thimblerigger-play-btn:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 1);
+}
+
+.thimble-game-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background-size: 100% 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  align-content: center;
+}
+
+#gameArea {
+  position: relative;
+  width: 100%;
+  height: 225px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.thimble-cup {
+  position: absolute;
+  width: 160px;
+  height: 120px;
+  bottom: 10px; 
+  background: url("thimble-cup.png") center no-repeat;
+  background-size: 100% 100%;
+  cursor: pointer;
+  transition: left 0.25s ease-in-out;
+  user-select: none;
+}
+
+.thimble-cup:hover {
+  transform: translateY(-10px);
+}
+
+.thimble-cup.lifted {
+  transform: translateY(-50px) !important;
+}
+
+.thimble-ball {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 60px; /* Шарик чуть выше дна чашек */
+  background: radial-gradient(circle at 30% 30%, #ffff00, #ffaa00);
+  border-radius: 50%;
+  box-shadow: 0 0 25px #ffff00, 0 8px 15px rgba(0, 0, 0, 0.6);
+  z-index: 5;
+}
+
+.game-message {
+  position: absolute;
+  top: 73%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffd700;
+  text-shadow: 0 0 15px #ff00ff;
+  z-index: 30;
+}
+
+.neon-btn-neon {
+  position: relative;
+  top: -75%;
+  left: 19.8%;
+  width: 25%;
+  height: 10%;
+  padding: 14px 28px;
+  background: url(cancelBtn.png) no-repeat center;
+  background-size: 100% 100%;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+#startBtn {
+  position: relative;
+  top: -2%;
+  left: 3%;
+  background: url(okBtn.png) no-repeat center;
+  background-size: 100% 100%;
+}
+
+.neon-btn-neon:hover {
+  box-shadow: 0 0 2px rgba(0, 255, 255, 1), 0 0 5px rgba(255, 0, 255, 0.8);
+  transform: scale(1.06);
+}
+
+
+.npc-dialog-content {
+  flex: 1;
+  overflow: hidden; 
+  padding-right: 10px;
+  margin-top: 10px;
+}
+
+/* Адаптив для мобильных: уменьшаем чашки/шарик на маленьких экранах */
+@media (max-width: 480px) {
+  .thimble-cup {
+    width: 120px;
+    height: 90px;
+    bottom: 30px;
+  }
+  #gameArea {
+    left: 8%;
+  }
+  .thimble-ball {
+    width: 15px;
+    height: 15px;
+    bottom: 45px;
+  }
+  .game-message {
+    font-size: 22px;
+  }
+  .thimble-game-container {
+    height: 240px;
+  }
+  .neon-btn-neon {
+    top:-75%;
+    left: 24.5%;
+  }
+}

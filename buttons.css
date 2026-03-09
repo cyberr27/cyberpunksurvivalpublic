@@ -1,0 +1,118 @@
+/* Кнопки в виде изображений */
+.cyber-btn-img {
+  position: absolute;
+  width: 6%;
+  height: 12%;
+  cursor: pointer;
+  transition: all 0.2s;
+  z-index: 60;
+  box-sizing: border-box;
+}
+
+.cyber-btn-img:hover {
+  transform: translateY(-2px);
+}
+
+.cyber-btn-img:active {
+  transform: translateY(0);
+}
+
+/* Позиционирование кнопок */
+#chatBtn {
+  position: absolute;
+  top: 10%;
+  left: 92.2%;
+  z-index: 2100;
+}
+
+#inventoryBtn {
+  position: absolute;
+  top: 22%;
+  left: 0%;
+}
+
+#equipmentBtn {
+  position: absolute;
+  top: 35%;
+  left: 0%;
+}
+
+#tradeBtn {
+  position: absolute;
+  top: 49%;
+  left: 0.5%;
+}
+
+/* Специфичные стили для combatBtn */
+#combatBtn {
+  position: absolute;
+  width: 10%;
+  height: 20%;
+  top: 80%;
+  left: 90%;
+}
+
+/* Анимация красного мигания при атаке */
+#combatBtn.under-attack {
+  animation: attackFlicker 0.3s infinite alternate;
+}
+
+@keyframes attackFlicker {
+  0% {
+    border-color: #ff0000;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 0, 0, 0.5);
+  }
+  100% {
+    border-color: #ff4444;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 1), 0 0 30px rgba(255, 0, 0, 0.8);
+  }
+}
+
+/* Неактивное состояние для tradeBtn */
+#tradeBtn:not(.active) {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: 0 0 5px rgba(255, 0, 102, 0.3);
+  border-color: #4a4a4a;
+}
+
+/* Мобильная адаптация кнопок */
+@media (max-width: 500px) {
+  .cyber-btn-img {
+    width: 50px;
+    height: 50px;
+  }
+
+  #chatBtn {
+    position: absolute;
+    top: 8.5%;
+    left: 87%;
+    width: 12%;
+    height: 8%;
+  }
+
+  #inventoryBtn {
+    position: absolute;
+    top: 48%;
+    right: 70px;
+  }
+
+  #combatBtn {
+    position: absolute;
+    width: 22%;
+    height: 16%;
+    left: 75%;
+    top: 83%;
+  }
+
+  #equipmentBtn {
+    top: 56%;
+    left: 0%;
+  }
+
+  #tradeBtn {
+    top: 65%;
+    right: 10px;
+  }
+}

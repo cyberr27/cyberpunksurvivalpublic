@@ -1,0 +1,440 @@
+/* jack.css — Полностью автономные стили для Jack NPC (по примеру torestosStyle.css) */
+
+.jack-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(
+    135deg,
+    rgba(10, 10, 10, 0.95),
+    rgba(20, 20, 20, 0.9)
+  );
+  border: 2px solid #00ffff;
+  border-radius: 10px;
+  padding: 20px;
+  color: #00ffff;
+  font-family: "Courier New", monospace;
+  text-align: center;
+  z-index: 1000;
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.5),
+    0 0 30px rgba(255, 0, 255, 0.3);
+  animation: neonPulse 2s infinite alternate;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+/* Большие диалоги для магазина и скупки */
+.jack-dialog.shop,
+.jack-dialog.buyback {
+  width: 70vw;
+  height: 74vh;
+  max-width: none;
+  max-height: none;
+}
+
+/* Контент с прокруткой */
+.jack-dialog-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 10px;
+  margin-top: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #ff00ff rgba(0, 0, 0, 0.5);
+}
+
+.jack-dialog-content::-webkit-scrollbar {
+  width: 8px;
+}
+.jack-dialog-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 4px;
+}
+.jack-dialog-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00ffff, #ff00ff);
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
+}
+
+/* Кнопки над Джеком */
+.jack-buttons-container {
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+.jack-button-talk,
+.jack-button-shop,
+.jack-button-buyback {
+  pointer-events: all;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
+  min-width: 130px;
+  text-align: center;
+  user-select: none;
+  backdrop-filter: blur(4px);
+}
+
+.jack-button-talk {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 255, 0.25),
+    rgba(0, 150, 150, 0.35)
+  );
+  color: #00ffff;
+  border-color: #00ffff;
+}
+
+.jack-button-shop {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 0, 255, 0.25),
+    rgba(150, 0, 150, 0.35)
+  );
+  color: #ff00ff;
+  border-color: #ff00ff;
+}
+
+.jack-button-buyback {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 0, 0.25),
+    rgba(0, 136, 0, 0.35)
+  );
+  color: #00ff00;
+  border-color: #00ff00;
+}
+
+.jack-button-talk:hover,
+.jack-button-shop:hover,
+.jack-button-buyback:hover {
+  box-shadow: 0 0 25px currentColor;
+  transform: scale(1.07);
+}
+
+/* Заголовок */
+.jack-dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+  gap: 15px;
+}
+
+.jack-photo {
+  width: 70px;
+  height: 70px;
+  border: 2px solid #ff00ff;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.6);
+}
+
+.jack-title {
+  color: #00ffff;
+  font-size: 24px;
+  text-shadow:
+    0 0 8px #00ffff,
+    0 0 15px #ff00ff;
+  animation: flicker 1.8s infinite alternate;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Текст */
+.jack-text {
+  margin: 12px 0;
+  font-size: 16px;
+  text-shadow: 0 0 6px rgba(0, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+.jack-text.fullscreen {
+  margin: 0;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 0, 255, 0.5);
+  border-radius: 8px;
+  font-size: 18px;
+  min-height: 200px;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  scrollbar-width: thin;
+}
+
+/* Темы разговора */
+.talk-topics {
+  max-height: 260px;
+  overflow-y: auto;
+  background: rgba(10, 10, 10, 0.92);
+  border: 1px solid #00ffff;
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: inset 0 0 12px rgba(0, 255, 255, 0.3);
+}
+
+.talk-topics.hidden {
+  display: none;
+}
+
+.talk-topic {
+  background: rgba(0, 0, 0, 0.85);
+  padding: 15px;
+  margin: 10px 0;
+  cursor: pointer;
+  border: 1px solid #00ffff;
+  border-radius: 5px;
+  color: #00ffff;
+  font-size: 14px;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.7);
+  transition: all 0.3s ease;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.talk-topic:hover {
+  background: rgba(0, 255, 255, 0.15);
+  border-color: #ff00ff;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+  transform: translateX(5px);
+}
+
+/* Магазин */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 15px;
+  overflow: visible;
+}
+
+.shop-item {
+  background: rgba(0, 0, 0, 0.85);
+  padding: 12px;
+  cursor: pointer;
+  border: 1px solid #00ffff;
+  border-radius: 5px;
+  color: #00ffff;
+  font-size: 14px;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.7);
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.shop-item:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 15px rgba(0, 255, 255, 0.7),
+    0 0 20px rgba(255, 0, 255, 0.5);
+}
+
+.shop-item.selected {
+  border: 2px solid #ff00ff;
+  box-shadow: 0 0 12px rgba(255, 0, 255, 0.8);
+}
+
+.shop-reward {
+  color: #ff00ff;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(255, 0, 255, 0.7);
+}
+
+/* Скупка */
+#buybackInventoryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 8px;
+  width: 100%;
+  height: 400px;
+  justify-items: center;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.buyback-inventory-slot {
+  width: 50px;
+  height: 50px;
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+
+.buyback-inventory-slot:hover {
+  border-color: #ff0066;
+  box-shadow:
+    0 0 10px rgba(255, 0, 102, 0.7),
+    inset 0 0 5px rgba(255, 0, 102, 0.3);
+  transform: scale(1.05);
+}
+
+.buyback-inventory-slot.selected {
+  border: 2px solid #ff00ff;
+  box-shadow: 0 0 12px rgba(255, 0, 255, 0.8);
+}
+
+.buyback-inventory-slot div {
+  color: #00ccff;
+  font-size: 12px;
+  font-family: "Orbitron", sans-serif;
+  text-shadow: 0 0 5px rgba(0, 204, 255, 0.7);
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+}
+
+/* Кнопки внутри диалога (купить/продать/закрыть) */
+.jack-button {
+  background: linear-gradient(135deg, #00ffff, #ff00ff);
+  border: none;
+  color: #000;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  box-shadow:
+    0 0 10px rgba(0, 255, 255, 0.5),
+    0 0 15px rgba(255, 0, 255, 0.3);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.jack-button:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 15px rgba(0, 255, 255, 0.7),
+    0 0 20px rgba(255, 0, 255, 0.5);
+}
+
+.jack-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.shop-buttons,
+.buyback-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+/* Анимации */
+@keyframes neonPulse {
+  0% {
+    box-shadow:
+      0 0 10px rgba(0, 255, 255, 0.5),
+      0 0 20px rgba(255, 0, 255, 0.3);
+  }
+  100% {
+    box-shadow:
+      0 0 20px rgba(0, 255, 255, 0.9),
+      0 0 35px rgba(255, 0, 255, 0.6);
+  }
+}
+
+@keyframes flicker {
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    opacity: 1;
+    text-shadow:
+      0 0 8px #00ffff,
+      0 0 15px #ff00ff;
+  }
+  20%,
+  24%,
+  55% {
+    opacity: 0.6;
+    text-shadow: 0 0 3px #00ffff;
+  }
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .jack-dialog {
+    width: 92vw;
+    height: 420px;
+    padding: 15px;
+    min-width: 80vw;
+  }
+  .jack-photo {
+    width: 60px;
+    height: 60px;
+  }
+  .jack-title {
+    font-size: 21px;
+  }
+}
+
+@media (max-width: 480px) {
+  .jack-dialog {
+    width: 95vw;
+    height: 440px;
+    padding: 12px;
+  }
+  .jack-title {
+    font-size: 19px;
+  }
+  .jack-text {
+    font-size: 15px;
+  }
+  .jack-photo {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+@media (max-height: 600px) {
+  .jack-dialog {
+    height: 92vh;
+  }
+}

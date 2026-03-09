@@ -1,0 +1,120 @@
+/* mister-twister.css */
+/* Стили специально для Mister Twister и его диалогового окна */
+
+.npc-dialog.open {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1500;
+
+  width: min(90vw, 460px);
+  min-height: 220px;
+
+  background: rgba(15, 15, 35, 0.92);
+  border: 2px solid #00f0ff;
+  border-radius: 12px;
+  box-shadow:
+    0 0 40px rgba(0, 240, 255, 0.45),
+    inset 0 0 25px rgba(0, 240, 255, 0.18);
+
+  font-family: "Courier New", Courier, monospace;
+  color: #e0f0ff;
+  overflow: hidden;
+
+  animation: dialogAppear 0.4s ease-out;
+}
+
+@keyframes dialogAppear {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Заголовок */
+.npc-dialog-header {
+  padding: 14px 20px;
+  background: linear-gradient(180deg, #001f33 0%, #000814 100%);
+  border-bottom: 2px solid #00d4ff;
+  text-align: center;
+}
+
+.npc-title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #00f0ff;
+  text-shadow:
+    0 0 10px #00f0ff,
+    0 0 20px #00b7eb;
+  letter-spacing: 2px;
+}
+
+/* Основное содержимое */
+.npc-dialog-content {
+  padding: 20px 24px;
+  line-height: 1.45;
+  font-size: 1.05rem;
+}
+
+.npc-text {
+  margin: 0;
+  color: #d0e8ff;
+}
+
+.npc-text strong {
+  color: #ff00aa;
+  text-shadow: 0 0 8px #ff00aa80;
+}
+
+/* Кнопка закрытия */
+.neon-btn {
+  display: block;
+  margin: 20px auto 24px;
+  padding: 12px 42px;
+
+  font-family: "Courier New", monospace;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #00f0ff;
+  text-shadow: 0 0 10px currentColor;
+
+  background: transparent;
+  border: 2px solid #00f0ff;
+  border-radius: 8px;
+
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.neon-btn:hover {
+  background: rgba(0, 240, 255, 0.14);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+.neon-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+}
+
+/* Адаптивность для очень маленьких экранов */
+@media (max-width: 380px) {
+  .npc-dialog.open {
+    width: 94vw;
+  }
+
+  .npc-title {
+    font-size: 1.55rem;
+  }
+
+  .npc-dialog-content {
+    font-size: 0.98rem;
+    padding: 16px 18px;
+  }
+}

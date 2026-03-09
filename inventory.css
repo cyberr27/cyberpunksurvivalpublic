@@ -1,0 +1,252 @@
+/* Шрифт в стиле киберпанка */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
+
+/* Контейнер инвентаря */
+#inventoryContainer {
+  position: absolute;
+  top: 12.5%;
+  left: 8%;
+  width: 300px;
+  height: 480px;
+  border-radius: 0;
+  display: none;
+  grid-template-rows: auto 1fr auto;
+  gap: 10px;
+  padding: 15px;
+  box-sizing: border-box;
+  z-index: 1000;
+  font-family: "Orbitron", sans-serif;
+  background: url("inventory_background.png") center no-repeat;
+  background-size: cover;
+}
+
+/* Экран инвентаря */
+#inventoryScreen {
+  position: relative;
+  top: 435%;
+  width: 100%;
+  height: 100px;
+  border-radius: 0;
+  color: #00ccff;
+  font-size: 14px;
+  font-family: "Orbitron", sans-serif;
+  text-shadow: 0 0 5px rgba(0, 204, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-row: 1;
+  text-transform: uppercase;
+}
+
+/* Ячейки инвентаря */
+#inventoryContainer .inventory-slot {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  z-index: 110;
+  box-sizing: border-box;
+  transition: all 0.2s;
+}
+
+#inventoryContainer .inventory-slot:hover {
+  border-color: #ff0066;
+  box-shadow: 0 0 10px rgba(255, 0, 102, 0.7),
+    inset 0 0 5px rgba(255, 0, 102, 0.3);
+  transform: scale(1.05);
+}
+
+/* Количество для "Баляр" */
+#inventoryContainer .inventory-slot div {
+  color: #00ccff;
+  font-size: 12px;
+  font-family: "Orbitron", sans-serif;
+  text-shadow: 0 0 5px rgba(0, 204, 255, 0.7);
+}
+
+/* Контейнер кнопок */
+#inventoryActions {
+  grid-row: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+}
+
+/* Сетка инвентаря */
+#inventoryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  justify-items: center;
+  align-items: center;
+  grid-row: 2;
+}
+
+.use-btn {
+  position: relative;
+  left: 2%;
+  padding: 8px 16px;
+  border-radius: 0;
+  cursor: pointer;
+  width: 120px;
+  height: 40px;
+  background: url("useBtn.png") center no-repeat;
+}
+
+.drop-btn {
+  position: relative;
+  right: 3.5%;
+  padding: 8px 16px;
+  border-radius: 0;
+  cursor: pointer;
+  width: 120px;
+  height: 40px;
+  background: url("dropBtn.png") center no-repeat;
+}
+
+/* Форма выброса Баляр */
+.balyary-drop-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.cyber-text {
+  color: #00ccff;
+  font-size: 14px;
+  font-family: "Orbitron", sans-serif;
+  text-shadow: 0 0 5px rgba(0, 204, 255, 0.7);
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+}
+
+.cyber-input {
+  width: 100px;
+  padding: 5px;
+  background: #0a0a0a;
+  border: 2px solid #00ccff;
+  border-radius: 0;
+  color: #00ccff;
+  font-size: 12px;
+  font-family: "Orbitron", sans-serif;
+  text-align: center;
+  box-shadow: 0 0 8px rgba(0, 204, 255, 0.3);
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+.cyber-input:focus {
+  outline: none;
+  border-color: #ff0066;
+  box-shadow: 0 0 12px rgba(255, 0, 102, 0.7);
+  background: #1a1a1a;
+}
+
+.cyber-input::-webkit-inner-spin-button,
+.cyber-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.error-text {
+  color: #ff4444;
+  font-size: 12px;
+  font-family: "Courier New", monospace;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 0.7);
+  margin: 5px 0 0 0;
+}
+
+.confirm-btn {
+  background: linear-gradient(135deg, #00ffff, #ff00ff);
+  border: 1px solid #ff00ff;
+  color: #000;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.7), 0 0 25px rgba(0, 255, 255, 0.5);
+  animation: neonPulse 2s infinite alternate;
+}
+
+.confirm-btn:hover:not(:disabled) {
+  box-shadow: 0 0 20px rgba(255, 0, 255, 1), 0 0 30px rgba(0, 255, 255, 0.8);
+  transform: scale(1.05);
+}
+
+/* Адаптация для мобильных устройств (max-width: 500px) - только инвентарьные части */
+@media (max-width: 500px) {
+  #inventoryGrid {
+    gap: 6px;
+  }
+
+  #inventoryContainer {
+    width: 260px;
+    height: 420px;
+    padding: 10px;
+    bottom: 10%;
+  }
+
+  #inventoryContainer .inventory-slot {
+    width: 45px;
+    height: 45px;
+  }
+
+  #inventoryScreen {
+    position: relative;
+    top: 400%;
+  }
+
+  .drop-btn {
+    position: relative;
+    top: 25%;
+    right: -5%;
+  }
+  .use-btn {
+    position: relative;
+    top: 25%;
+    left: -5%;
+  }
+
+  .action-btn {
+    width: 100px;
+    height: 35px;
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .balyary-drop-form {
+    padding: 5px;
+  }
+
+  .cyber-text {
+    position: relative;
+    top: 7%;
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
+  .cyber-input {
+    position: relative;
+    top: 8%;
+    width: 80px;
+    font-size: 10px;
+    padding: 6px;
+  }
+
+  .error-text {
+    position: relative;
+    top: 15%;
+    font-size: 10px;
+    margin-top: 3px;
+  }
+}

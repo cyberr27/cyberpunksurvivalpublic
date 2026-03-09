@@ -1,0 +1,294 @@
+/* ============================================= */
+/*    УНИВЕРСАЛЬНЫЕ СТИЛИ ДЛЯ ВСЕХ NPC (2025)    */
+/*    ОПТИМИЗИРОВАННАЯ ВЕРСИЯ — БЕЗ СКРОЛЛА BODY */
+/*    Диалоги = размеру хронометра               */
+/* ============================================= */
+
+/* Главный контейнер диалога — как у хронометра */
+.npc-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(
+    135deg,
+    rgba(10, 10, 10, 0.95),
+    rgba(20, 20, 20, 0.9)
+  );
+  border: 2px solid #00ffff;
+  border-radius: 10px;
+  padding: 20px;
+  color: #00ffff;
+  font-family: "Courier New", monospace;
+  text-align: center;
+  z-index: 1001;
+
+  /* Фиксированные размеры как у хронометра + адаптив */
+  width: 420px;
+  max-width: 92vw;
+  height: 380px; /* точная высота окна хронометра */
+  max-height: 88vh;
+
+  display: none; /* по умолчанию скрыто, JS меняет на flex */
+  flex-direction: column;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(255, 0, 255, 0.3);
+  animation: neonPulse 2s infinite alternate;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Когда диалог открыт — показываем и блокируем скролл страницы */
+.npc-dialog.open,
+#clockDialog[style*="flex"],
+#clockDialog[style*="block"] {
+  display: flex !important;
+}
+
+/* Блокируем скролл body только когда любой NPC-диалог открыт */
+body.npc-dialog-active {
+  overflow: hidden;
+  touch-action: none; /* важно для мобильных */
+}
+
+/* Контент с прокруткой */
+.npc-dialog-content {
+  flex: 1;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  padding-right: 10px;
+  margin-top: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #ff00ff rgba(0, 0, 0, 0.5);
+
+  /* Ограничиваем высоту, чтобы точно влезало */
+  max-height: calc(88vh - 180px); /* 180px ≈ header + кнопка закрытия */
+}
+
+/* Красивый скроллбар */
+.npc-dialog-content::-webkit-scrollbar {
+  width: 8px;
+}
+.npc-dialog-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 4px;
+}
+.npc-dialog-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00ffff, #ff00ff);
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
+}
+
+/* Кнопки над NPC — теперь фиксированы к экрану и не вылезают */
+.npc-buttons-container {
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.2s ease;
+}
+
+.npc-button {
+  pointer-events: all;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
+  min-width: 130px;
+  text-align: center;
+  user-select: none;
+  backdrop-filter: blur(4px);
+}
+
+.npc-talk-btn {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 255, 0.25),
+    rgba(0, 150, 150, 0.35)
+  );
+  color: #00ffff;
+  border-color: #00ffff;
+}
+.npc-quests-btn {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 0, 255, 0.25),
+    rgba(150, 0, 150, 0.35)
+  );
+  color: #ff00ff;
+  border-color: #ff00ff;
+}
+
+.npc-talk-btn:hover {
+  background: rgba(0, 255, 255, 0.45);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 1);
+  transform: scale(1.07);
+}
+.npc-quests-btn:hover {
+  background: rgba(255, 0, 255, 0.45);
+  box-shadow: 0 0 25px rgba(255, 0, 255, 1);
+  transform: scale(1.07);
+}
+
+/* Заголовок */
+.npc-dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+  gap: 15px;
+}
+
+.npc-photo {
+  width: 70px;
+  height: 70px;
+  border: 2px solid #ff00ff;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.6);
+}
+
+.npc-title {
+  color: #00ffff;
+  font-size: 24px;
+  text-shadow: 0 0 8px #00ffff, 0 0 15px #ff00ff;
+  animation: flicker 1.8s infinite alternate;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Текст */
+.npc-text {
+  margin: 12px 0;
+  font-size: 16px;
+  text-shadow: 0 0 6px rgba(0, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+/* Темы и квесты */
+.talk-topics,
+.quest-list {
+  max-height: 260px;
+  overflow-y: auto;
+  background: rgba(10, 10, 10, 0.92);
+  border: 1px solid #00ffff;
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: inset 0 0 12px rgba(0, 255, 255, 0.3);
+}
+
+/* Кнопка действия/закрытия */
+.neon-btn {
+  padding: 14px 28px;
+  font-size: 17px;
+  font-family: "Courier New", monospace;
+  background: linear-gradient(135deg, #00ffff, #ff00ff);
+  border: none;
+  color: #000;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.8), 0 0 25px rgba(255, 0, 255, 0.6);
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  flex-shrink: 0;
+  margin-top: 12px;
+}
+
+.neon-btn:hover {
+  box-shadow: 0 0 25px rgba(0, 255, 255, 1), 0 0 40px rgba(255, 0, 255, 0.8);
+  transform: scale(1.06);
+}
+
+/* Анимации */
+@keyframes neonPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(255, 0, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.9), 0 0 35px rgba(255, 0, 255, 0.6);
+  }
+}
+
+@keyframes flicker {
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 8px #00ffff, 0 0 15px #ff00ff;
+  }
+  20%,
+  24%,
+  55% {
+    opacity: 0.6;
+    text-shadow: 0 0 3px #00ffff;
+  }
+}
+
+/* ===================== АДАПТИВ ===================== */
+@media (max-width: 768px) {
+  .npc-dialog {
+    width: 92vw;
+    height: 420px;
+    padding: 15px;
+  }
+  .npc-photo {
+    position: relative;
+    left: 6%;
+    width: 60px;
+    height: 60px;
+  }
+  .npc-title {
+    font-size: 21px;
+  }
+  .npc-button {
+    padding: 11px 20px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .npc-dialog {
+    width: 95vw;
+    height: 440px;
+    padding: 12px;
+  }
+  .npc-title {
+    font-size: 19px;
+  }
+  .npc-text {
+    font-size: 15px;
+  }
+  .neon-btn {
+    padding: 12px 22px;
+    font-size: 16px;
+  }
+  .npc-photo {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+@media (max-height: 600px) {
+  .npc-dialog {
+    height: 92vh;
+  }
+}

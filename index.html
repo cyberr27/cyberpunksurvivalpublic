@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="inventory.css" />
+    <link rel="stylesheet" href="trade.css" />
+    <link rel="stylesheet" href="npc-styles.css" />
+    <link rel="stylesheet" href="trash-styles.css" />
+    <link rel="stylesheet" href="thimblerigger.css" />
+    <link rel="stylesheet" href="torestosStyle.css" />
+    <link rel="stylesheet" href="toremidosStyle.css" />
+    <link rel="stylesheet" href="homeless.css" />
+    <link rel="stylesheet" href="recipeViewerStyle.css" />
+    <link rel="stylesheet" href="jack.css" />
+    <link rel="stylesheet" href="equipment.css" />
+    <link rel="stylesheet" href="chat.css" />
+    <link rel="stylesheet" href="buttons.css" />
+    <link rel="stylesheet" href="joystick.css" />
+    <link rel="stylesheet" href="notifications.css" />
+    <link rel="stylesheet" href="mister-twister-slot.css" />
+    <link rel="stylesheet" href="skills.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Cyberpunk Survival</title>
+  </head>
+  <body>
+    <!-- Окно авторизации/регистрации -->
+    <div id="authContainer" class="auth-container">
+      <div class="auth-box">
+        <h1 class="neon-text">Cyberpunk Survival</h1>
+        <div id="loginForm" class="form">
+          <h2>Вход</h2>
+          <input
+            type="text"
+            id="loginUsername"
+            placeholder="Имя пользователя"
+            class="neon-input"
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Пароль"
+            class="neon-input"
+          />
+          <button id="loginBtn" class="neon-btn">Войти</button>
+          <p class="switch-text">
+            Нет аккаунта? <span id="toRegister">Зарегистрироваться</span>
+          </p>
+          <p id="loginError" class="error-text"></p>
+        </div>
+        <div id="registerForm" class="form" style="display: none">
+          <h2>Регистрация</h2>
+          <input
+            type="text"
+            id="registerUsername"
+            placeholder="Имя пользователя"
+            class="neon-input"
+          />
+          <input
+            type="password"
+            id="registerPassword"
+            placeholder="Пароль"
+            class="neon-input"
+          />
+          <button id="registerBtn" class="neon-btn">Зарегистрироваться</button>
+          <p class="switch-text">
+            Уже есть аккаунт? <span id="toLogin">Войти</span>
+          </p>
+          <p id="registerError" class="error-text"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Игровой контейнер (скрыт по умолчанию) -->
+    <div id="gameContainer" style="display: none">
+      <canvas id="gameCanvas"></canvas>
+      <div id="stats">
+        <span id="health"></span><br />
+        <span id="energy"></span><br />
+        <span id="food"></span><br />
+        <span id="water"></span><br />
+        <span id="armor"></span>
+      </div>
+      <div id="coords"></div>
+      <div id="onlineCount" class="cyber-text"></div>
+      <img
+        id="chatBtn"
+        class="cyber-btn-img"
+        src="images/chat.png"
+        alt="Chat"
+      />
+      <img
+        id="inventoryBtn"
+        class="cyber-btn-img"
+        src="images/inventory.png"
+        alt="Inventory"
+      />
+      <img
+        id="combatBtn"
+        class="cyber-btn-img"
+        src="images/combat.png"
+        alt="Combat"
+      />
+      <img
+        id="skillsBtn"
+        class="cyber-btn-img"
+        src="images/skills.png"
+        alt="Skills"
+      />
+      <div id="chatContainer">
+        <div id="chatCloseHint">Нажми на кнопку чата или ESC для закрытия</div>
+        <div id="chatHeader">ЧАТ</div>
+        <div id="chatMessages"></div>
+        <div id="chatInputContainer">
+          <input
+            type="text"
+            id="chatInput"
+            placeholder="ВВЕДИ СООБЩЕНИЕ..."
+            maxlength="200"
+          />
+        </div>
+      </div>
+      <div id="inventoryContainer">
+        <div id="inventoryScreen"></div>
+        <div id="inventoryActions">
+          <button id="useBtn" class="use-btn" disabled></button>
+          <button id="dropBtn" class="drop-btn" disabled></button>
+        </div>
+      </div>
+      <div id="skillsContainer" style="display: none">
+        <div id="skillsGrid"></div>
+        <div id="skillsDescription"></div>
+      </div>
+      <script src="inventory.js"></script>
+      <script src="levelSystem.js"></script>
+      <script src="npc.js"></script>
+      <script src="outpostCaptain.js"></script>
+      <script src="jack.js"></script>
+      <script src="vendingMachine.js"></script>
+      <script src="misterTwister.js"></script>
+      <script src="joystick.js"></script>
+      <script src="movement.js"></script>
+      <script src="chat.js"></script>
+      <script src="lights.js"></script>
+      <script src="tradeSystem.js"></script>
+      <script src="worldSystem.js"></script>
+      <script src="equipmentSystem.js"></script>
+      <script src="combatSystem.js"></script>
+      <script src="enemySystem.js"></script>
+      <script src="neon_npc.js"></script>
+      <script src="vacuumRobot.js"></script>
+      <script src="cockroachSystem.js"></script>
+      <script src="droneSystem.js"></script>
+      <script src="bonfireSystem.js"></script>
+      <script src="clockSystem.js"></script>
+      <script src="corporateRobot.js"></script>
+      <script src="robot_doctor.js"></script>
+      <script src="thimblerigger.js"></script>
+      <script src="torestos.js"></script>
+      <script src="toremidos.js"></script>
+      <script src="homeless.js"></script>
+      <script src="recipeViewer.js"></script>
+      <script src="trashCans.js"></script>
+      <script src="welcomeGuide.js"></script>
+      <script src="notifications.js"></script>
+      <script src="obstacles.js"></script>
+      <script src="portal.js"></script>
+      <script src="skills.js"></script>
+      <script src="regeneration.js"></script>
+      <script src="strongStrikeSystem.js"></script>
+      <script src="code.js"></script>
+    </div>
+  </body>
+</html>

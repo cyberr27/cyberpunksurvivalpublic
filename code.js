@@ -224,136 +224,102 @@ const ITEM_CONFIG = {
     image: images.energyDrinkImage,
     description: "Энергетик: +20 эн. +5 воды.",
     rarity: 2,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: true,
   },
   nut: {
     effect: { food: 7 },
     image: images.nutImage,
     description: "Орех: +7 еды.",
     rarity: 3,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: true,
   },
   water_bottle: {
     effect: { water: 30 },
     image: images.waterBottleImage,
     description: "Вода: +30 воды.",
     rarity: 3,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: true,
   },
   apple: {
     effect: { food: 8, water: 5 },
     image: images.appleImage,
     description: "Яблоко: +8 еды, +5 воды.",
     rarity: 3,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: true,
   },
   berries: {
     effect: { food: 6, water: 6 },
     image: images.berriesImage,
     description: "Ягоды: +6 еды, +6 воды.",
     rarity: 3,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: true,
   },
   carrot: {
     effect: { food: 5, energy: 3 },
     image: images.carrotImage,
     description: "Морковь: +5 еды, +3 энергии.",
     rarity: 3,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: true,
   },
   canned_meat: {
     effect: { food: 20 },
     image: images.cannedMeatImage,
     description: "Банка тушёнки: +20 еды.",
     rarity: 1,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: true,
   },
   mushroom: {
     effect: { food: 5, energy: 15 },
     image: images.mushroomImage,
     description: "Гриб прущий: +15 энергии, +5 еды.",
     rarity: 1,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: true,
   },
   sausage: {
     effect: { food: 16, energy: 3 },
     image: images.sausageImage,
     description: "Колбаса: +16 еды, +3 энергии.",
     rarity: 2,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: true,
   },
   blood_pack: {
     effect: { health: 40 },
     image: images.bloodPackImage,
     description: "Пакет крови: +40 здоровья.",
     rarity: 1,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: true,
   },
   bread: {
     effect: { food: 13, water: -2 },
     image: images.breadImage,
     description: "Хлеб: +13 еды, -2 воды.",
     rarity: 2,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: true,
   },
   vodka_bottle: {
     effect: { health: 5, energy: -2, water: 1, food: 2 },
     image: images.vodkaBottleImage,
     description: "Водка: +5 здоровья, -2 эн. +1 воды, +2 еды.",
     rarity: 2,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: true,
   },
   meat_chunk: {
     effect: { food: 20, energy: 5, water: -2 },
     image: images.meatChunkImage,
     description: "Кусок мяса: +20 еды, +5 эн., -2 воды.",
     rarity: 2,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: true,
   },
   blood_syringe: {
     effect: { health: 10 },
     image: images.bloodSyringeImage,
     description: "Шприц с кровью: +10 здоровья.",
     rarity: 2,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: true,
   },
   milk: {
     effect: { water: 15, food: 5 },
     image: images.milkImage,
     description: "Молоко: +15 воды, +5 еды.",
     rarity: 2,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: true,
   },
   condensed_milk: {
     effect: { water: 5, food: 11, energy: 2 },
     image: images.condensedMilkImage,
     description: "Сгущёнка: +11 еды, +5 воды, +2 эн.",
     rarity: 2,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: true,
   },
   dried_fish: {
     effect: { food: 10, water: -3 },
     image: images.driedFishImage,
     description: "Сушёная рыба: +10 еды, -3 воды.",
     rarity: 2,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: true,
   },
 
   // === ВАЛЮТА И СПЕЦПРЕДМЕТЫ ===
@@ -363,8 +329,6 @@ const ITEM_CONFIG = {
     stackable: true,
     balyary: true,
     rarity: 1,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: true,
   },
   atom: {
     effect: { armor: 5 },
@@ -372,22 +336,16 @@ const ITEM_CONFIG = {
     description: "Атом — даёт +5 брони при использовании.",
     stackable: true,
     rarity: 1,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: true,
   },
   medical_certificate: {
     image: images.medicalCertificateImage,
     description: "Мед. справка МД-07: подтверждает, что ты не зомби.",
     rarity: 5,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: false,
   },
   medical_certificate_stamped: {
     image: images.medicalCertificateStampedImage,
     description: "Мед. справка с печатью заставы. Допуск в Неоновый Город.",
     rarity: 5,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: false,
   },
 
   // === КИБЕР-ЭКИПИРОВКА (ЭНДГЕЙМ) ===
@@ -398,8 +356,6 @@ const ITEM_CONFIG = {
     description: "Кибершлем: +10 брони, +5 энергии",
     rarity: 4,
     level: 5,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: false,
   },
   nano_armor: {
     type: "armor",
@@ -408,8 +364,6 @@ const ITEM_CONFIG = {
     description: "Нано-броня: +20 брони, +10 здоровья",
     rarity: 4,
     level: 5,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: false,
   },
   tactical_belt: {
     type: "belt",
@@ -418,8 +372,6 @@ const ITEM_CONFIG = {
     description: "Тактический пояс: +5 брони, +5 еды",
     rarity: 4,
     level: 5,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: false,
   },
   cyber_pants: {
     type: "pants",
@@ -428,8 +380,6 @@ const ITEM_CONFIG = {
     description: "Киберштаны: +10 брони, +5 воды",
     rarity: 4,
     level: 5,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: false,
   },
   speed_boots: {
     type: "boots",
@@ -438,8 +388,6 @@ const ITEM_CONFIG = {
     description: "Скоростные ботинки: +5 брони, +10 энергии",
     rarity: 4,
     level: 5,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: false,
   },
   tech_gloves: {
     type: "gloves",
@@ -448,8 +396,6 @@ const ITEM_CONFIG = {
     description: "Технические перчатки: +5 брони, +5 энергии",
     rarity: 4,
     level: 5,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: false,
   },
   plasma_rifle: {
     type: "weapon",
@@ -459,8 +405,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     hands: "twohanded",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: false,
   },
   knuckles: {
     type: "weapon",
@@ -470,8 +414,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     hands: "onehanded",
     level: 2,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   knife: {
     type: "weapon",
@@ -481,8 +423,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     hands: "onehanded",
     level: 3,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   nano_absorbing_knife: {
     type: "weapon",
@@ -492,8 +432,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     hands: "onehanded",
     level: 3,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: false,
   },
   bat: {
     type: "weapon",
@@ -503,8 +441,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     hands: "onehanded",
     level: 4,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   // === ПОРВАННАЯ СТАРТОВАЯ ЭКИПИРОВКА — АКТУАЛЬНЫЕ ЗНАЧЕНИЯ ИЗ items.js ===
   torn_baseball_cap_of_health: {
@@ -516,8 +452,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Torn Health",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   torn_health_t_shirt: {
     type: "armor",
@@ -528,8 +462,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Torn Health",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   torn_health_gloves: {
     type: "gloves",
@@ -540,8 +472,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Torn Health",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   torn_belt_of_health: {
     type: "belt",
@@ -552,8 +482,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Torn Health",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   torn_pants_of_health: {
     type: "pants",
@@ -564,8 +492,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Torn Health",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   torn_health_sneakers: {
     type: "boots",
@@ -576,8 +502,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Torn Health",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
 
   // ЭНЕРГЕТИЧЕСКАЯ ЛИНИЯ
@@ -590,8 +514,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Torn Energy",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   torn_energy_t_shirt: {
     type: "armor",
@@ -602,8 +524,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Torn Energy",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   torn_gloves_of_energy: {
     type: "gloves",
@@ -614,8 +534,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Torn Energy",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   torn_energy_belt: {
     type: "belt",
@@ -626,8 +544,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Torn Energy",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   torn_pants_of_energy: {
     type: "pants",
@@ -638,8 +554,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Torn Energy",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   torn_sneakers_of_energy: {
     type: "boots",
@@ -650,8 +564,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Torn Energy",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
 
   // ОБЖОРСТВО
@@ -663,8 +575,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Torn Gluttony",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   torn_t_shirt_of_gluttony: {
     type: "armor",
@@ -675,8 +585,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Torn Gluttony",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   torn_gloves_of_gluttony: {
     type: "gloves",
@@ -687,8 +595,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Torn Gluttony",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   torn_belt_of_gluttony: {
     type: "belt",
@@ -698,8 +604,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Torn Gluttony",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   torn_pants_of_gluttony: {
     type: "pants",
@@ -709,8 +613,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Torn Gluttony",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   torn_sneakers_of_gluttony: {
     type: "boots",
@@ -721,8 +623,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Torn Gluttony",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
 
   // ЖАЖДА
@@ -734,8 +634,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Torn Thirst",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   torn_t_shirt_of_thirst: {
     type: "armor",
@@ -746,8 +644,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Torn Thirst",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   torn_gloves_of_thirst: {
     type: "gloves",
@@ -757,8 +653,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Torn Thirst",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   torn_belt_of_thirst: {
     type: "belt",
@@ -768,8 +662,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Torn Thirst",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   torn_pants_of_thirst: {
     type: "pants",
@@ -779,8 +671,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Torn Thirst",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   torn_sneakers_of_thirst: {
     type: "boots",
@@ -791,8 +681,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Torn Thirst",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
 
   chameleon_belt: {
@@ -804,8 +692,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Light Chameleon",
     level: 5,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   chameleon_cap: {
     type: "headgear",
@@ -816,8 +702,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Light Chameleon",
     level: 5,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   chameleon_gloves: {
     type: "gloves",
@@ -828,8 +712,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Light Chameleon",
     level: 5,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   chameleon_pants: {
     type: "pants",
@@ -840,8 +722,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Light Chameleon",
     level: 5,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   chameleon_sneakers: {
     type: "boots",
@@ -852,8 +732,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Light Chameleon",
     level: 5,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   chameleon_t_shirt: {
     type: "armor",
@@ -864,8 +742,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "Light Chameleon",
     level: 5,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
 
   white_void_cap: {
@@ -876,8 +752,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "White Void",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   white_void_t_shirt: {
     type: "armor",
@@ -887,8 +761,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "White Void",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   white_void_gloves: {
     type: "gloves",
@@ -898,8 +770,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "White Void",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   white_void_belt: {
     type: "belt",
@@ -909,8 +779,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "White Void",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   white_void_pants: {
     type: "pants",
@@ -920,8 +788,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "White Void",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   white_void_sneakers: {
     type: "boots",
@@ -931,8 +797,6 @@ const ITEM_CONFIG = {
     rarity: 4,
     collection: "White Void",
     level: 0,
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
 
   recipe_torn_equipment: {
@@ -943,8 +807,6 @@ const ITEM_CONFIG = {
     rarity: 6,
     stackable: true,
     recipe: "recipe_torn_equipment",
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
   recipe_chameleon_equipment: {
     image: images.recipe_chameleon_equipment,
@@ -954,8 +816,6 @@ const ITEM_CONFIG = {
     rarity: 6,
     stackable: true,
     recipe: "recipe_chameleon_equipment",
-    canBeAutoSpawned: false,
-    canDropFromEnemy: true,
   },
 
   blue_crystal: {
@@ -963,64 +823,48 @@ const ITEM_CONFIG = {
     description: "Синий кристал — материал для улучшений у Торестоса",
     rarity: 1,
     stackable: true,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: false,
   },
   green_crystal: {
     image: images.green_crystal,
     description: "Зеленый кристал — материал для улучшений у Торестоса",
     rarity: 1,
     stackable: true,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: false,
   },
   red_crystal: {
     image: images.red_crystal,
     description: "Красный кристал — материал для улучшений у Торестоса",
     rarity: 1,
     stackable: true,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: false,
   },
   white_crystal: {
     image: images.white_crystal,
     description: "Белый кристал — материал для улучшений у Торестоса",
     rarity: 1,
     stackable: true,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: false,
   },
   yellow_crystal: {
     image: images.yellow_crystal,
     description: "Желтый кристал — материал для улучшений у Торестоса",
     rarity: 1,
     stackable: true,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: false,
   },
   chameleon_crystal: {
     image: images.chameleon_crystal,
     description: "Хамелион кристал — материал для улучшений у Торестоса",
     rarity: 1,
     stackable: true,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: false,
   },
   nanoalloy: {
     image: images.nanoalloy,
     description: "Наносплав.",
     rarity: 1,
     stackable: true,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: false,
   },
   nanofilament: {
     image: images.nanofilament,
     description: "Нановолокно.",
     rarity: 1,
     stackable: true,
-    canBeAutoSpawned: true,
-    canDropFromEnemy: false,
   },
 };
 
@@ -1271,9 +1115,6 @@ function handleAuthMessage(event) {
         lastProcessedMoveTime: data.lastProcessedMoveTime || 0,
         lastPickupTime: data.lastPickupTime || 0,
         pickupSpamCount: data.pickupSpamCount || 0,
-        lastUseItemTime: 0,
-        lastXPAddTime: 0,
-        lastDropTime: 0,
         healthUpgrade: data.healthUpgrade || 0,
         energyUpgrade: data.energyUpgrade || 0,
         foodUpgrade: data.foodUpgrade || 0,
@@ -1784,7 +1625,6 @@ function updateStatsDisplay() {
 `;
     updateUpgradeButtons();
 
-    // Координаты — полезная фича, оставляем
     document.getElementById("coords").innerHTML = `X: ${Math.floor(
       me.x,
     )}<br>Y: ${Math.floor(me.y)}`;
@@ -1962,16 +1802,15 @@ async function handleGameMessageLogic(data) {
         me.inventory = data.inventory;
         me.equipment = data.equipment;
         me.maxStats = data.maxStats;
-
-        // Важно: принудительно ограничиваем текущие статы (на случай рассинхрона)
-        me.health = Math.min(me.health, me.maxStats.health);
-        me.energy = Math.min(me.energy, me.maxStats.energy);
-        me.food = Math.min(me.food, me.maxStats.food);
-        me.water = Math.min(me.water, me.maxStats.water);
-        me.armor = Math.min(me.armor, me.maxStats.armor);
+        me.health = data.stats.health;
+        me.energy = data.stats.energy;
+        me.food = data.stats.food;
+        me.water = data.stats.water;
+        me.armor = data.stats.armor;
 
         inventory = me.inventory.map((slot) => (slot ? { ...slot } : null));
 
+        // Синхронизируем визуальные слоты
         window.equipmentSystem.equipmentSlots = { ...data.equipment };
         window.equipmentSystem.applyEquipmentEffects(me);
         window.equipmentSystem.updateEquipmentDisplay();
@@ -1983,12 +1822,9 @@ async function handleGameMessageLogic(data) {
       showNotification("Предмет снят", "#00ff88");
       break;
     }
-
-    case "unequipItemFail": {
-      showNotification(data.error || "Не удалось снять предмет!", "#ff5555");
-      window.equipmentSystem.handleUnequipFail(data.error || "Ошибка сервера");
+    case "unequipItemFail":
+      window.equipmentSystem.handleUnequipFail(message.error);
       break;
-    }
     case "inventoryFull":
       pendingPickups.delete(data.itemId);
       break;
@@ -2151,51 +1987,6 @@ async function handleGameMessageLogic(data) {
         players.set(data.player.id, updatedPlayer);
       }
       break;
-    case "updateMaxStatsResult":
-      if (data.success) {
-        const me = players.get(myId);
-        if (!me) break;
-
-        // Обновляем объект игрока
-        me.upgradePoints = data.upgradePoints;
-        me.healthUpgrade = data.healthUpgrade;
-        me.energyUpgrade = data.energyUpgrade;
-        me.foodUpgrade = data.foodUpgrade;
-        me.waterUpgrade = data.waterUpgrade;
-
-        if (data.maxStats) {
-          me.maxStats = { ...data.maxStats };
-        }
-
-        // Обновляем текущие значения (сервер уже ограничил)
-        if (data.health !== undefined) me.health = data.health;
-        if (data.energy !== undefined) me.energy = data.energy;
-        if (data.food !== undefined) me.food = data.food;
-        if (data.water !== undefined) me.water = data.water;
-
-        // Синхронизируем глобальные переменные levelSystem
-        window.levelSystem.upgradePoints = data.upgradePoints;
-        window.levelSystem.healthUpgrade = data.healthUpgrade;
-        window.levelSystem.energyUpgrade = data.energyUpgrade;
-        window.levelSystem.foodUpgrade = data.foodUpgrade;
-        window.levelSystem.waterUpgrade = data.waterUpgrade;
-
-        // Если maxStats пришли — обновляем и их
-        if (data.maxStats) {
-          window.levelSystem.maxStats = { ...data.maxStats };
-        }
-
-        updateStatsDisplay();
-        updateUpgradeButtons(); // важно — перерисовать кнопки +/-
-      } else {
-        alert(data.error || "Не удалось улучшить характеристики");
-        // Можно также вернуть очки визуально, но лучше просто обновить из сервера
-        if (data.upgradePoints !== undefined) {
-          window.levelSystem.upgradePoints = data.upgradePoints;
-          updateUpgradeButtons();
-        }
-      }
-      break;
     case "itemDropped":
       if (data.worldId === currentWorldId) {
         items.set(data.itemId, {
@@ -2275,51 +2066,60 @@ async function handleGameMessageLogic(data) {
     case "useItemSuccess":
       {
         const me = players.get(myId);
-        if (!me) break;
-
-        // Обновляем только те статы, которые пришли
-        if (data.stats) {
+        if (me) {
+          // Обновляем статы игрока (важно для других систем)
           if (data.stats.health !== undefined)
-            me.health = Number(data.stats.health);
-          if (data.stats.energy !== undefined)
-            me.energy = Number(data.stats.energy);
-          if (data.stats.food !== undefined) me.food = Number(data.stats.food);
-          if (data.stats.water !== undefined)
-            me.water = Number(data.stats.water);
-          if (data.stats.armor !== undefined)
-            me.armor = Number(data.stats.armor);
-        }
+            me.health = Math.max(
+              0,
+              Math.min(me.maxStats?.health || 100, Number(data.stats.health)),
+            );
 
-        // Полная синхронизация инвентаря — критично!
-        if (data.inventory) {
+          if (data.stats.energy !== undefined)
+            me.energy = Math.max(
+              0,
+              Math.min(me.maxStats?.energy || 100, Number(data.stats.energy)),
+            );
+
+          if (data.stats.food !== undefined)
+            me.food = Math.max(
+              0,
+              Math.min(me.maxStats?.food || 100, Number(data.stats.food)),
+            );
+
+          if (data.stats.water !== undefined)
+            me.water = Math.max(
+              0,
+              Math.min(me.maxStats?.water || 100, Number(data.stats.water)),
+            );
+
+          if (data.stats.armor !== undefined)
+            me.armor = Math.max(0, Number(data.stats.armor || me.armor));
+
+          // КРИТИЧНО: полностью синхронизируем инвентарь игрока с серверным
           me.inventory = data.inventory.map((slot) =>
             slot ? { ...slot } : null,
           );
-          window.inventory = me.inventory.map((slot) =>
-            slot ? { ...slot } : null,
-          );
         }
 
-        // Если использовали предмет в выбранном слоте — снимаем выделение
-        if (
-          typeof data.slotIndex === "number" &&
-          selectedSlot === data.slotIndex &&
-          (!window.inventory[data.slotIndex] || data.remainingQuantity <= 0)
-        ) {
-          selectedSlot = null;
-          document
-            .querySelectorAll(".inventory-slot")
-            .forEach((el) => el.classList.remove("selected"));
-          document.getElementById("inventoryScreen").textContent = "";
-        }
+        // Обновляем глобальную переменную inventory (используется в UI)
+        inventory = data.inventory.map((slot) => (slot ? { ...slot } : null));
 
-        // Обновляем UI
+        // Перерисовываем всё
         updateStatsDisplay();
         window.inventorySystem.updateInventoryDisplay();
 
-        // Включаем кнопку обратно (если инвентарь открыт)
-        if (isInventoryOpen) {
-          document.getElementById("useBtn").disabled = false;
+        // Если был выбран слот с использованным предметом — снимаем выделение
+        if (
+          selectedSlot !== null &&
+          (!inventory[selectedSlot] || inventory[selectedSlot] === null)
+        ) {
+          selectedSlot = null;
+          document
+            .querySelectorAll(".inventory-slot.selected")
+            ?.forEach((el) => el.classList.remove("selected"));
+          document.getElementById("inventoryScreen").textContent = "";
+          document.getElementById("useBtn").disabled = true;
+          document.getElementById("dropBtn").disabled = true;
         }
       }
       break;
@@ -2395,8 +2195,8 @@ async function handleGameMessageLogic(data) {
         if (typeof window.levelSystem.updateLevelDisplay === "function") {
           window.levelSystem.updateLevelDisplay();
         }
-        if (typeof updateStatsDisplay === "function") {
-          updateStatsDisplay();
+        if (typeof window.levelSystem.updateStatsDisplay === "function") {
+          window.levelSystem.updateStatsDisplay();
         }
         if (typeof window.levelSystem.updateUpgradeButtons === "function") {
           window.levelSystem.updateUpgradeButtons();
@@ -2923,53 +2723,36 @@ async function handleGameMessageLogic(data) {
         showNotification(data.error || "Не удалось улучшить навык", "#ff4444");
       }
       break;
-    case "levelUpSuccess": {
-      const oldSkillPoints = window.skillsSystem.skillPoints ?? 0;
-
+    case "updateLevel":
+      // Обновляем уровень, XP, очки улучшений
       window.levelSystem.setLevelData(
         data.level,
         data.xp,
         null,
         data.upgradePoints,
-        data.skillPoints,
       );
 
-      const me = players.get(myId);
-      if (me) {
-        // Обновляем объект игрока — это источник правды
-        me.level = data.level;
-        me.xp = data.xp;
-        me.xpToNextLevel = calculateXPToNextLevel(data.level); // если сервер не прислал
-        me.upgradePoints = data.upgradePoints;
+      // Обновляем очки навыков (самое важное!)
+      if (data.skillPoints !== undefined) {
+        const oldPoints = window.skillsSystem.skillPoints;
+        window.skillsSystem.skillPoints = Number(data.skillPoints);
 
-        // Обновляем skillPoints, если пришли
-        if (data.skillPoints !== undefined) {
-          window.skillsSystem.skillPoints = Number(data.skillPoints);
-
-          if (data.skillPoints > oldSkillPoints) {
-            showNotification(
-              `+${data.skillPoints - oldSkillPoints} очков навыков за уровень!`,
-              "#ffaa00",
-            );
-          }
-
-          if (window.skillsSystem.isSkillsOpen) {
-            window.skillsSystem.updateSkillPointsDisplay();
-          }
+        // Если очки увеличились — показываем уведомление
+        if (data.skillPoints > oldPoints) {
+          showNotification(
+            `+${data.skillPoints - oldPoints} очков навыков за уровень!`,
+            "#ffaa00",
+          );
         }
-        window.levelSystem.upgradePoints = me.upgradePoints;
+
+        // Если окно навыков открыто — обновляем
+        if (window.skillsSystem.isSkillsOpen) {
+          window.skillsSystem.updateSkillPointsDisplay();
+        }
       }
 
-      // Показываем красивый level up эффект
-      showLevelUpEffect();
-
-      // Обновляем UI ТОЛЬКО ПОСЛЕ обновления данных
-      updateLevelDisplay();
       updateStatsDisplay();
-      updateUpgradeButtons(); // теперь кнопки появятся сразу, если upgradePoints > 0
-
       break;
-    }
     case "regenerationApplied":
       if (data.playerId === myId) {
         // Здоровье уже пришло через "update" → просто синхронизируем на всякий случай

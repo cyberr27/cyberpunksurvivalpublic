@@ -894,11 +894,10 @@ function completeQuest() {
     JSON.stringify({
       type: "updateInventory",
       questId: selectedQuest.id,
+      inventory: inventory,
+      availableQuests: availableQuests.map((q) => q.id),
     }),
   );
-
-  // Опционально: визуально показать, что сдаём
-  showNotification("Сдаём квест...", "#eaff00");
 
   const rarity = selectedQuest.rarity || 3;
   window.levelSystem.handleQuestCompletion(rarity);

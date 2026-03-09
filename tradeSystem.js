@@ -218,7 +218,7 @@ const tradeSystem = {
         type: "tradeRequest",
         fromId: myId,
         toId: targetId,
-      }),
+      })
     );
     this.tradeStatus = "pending";
   },
@@ -236,7 +236,7 @@ const tradeSystem = {
         type: "tradeAccepted",
         fromId: myId,
         toId: this.tradePartnerId,
-      }),
+      })
     );
     this.tradeStatus = "accepted";
     this.openTradeWindow();
@@ -249,8 +249,7 @@ const tradeSystem = {
         type: "tradeCancelled",
         fromId: myId,
         toId: this.tradePartnerId,
-        fromDialog: true,
-      }),
+      })
     );
     this.resetTrade();
   },
@@ -262,7 +261,7 @@ const tradeSystem = {
         type: "tradeCancelled",
         fromId: myId,
         toId: this.tradePartnerId,
-      }),
+      })
     );
     this.closeTradeWindow();
     this.resetTrade();
@@ -317,7 +316,7 @@ const tradeSystem = {
 
     if (
       this.myOffer.some(
-        (offerItem) => offerItem && offerItem.originalSlot === slotIndex,
+        (offerItem) => offerItem && offerItem.originalSlot === slotIndex
       )
     )
       return;
@@ -376,7 +375,7 @@ const tradeSystem = {
               toId: this.tradePartnerId,
               offer: this.myOffer,
               inventory: inventory,
-            }),
+            })
           );
 
           this.updateTradeWindow();
@@ -425,7 +424,7 @@ const tradeSystem = {
         toId: this.tradePartnerId,
         offer: this.myOffer,
         inventory: inventory,
-      }),
+      })
     );
 
     this.updateTradeWindow();
@@ -441,7 +440,7 @@ const tradeSystem = {
     // ВСТАВКА НАЧАЛО: Для stackable - возвращаем quantity в инвентарь (ищем существующий стек или свободный слот)
     if (ITEM_CONFIG[item.type]?.stackable) {
       const existingSlot = inventory.findIndex(
-        (invItem) => invItem && invItem.type === item.type,
+        (invItem) => invItem && invItem.type === item.type
       );
       if (existingSlot !== -1) {
         inventory[existingSlot].quantity =
@@ -484,7 +483,7 @@ const tradeSystem = {
         toId: this.tradePartnerId,
         offer: this.myOffer,
         inventory: inventory,
-      }),
+      })
     );
 
     this.updateTradeWindow();
@@ -499,7 +498,7 @@ const tradeSystem = {
         type: "tradeConfirmed",
         fromId: myId,
         toId: this.tradePartnerId,
-      }),
+      })
     );
     document.getElementById("confirmTradeBtn").disabled = true;
     this.updateTradeWindow();
@@ -512,7 +511,7 @@ const tradeSystem = {
         type: "tradeCancelled",
         fromId: myId,
         toId: this.tradePartnerId,
-      }),
+      })
     );
     this.closeTradeWindow();
     this.resetTrade();
@@ -527,7 +526,7 @@ const tradeSystem = {
         toId: this.tradePartnerId,
         myOffer: this.myOffer,
         partnerOffer: this.partnerOffer,
-      }),
+      })
     );
   },
 
@@ -736,7 +735,7 @@ const tradeSystem = {
               animArray[i].frameTime -= 300;
               animArray[i].frame = (animArray[i].frame + 1) % 40;
               const img = document.querySelector(
-                `${gridSelector} [data-slot-index="${i}"] img[data-is-atom="true"]`,
+                `${gridSelector} [data-slot-index="${i}"] img[data-is-atom="true"]`
               );
               if (img) {
                 img.style.objectPosition = `-${animArray[i].frame * 50}px 0`;
@@ -753,19 +752,19 @@ const tradeSystem = {
         "myTradeGrid",
         inventory,
         this.atomAnimations.myTradeGrid,
-        "#myTradeGrid .trade-slot",
+        "#myTradeGrid .trade-slot"
       );
       updateGrid(
         "myOfferGrid",
         this.myOffer,
         this.atomAnimations.myOfferGrid,
-        "#myOfferGrid .offer-slot",
+        "#myOfferGrid .offer-slot"
       );
       updateGrid(
         "partnerOfferGrid",
         this.partnerOffer,
         this.atomAnimations.partnerOfferGrid,
-        "#partnerOfferGrid .offer-slot",
+        "#partnerOfferGrid .offer-slot"
       );
 
       if (this.isTradeWindowOpen) {
@@ -798,7 +797,7 @@ const tradeSystem = {
           type: "tradeChatMessage",
           toId: this.tradePartnerId,
           message: message,
-        }),
+        })
       );
     }
   },

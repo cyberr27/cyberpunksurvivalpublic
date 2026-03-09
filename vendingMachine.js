@@ -173,6 +173,8 @@ function handleVendingOption(option) {
     JSON.stringify({
       type: "buyWater",
       option,
+      cost,
+      waterGain,
     }),
   );
 }

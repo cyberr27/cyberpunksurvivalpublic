@@ -90,8 +90,6 @@ const equipmentSystem = {
       rarity: 4,
       image: new Image(),
       level: 5,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: false,
     },
     nano_armor: {
       type: "armor",
@@ -100,8 +98,6 @@ const equipmentSystem = {
       rarity: 4,
       image: new Image(),
       level: 5,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: false,
     },
     tactical_belt: {
       type: "belt",
@@ -110,8 +106,6 @@ const equipmentSystem = {
       rarity: 4,
       image: new Image(),
       level: 5,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: false,
     },
     cyber_pants: {
       type: "pants",
@@ -120,8 +114,6 @@ const equipmentSystem = {
       rarity: 4,
       image: new Image(),
       level: 5,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: false,
     },
     speed_boots: {
       type: "boots",
@@ -130,8 +122,6 @@ const equipmentSystem = {
       rarity: 4,
       image: new Image(),
       level: 5,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: false,
     },
     tech_gloves: {
       type: "gloves",
@@ -140,8 +130,6 @@ const equipmentSystem = {
       rarity: 4,
       image: new Image(),
       level: 5,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: false,
     },
     plasma_rifle: {
       type: "weapon",
@@ -151,8 +139,6 @@ const equipmentSystem = {
       image: new Image(),
       hands: "twohanded",
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: false,
     },
     knuckles: {
       type: "weapon",
@@ -162,8 +148,6 @@ const equipmentSystem = {
       image: new Image(),
       hands: "onehanded",
       level: 2,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     knife: {
       type: "weapon",
@@ -173,8 +157,6 @@ const equipmentSystem = {
       image: new Image(),
       hands: "onehanded",
       level: 3,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     nano_absorbing_knife: {
       type: "weapon",
@@ -184,8 +166,6 @@ const equipmentSystem = {
       image: new Image(),
       hands: "onehanded",
       level: 3,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: false,
     },
     bat: {
       type: "weapon",
@@ -195,8 +175,6 @@ const equipmentSystem = {
       image: new Image(),
       hands: "onehanded",
       level: 4,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     torn_baseball_cap_of_health: {
       type: "headgear",
@@ -207,8 +185,6 @@ const equipmentSystem = {
       collection: "Torn Health",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     torn_health_t_shirt: {
       type: "armor",
@@ -219,8 +195,6 @@ const equipmentSystem = {
       collection: "Torn Health",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     torn_health_gloves: {
       type: "gloves",
@@ -231,8 +205,6 @@ const equipmentSystem = {
       collection: "Torn Health",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     torn_belt_of_health: {
       type: "belt",
@@ -243,8 +215,6 @@ const equipmentSystem = {
       collection: "Torn Health",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     torn_pants_of_health: {
       type: "pants",
@@ -255,8 +225,6 @@ const equipmentSystem = {
       collection: "Torn Health",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     torn_health_sneakers: {
       type: "boots",
@@ -267,8 +235,6 @@ const equipmentSystem = {
       collection: "Torn Health",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
 
     torn_energy_cap: {
@@ -280,8 +246,6 @@ const equipmentSystem = {
       collection: "Torn Energy",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     torn_energy_t_shirt: {
       type: "armor",
@@ -292,8 +256,6 @@ const equipmentSystem = {
       collection: "Torn Energy",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     torn_gloves_of_energy: {
       type: "gloves",
@@ -304,8 +266,6 @@ const equipmentSystem = {
       collection: "Torn Energy",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     torn_energy_belt: {
       type: "belt",
@@ -316,8 +276,6 @@ const equipmentSystem = {
       collection: "Torn Energy",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     torn_pants_of_energy: {
       type: "pants",
@@ -328,8 +286,6 @@ const equipmentSystem = {
       collection: "Torn Energy",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     torn_sneakers_of_energy: {
       type: "boots",
@@ -340,8 +296,6 @@ const equipmentSystem = {
       collection: "Torn Energy",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
 
     torn_cap_of_gluttony: {
@@ -353,8 +307,6 @@ const equipmentSystem = {
       collection: "Torn Gluttony",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     torn_t_shirt_of_gluttony: {
       type: "armor",
@@ -365,8 +317,6 @@ const equipmentSystem = {
       collection: "Torn Gluttony",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     torn_gloves_of_gluttony: {
       type: "gloves",
@@ -377,8 +327,6 @@ const equipmentSystem = {
       collection: "Torn Gluttony",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     torn_belt_of_gluttony: {
       type: "belt",
@@ -389,8 +337,6 @@ const equipmentSystem = {
       collection: "Torn Gluttony",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     torn_pants_of_gluttony: {
       type: "pants",
@@ -401,8 +347,6 @@ const equipmentSystem = {
       collection: "Torn Gluttony",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     torn_sneakers_of_gluttony: {
       type: "boots",
@@ -413,8 +357,6 @@ const equipmentSystem = {
       collection: "Torn Gluttony",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
 
     torn_cap_of_thirst: {
@@ -425,8 +367,6 @@ const equipmentSystem = {
       collection: "Torn Thirst",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     torn_t_shirt_of_thirst: {
       type: "armor",
@@ -437,8 +377,6 @@ const equipmentSystem = {
       collection: "Torn Thirst",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     torn_gloves_of_thirst: {
       type: "gloves",
@@ -449,8 +387,6 @@ const equipmentSystem = {
       collection: "Torn Thirst",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     torn_belt_of_thirst: {
       type: "belt",
@@ -460,8 +396,6 @@ const equipmentSystem = {
       collection: "Torn Thirst",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     torn_pants_of_thirst: {
       type: "pants",
@@ -471,8 +405,6 @@ const equipmentSystem = {
       collection: "Torn Thirst",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     torn_sneakers_of_thirst: {
       type: "boots",
@@ -483,8 +415,6 @@ const equipmentSystem = {
       collection: "Torn Thirst",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     chameleon_belt: {
       type: "belt",
@@ -495,8 +425,6 @@ const equipmentSystem = {
       collection: "Light Chameleon",
       image: new Image(),
       level: 5,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     chameleon_cap: {
       type: "headgear",
@@ -507,8 +435,6 @@ const equipmentSystem = {
       collection: "Light Chameleon",
       image: new Image(),
       level: 5,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     chameleon_gloves: {
       type: "gloves",
@@ -519,8 +445,6 @@ const equipmentSystem = {
       collection: "Light Chameleon",
       image: new Image(),
       level: 5,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     chameleon_pants: {
       type: "pants",
@@ -531,8 +455,6 @@ const equipmentSystem = {
       collection: "Light Chameleon",
       image: new Image(),
       level: 5,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     chameleon_sneakers: {
       type: "boots",
@@ -543,8 +465,6 @@ const equipmentSystem = {
       collection: "Light Chameleon",
       image: new Image(),
       level: 5,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     chameleon_t_shirt: {
       type: "armor",
@@ -555,8 +475,6 @@ const equipmentSystem = {
       collection: "Light Chameleon",
       image: new Image(),
       level: 5,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
 
     white_void_cap: {
@@ -567,8 +485,6 @@ const equipmentSystem = {
       collection: "White Void",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     white_void_t_shirt: {
       type: "armor",
@@ -578,8 +494,6 @@ const equipmentSystem = {
       collection: "White Void",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     white_void_gloves: {
       type: "gloves",
@@ -589,8 +503,6 @@ const equipmentSystem = {
       collection: "White Void",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     white_void_belt: {
       type: "belt",
@@ -600,8 +512,6 @@ const equipmentSystem = {
       collection: "White Void",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     white_void_pants: {
       type: "pants",
@@ -611,8 +521,6 @@ const equipmentSystem = {
       collection: "White Void",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
     white_void_sneakers: {
       type: "boots",
@@ -623,8 +531,6 @@ const equipmentSystem = {
       collection: "White Void",
       image: new Image(),
       level: 0,
-      canBeAutoSpawned: false,
-      canDropFromEnemy: true,
     },
   },
 

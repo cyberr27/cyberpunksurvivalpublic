@@ -27,19 +27,19 @@
 
 #inventoryBtn {
   position: absolute;
-  top: 22%;
+  top: 30%;
   left: 0%;
 }
 
 #equipmentBtn {
   position: absolute;
-  top: 35%;
+  top: 43%;
   left: 0%;
 }
 
 #tradeBtn {
   position: absolute;
-  top: 49%;
+  top: 57%;
   left: 0.5%;
 }
 

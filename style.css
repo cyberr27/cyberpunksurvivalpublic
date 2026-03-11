@@ -141,7 +141,7 @@ body {
 #stats {
   position: absolute;
   top: -1%;
-  left: 0.5%;
+  left: -2%;
   font-size: 20px;
   font-family: "Courier New", monospace;
   z-index: 50;

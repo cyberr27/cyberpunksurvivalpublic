@@ -60,11 +60,15 @@
 @keyframes attackFlicker {
   0% {
     border-color: #ff0000;
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 0, 0, 0.5);
+    box-shadow:
+      0 0 10px rgba(255, 0, 0, 0.7),
+      0 0 20px rgba(255, 0, 0, 0.5);
   }
   100% {
     border-color: #ff4444;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 1), 0 0 30px rgba(255, 0, 0, 0.8);
+    box-shadow:
+      0 0 20px rgba(255, 0, 0, 1),
+      0 0 30px rgba(255, 0, 0, 0.8);
   }
 }
 
@@ -86,8 +90,8 @@
 
   #chatBtn {
     position: absolute;
-    top: 8.5%;
-    left: 87%;
+    top: 6.5%;
+    left:80%;
     width: 12%;
     height: 8%;
   }

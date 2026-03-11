@@ -146,14 +146,14 @@ body {
   font-family: "Courier New", monospace;
   z-index: 50;
   background: url("/led.png") center no-repeat;
-  width: 280px;
+  width: 350px;
   height: 180px;
 }
 
 #stats .health {
   position: absolute;
   top: 15%;
-  left: 11%;
+  left: 18%;
   color: #ff0000;
   text-shadow:
     0 0 5px #ff0000,
@@ -165,7 +165,7 @@ body {
 #stats .energy {
   position: absolute;
   top: 28%;
-  left: 11%;
+  left: 19%;
   color: #00ff00;
   text-shadow:
     0 0 5px #00ff00,
@@ -177,7 +177,7 @@ body {
 #stats .food {
   position: absolute;
   top: 54%;
-  left: 11%;
+  left: 19%;
   color: #ffff00;
   text-shadow:
     0 0 5px #ffff00,
@@ -189,7 +189,7 @@ body {
 #stats .water {
   position: absolute;
   top: 41%;
-  left: 11%;
+  left: 19%;
   color: #0000ff;
   text-shadow:
     0 0 5px #0000ff,
@@ -201,7 +201,7 @@ body {
 #stats .armor {
   position: absolute;
   top: 67%;
-  left: 11%;
+  left: 19%;
   color: #ff4500;
   text-shadow:
     0 0 5px #ff4500,
@@ -303,6 +303,7 @@ body {
 .upgrade-btn {
   font-size: 14px;
   color: white;
+  font-weight: bold;
   background: none;
   border: none;
   box-shadow: none;
@@ -322,10 +323,32 @@ body {
 
   #stats {
     font-size: 16px;
+    left: -8%;
   }
 
   #coords {
     font-size: 14px;
+    right: 1.5%;
+  }
+
+  #onlineCount {
+    position: absolute;
+    top: 45px;
+    right: 23%;
+    color: #ffffff;
+    font-size: 12px;
+    font-family: "Courier New", monospace;
+    text-shadow:
+      0 0 5px #00ffff,
+      0 0 10px #00ffff,
+      0 0 15px #ff00ff;
+    animation: flicker 1.5s infinite alternate;
+    z-index: 50;
+
+    /* Главное волшебство ↓ */
+    writing-mode: vertical-rl; /* вертикально, сверху вниз */
+    text-orientation: mixed; /* или upright, если хочешь все символы прямо */
+    text-align: left; /* теперь это выравнивание по "низу" */
   }
 
   .auth-box {

@@ -1,0 +1,166 @@
+/* ============================================= */
+/*    СТИЛИ ДЛЯ ОХРАННИКА (Guard) — 2026        */
+/*    Отдельный файл, без конфликтов с npc      */
+/* ============================================= */
+
+.guard-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(
+    135deg,
+    rgba(10, 10, 10, 0.95),
+    rgba(20, 20, 20, 0.9)
+  );
+  border: 2px solid #00ff88;
+  border-radius: 10px;
+  padding: 20px;
+  color: #00ff88;
+  font-family: "Courier New", monospace;
+  text-align: center;
+  z-index: 1001;
+  width: 420px;
+  max-width: 92vw;
+  height: 280px;
+  max-height: 88vh;
+  display: none;
+  flex-direction: column;
+  box-shadow:
+    0 0 20px rgba(0, 255, 136, 0.6),
+    0 0 30px rgba(0, 255, 0, 0.3);
+  animation: guardNeonPulse 2s infinite alternate;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.guard-dialog.open {
+  display: flex !important;
+}
+
+.guard-dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+  gap: 15px;
+}
+
+.guard-photo {
+  width: 120px;
+  height: 120px;
+  border: 2px solid #00ff88;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.7);
+}
+
+.guard-title {
+  color: #00ff88;
+  font-size: 24px;
+  text-shadow:
+    0 0 8px #00ff88,
+    0 0 15px #00ff44;
+  animation: guardFlicker 1.8s infinite alternate;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.guard-text {
+  margin: 12px 0;
+  font-size: 16px;
+  text-shadow: 0 0 6px rgba(0, 255, 136, 0.9);
+  line-height: 1.6;
+}
+
+.guard-neon-btn {
+  padding: 14px 28px;
+  font-size: 17px;
+  font-family: "Courier New", monospace;
+  background: linear-gradient(135deg, #00ff88, #00cc66);
+  border: none;
+  color: #000;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow:
+    0 0 15px rgba(0, 255, 136, 0.8),
+    0 0 25px rgba(0, 255, 0, 0.6);
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  flex-shrink: 0;
+  margin-top: 12px;
+}
+
+.guard-neon-btn:hover {
+  box-shadow:
+    0 0 25px rgba(0, 255, 136, 1),
+    0 0 40px rgba(0, 255, 0, 0.8);
+  transform: scale(1.06);
+}
+
+@keyframes guardNeonPulse {
+  0% {
+    box-shadow:
+      0 0 10px rgba(0, 255, 136, 0.5),
+      0 0 20px rgba(0, 255, 0, 0.3);
+  }
+  100% {
+    box-shadow:
+      0 0 20px rgba(0, 255, 136, 0.9),
+      0 0 35px rgba(0, 255, 0, 0.6);
+  }
+}
+
+@keyframes guardFlicker {
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    opacity: 1;
+    text-shadow:
+      0 0 8px #00ff88,
+      0 0 15px #00ff44;
+  }
+  20%,
+  24%,
+  55% {
+    opacity: 0.6;
+    text-shadow: 0 0 3px #00ff88;
+  }
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .guard-dialog {
+    width: 92vw;
+    height: 320px;
+    padding: 15px;
+  }
+  .guard-photo {
+    width: 60px;
+    height: 60px;
+  }
+  .guard-title {
+    font-size: 21px;
+  }
+}
+
+@media (max-width: 480px) {
+  .guard-dialog {
+    width: 95vw;
+    height: 340px;
+    padding: 12px;
+  }
+  .guard-title {
+    font-size: 19px;
+  }
+  .guard-text {
+    font-size: 15px;
+  }
+}

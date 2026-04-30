@@ -13,22 +13,23 @@
     rgba(10, 10, 10, 0.95),
     rgba(20, 20, 20, 0.9)
   );
-  border: 2px solid #00ff88;
+  background: url("guardPortal.png") center no-repeat;
+  border: 2px solid #0011ff;
   border-radius: 10px;
   padding: 20px;
   color: #00ff88;
   font-family: "Courier New", monospace;
   text-align: center;
   z-index: 1001;
-  width: 420px;
+  width: 450px;
   max-width: 92vw;
-  height: 280px;
+  height: 500px;
   max-height: 88vh;
   display: none;
   flex-direction: column;
   box-shadow:
-    0 0 20px rgba(0, 255, 136, 0.6),
-    0 0 30px rgba(0, 255, 0, 0.3);
+    0 0 20px rgba(0, 42, 255, 0.6),
+    0 0 30px rgba(0, 94, 255, 0.3);
   animation: guardNeonPulse 2s infinite alternate;
   overflow: hidden;
   box-sizing: border-box;
@@ -103,13 +104,13 @@
 @keyframes guardNeonPulse {
   0% {
     box-shadow:
-      0 0 10px rgba(0, 255, 136, 0.5),
-      0 0 20px rgba(0, 255, 0, 0.3);
+      0 0 10px rgba(0, 179, 255, 0.5),
+      0 0 20px rgba(0, 140, 255, 0.3);
   }
   100% {
     box-shadow:
-      0 0 20px rgba(0, 255, 136, 0.9),
-      0 0 35px rgba(0, 255, 0, 0.6);
+      0 0 20px rgba(0, 72, 255, 0.9),
+      0 0 35px rgba(106, 0, 255, 0.6);
   }
 }
 

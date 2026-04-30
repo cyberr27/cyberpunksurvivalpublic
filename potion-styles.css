@@ -1,0 +1,53 @@
+/* potion-styles.css — стили только для Potion с префиксом */
+
+.potion-text {
+  color: #00ffcc;
+  text-shadow: 0 0 8px #00ffff;
+  line-height: 1.55;
+}
+
+div.potion-dialog1 {
+  background: url("cook_book.png") center no-repeat;
+}
+div.potion-dialog0 {
+  background: url("cook_book0.png") center no-repeat;
+}
+div.potion-dialog2 {
+  background: url("cook_book2.png") center no-repeat;
+}
+
+/* Кнопка "Зелья" — алхимический зелёно-бирюзовый */
+.npc-potions-btn {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 21, 0.25),
+    rgba(0, 180, 24, 0.35)
+  );
+  color: #00eeff;
+  border-color: #2fff00;
+  text-shadow: 0 0 8px rgba(0, 255, 204, 0.9);
+}
+
+.npc-potions-btn:hover {
+  background: rgba(0, 255, 180, 0.45);
+  box-shadow: 0 0 25px rgba(0, 255, 204, 1);
+  transform: scale(1.07);
+}
+
+/* Кнопка "Задания" — тёплый золотисто-оранжевый */
+.npc-quests-btn {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 180, 0, 0.25),
+    rgba(200, 120, 0, 0.35)
+  );
+  color: #ffdd44;
+  border-color: #ffcc22;
+  text-shadow: 0 0 8px rgba(255, 220, 68, 0.9);
+}
+
+.npc-quests-btn:hover {
+  background: rgba(255, 200, 50, 0.45);
+  box-shadow: 0 0 25px rgba(255, 200, 50, 1);
+  transform: scale(1.07);
+}

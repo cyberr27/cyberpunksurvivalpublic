@@ -273,8 +273,8 @@ body {
 
 .level-display {
   position: absolute;
-  bottom: 0px;
-  left: 1%;
+  bottom: -8px;
+  left: 2px;
   color: #ff8800;
   font-size: 15px;
   font-weight: 700;
@@ -307,6 +307,24 @@ body {
   background: none;
   border: none;
   box-shadow: none;
+}
+
+.enBtn {
+  background: url("enBtn.png") center no-repeat;
+  width: 44px;
+  height: 32px;
+  position: absolute;
+  top: 79.5%;
+  left: 51.5%;
+}
+
+.ukBtn {
+  background: url("ukBtn.png") center no-repeat;
+  width: 44px;
+  height: 32px;
+  position: absolute;
+  top: 79.5%;
+  left: 45.5%;
 }
 
 /* Адаптация для мобильных устройств (max-width: 500px) */

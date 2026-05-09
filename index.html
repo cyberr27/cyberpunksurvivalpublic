@@ -29,44 +29,68 @@
     <!-- Окно авторизации/регистрации -->
     <div id="authContainer" class="auth-container">
       <div class="auth-box">
-        <h1 class="neon-text">Cyberpunk Survival</h1>
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
+          <h1 class="neon-text" data-i18n="auth_title">Cyberpunk Survival</h1>
+        </div>
+        <div id="langButtons" style="display: flex; gap: 8px">
+          <button id="btnRu" class="ukBtn"></button>
+          <button id="btnEn" class="enBtn"></button>
+        </div>
         <div id="loginForm" class="form">
-          <h2>Вход</h2>
+          <h2 data-i18n="login_heading">Вход</h2>
           <input
             type="text"
             id="loginUsername"
-            placeholder="Имя пользователя"
             class="neon-input"
+            data-i18n="username_placeholder"
+            data-i18n-attr="placeholder"
           />
           <input
             type="password"
             id="loginPassword"
-            placeholder="Пароль"
             class="neon-input"
+            data-i18n="password_placeholder"
+            data-i18n-attr="placeholder"
           />
-          <button id="loginBtn" class="neon-btn">Войти</button>
+          <button id="loginBtn" class="neon-btn" data-i18n="login_btn">
+            Войти
+          </button>
           <p class="switch-text">
-            Нет аккаунта? <span id="toRegister">Зарегистрироваться</span>
+            <span data-i18n="no_account">Нет аккаунта?</span>
+            <span id="toRegister" data-i18n="register_btn"
+              >Зарегистрироваться</span
+            >
           </p>
           <p id="loginError" class="error-text"></p>
         </div>
         <div id="registerForm" class="form" style="display: none">
-          <h2>Регистрация</h2>
+          <h2 data-i18n="register_heading">Регистрация</h2>
           <input
             type="text"
             id="registerUsername"
-            placeholder="Имя пользователя"
             class="neon-input"
+            data-i18n="username_placeholder"
+            data-i18n-attr="placeholder"
           />
           <input
             type="password"
             id="registerPassword"
-            placeholder="Пароль"
             class="neon-input"
+            data-i18n="password_placeholder"
+            data-i18n-attr="placeholder"
           />
-          <button id="registerBtn" class="neon-btn">Зарегистрироваться</button>
+          <button id="registerBtn" class="neon-btn" data-i18n="register_btn">
+            Зарегистрироваться
+          </button>
           <p class="switch-text">
-            Уже есть аккаунт? <span id="toLogin">Войти</span>
+            <span data-i18n="have_account">Уже есть аккаунт?</span>
+            <span id="toLogin" data-i18n="login_btn">Войти</span>
           </p>
           <p id="registerError" class="error-text"></p>
         </div>
@@ -77,11 +101,11 @@
     <div id="gameContainer" style="display: none">
       <canvas id="gameCanvas"></canvas>
       <div id="stats">
-        <span id="health"></span><br />
-        <span id="energy"></span><br />
-        <span id="food"></span><br />
-        <span id="water"></span><br />
-        <span id="armor"></span>
+        <span id="health" data-i18n="stats_health">Здоровье</span><br />
+        <span id="energy" data-i18n="stats_energy">Энергия</span><br />
+        <span id="food" data-i18n="stats_food">Еда</span><br />
+        <span id="water" data-i18n="stats_water">Вода</span><br />
+        <span id="armor" data-i18n="stats_armor">Броня</span>
       </div>
       <div id="coords"></div>
       <div id="onlineCount" class="cyber-text"></div>
@@ -89,44 +113,56 @@
         id="chatBtn"
         class="cyber-btn-img"
         src="images/chat.png"
-        alt="Chat"
+        data-i18n="chat_label"
+        data-i18n-attr="alt"
       />
       <img
         id="inventoryBtn"
         class="cyber-btn-img"
         src="images/inventory.png"
-        alt="Inventory"
+        data-i18n="inventory"
+        data-i18n-attr="alt"
       />
       <img
         id="combatBtn"
         class="cyber-btn-img"
         src="images/combat.png"
-        alt="Combat"
+        data-i18n="combat"
+        data-i18n-attr="alt"
       />
       <img
         id="skillsBtn"
         class="cyber-btn-img"
         src="images/skills.png"
-        alt="Skills"
+        data-i18n="skills"
+        data-i18n-attr="alt"
       />
       <div id="chatContainer">
-        <div id="chatCloseHint">Нажми на кнопку чата или ESC для закрытия</div>
-        <div id="chatHeader">ЧАТ</div>
+        <div id="chatCloseHint" data-i18n="chat_close_hint">
+          Нажми на кнопку чата или ESC для закрытия
+        </div>
+        <div id="chatHeader" data-i18n="chat_label">ЧАТ</div>
         <div id="chatMessages"></div>
         <div id="chatInputContainer">
           <input
             type="text"
             id="chatInput"
-            placeholder="ВВЕДИ СООБЩЕНИЕ..."
             maxlength="200"
+            data-i18n="chat_input_placeholder"
+            data-i18n-attr="placeholder"
+            placeholder="ВВЕДИ СООБЩЕНИЕ..."
           />
         </div>
       </div>
       <div id="inventoryContainer">
         <div id="inventoryScreen"></div>
         <div id="inventoryActions">
-          <button id="useBtn" class="use-btn" disabled></button>
-          <button id="dropBtn" class="drop-btn" disabled></button>
+          <button id="useBtn" class="use-btn" disabled data-i18n="use_btn">
+            Использовать
+          </button>
+          <button id="dropBtn" class="drop-btn" disabled data-i18n="drop_btn">
+            Выбросить
+          </button>
         </div>
       </div>
       <div id="skillsContainer" style="display: none">
@@ -174,6 +210,7 @@
       <script src="guard_npc.js"></script>
       <script src="implantsSystem.js"></script>
       <script src="potionNpc.js"></script>
+      <script src="i18n.js"></script>
       <script src="code.js"></script>
     </div>
   </body>

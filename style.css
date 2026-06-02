@@ -94,9 +94,30 @@ body {
 }
 
 .error-text {
+  position: absolute;
+  top: 77%;
+  left: 43%;
   color: #ff4444;
   font-size: 14px;
   margin-top: 10px;
+}
+
+.enBtn {
+  background: url("enBtn.png") center no-repeat;
+  width: 30px;
+  height: 20px;
+  position: absolute;
+  top: 81.5%;
+  left: 52%;
+}
+
+.ukBtn {
+  background: url("ukBtn.png") center no-repeat;
+  width: 30px;
+  height: 20px;
+  position: absolute;
+  top: 81.5%;
+  left: 46%;
 }
 
 /* Анимация мерцания */
@@ -307,24 +328,6 @@ body {
   background: none;
   border: none;
   box-shadow: none;
-}
-
-.enBtn {
-  background: url("enBtn.png") center no-repeat;
-  width: 44px;
-  height: 32px;
-  position: absolute;
-  top: 79.5%;
-  left: 51.5%;
-}
-
-.ukBtn {
-  background: url("ukBtn.png") center no-repeat;
-  width: 44px;
-  height: 32px;
-  position: absolute;
-  top: 79.5%;
-  left: 45.5%;
 }
 
 /* Адаптация для мобильных устройств (max-width: 500px) */

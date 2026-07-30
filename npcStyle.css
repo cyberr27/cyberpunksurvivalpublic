@@ -1,0 +1,276 @@
+/* npcStyle.css */
+.npc-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #00ffff;
+  border-radius: 10px;
+  color: #5900ff;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  text-align: center;
+  z-index: 1001;
+  max-width: 450px;
+  width: 90%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.5),
+    0 0 30px rgba(255, 0, 255, 0.3);
+  animation: neonPulse 2s infinite alternate;
+  overflow: hidden;
+}
+
+.npc-dialog-content {
+  flex: 1;
+  height: 100%;
+}
+
+.npc-dialog-content::-webkit-scrollbar {
+  width: 8px;
+}
+.npc-dialog-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 4px;
+}
+.npc-dialog-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00ffff, #ff00ff);
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
+}
+
+.quest-list {
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  height: 100%; /* было 90% */
+  max-height: none;
+  overflow-y: hidden; /* убираем скролл */
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 4.5px;
+  padding: 20px 0;
+}
+
+.quest-item {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 6px;
+  cursor: pointer;
+  height: 17.5%;
+  color: #ffa200;
+}
+
+.quest-item:hover {
+  background: rgba(0, 255, 255, 0.1);
+  border-color: #00ffff;
+  transform: translateX(4px);
+}
+
+.npc-title {
+  color: #00ffff;
+  font-size: 24px;
+  text-shadow:
+    0 0 5px #00ffff,
+    0 0 10px #ff00ff;
+  animation: flicker 1.5s infinite alternate;
+  margin: 0;
+}
+
+.npc-text {
+  margin: 15px 0;
+  font-size: 16px;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.7);
+  line-height: 1.6;
+  transition: all 0.3s ease;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.npc-text.fullscreen {
+  margin: 0;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 0, 255, 0.5);
+  border-radius: 8px;
+  font-size: 18px;
+  min-height: 200px;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  scrollbar-width: thin;
+}
+
+.npc-talk-btn {
+  background: url("thimblerigger-talk-btn.png") no-repeat center;
+  background-size: 100% 100%;
+  width: 100px;
+  height: 10px;
+}
+
+.npc-talk-btn:hover {
+  transform: scale(1.05);
+  box-shadow: none;
+}
+
+.npc-quests-btn {
+  background: url("questBtn.png") no-repeat center;
+  background-size: 100% 100%;
+  width: 100px;
+  height: 10px;
+}
+
+.john-dialog-no-docs {
+  background: url("john_no_docs_bg.png") center / cover no-repeat !important;
+  border-color: #ff4444;
+  box-shadow:
+    0 0 25px rgba(255, 68, 68, 0.6),
+    0 0 40px rgba(255, 0, 0, 0.4);
+}
+
+.john-dialog-normal {
+  background: url("john_normal_bg.png") center / cover no-repeat !important;
+  /* Можно оставить дефолтный фон или задать свой */
+}
+
+.npc-dialog-quests {
+  background: url("john_no_docs_bg.png") center / cover no-repeat !important;
+}
+
+.john-dialog-quests {
+  background: url("john_quest_bg.png") center / cover no-repeat !important;
+  border-color: #ffa200;
+  box-shadow:
+    0 0 25px rgba(255, 162, 0, 0.6),
+    0 0 40px rgba(255, 100, 0, 0.4);
+}
+
+.john-dialog-talk {
+  background: url("john_talk_bg.png") center / cover no-repeat !important;
+  border-color: #00ffff;
+  box-shadow:
+    0 0 25px rgba(0, 255, 255, 0.6),
+    0 0 40px rgba(0, 100, 255, 0.4);
+}
+
+.john-dialog-talk .npc-text,
+.john-dialog-quests .npc-text {
+  color: #ffffff;
+  text-shadow: 0 0 6px #000000;
+  font-weight: bold;
+}
+
+.john-dialog-talk .npc-title,
+.john-dialog-quests .npc-title {
+  color: #00ffff;
+}
+
+/* Дополнительные корректировки текста при разных фонах */
+.john-dialog-no-docs .npc-text {
+  color: #ffdddd;
+  text-shadow: 0 0 6px #ff4444;
+  font-weight: bold;
+}
+
+.john-dialog-normal .npc-text {
+  color: #00ffff;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.7);
+}
+
+.talk-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.talk-topics-full {
+  position: relative;
+  top: 20%;
+  left: 1%;
+  flex-direction: column;
+  overflow-y: hidden;
+  padding-right: 8px;
+}
+
+/* Делаем темы крупнее и удобнее для чтения без скролла всего окна */
+.talk-topic {
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(0, 255, 255, 0.4);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 15px;
+}
+
+.talk-topic:hover {
+  background: rgba(0, 255, 255, 0.12);
+  border-color: #00ffff;
+  transform: translateX(6px);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
+}
+
+.talk-full-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.talk-text-content {
+  overflow-y: hidden;
+  border-radius: 8px;
+  font-size: 16.5px;
+  text-align: center;
+  color: #fbff00;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Скроллбар для текста темы */
+.talk-text-content::-webkit-scrollbar {
+  width: 6px;
+}
+.talk-text-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(#00ffff, #ff00ff);
+  border-radius: 3px;
+}
+
+.talk-topic-color {
+  color: #ffae00;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .npc-dialog {
+    padding: 15px;
+    height: 450px;
+  }
+  .npc-photo {
+    width: 60px;
+    height: 60px;
+  }
+  .npc-title {
+    font-size: 20px;
+  }
+  .npc-text {
+    font-size: 14px;
+  }
+  .npc-text.fullscreen {
+    font-size: 16px;
+    padding: 15px;
+  }
+  .neon-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}

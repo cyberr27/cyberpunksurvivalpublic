@@ -12,63 +12,43 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  left: 50%;
-  top: 50%;
+  left: 48%;
+  top: 33%;
   transform: translate(-50%, -50%);
 }
 
 .homeless-button {
   pointer-events: all;
   padding: 12px 24px;
-  font-size: 15px;
-  font-family: "Courier New", monospace;
-  font-weight: bold;
-  border: 2px solid transparent;
   border-radius: 8px;
   cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  text-shadow: 0 0 8px currentColor;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 12px rgba(255, 140, 0, 0.5);
   min-width: 130px;
-  text-align: center;
   user-select: none;
-  backdrop-filter: blur(4px);
+  border: none;
 }
 
 .homeless-talk-btn {
-  background: linear-gradient(
-    135deg,
-    rgba(180, 120, 60, 0.25),
-    rgba(120, 70, 30, 0.35)
-  );
-  color: #ffb366;
-  border-color: #ffb366;
+  background: url("thimblerigger-talk-btn.png") no-repeat center;
+  background-size: 132% 100%;
+  width: 100px;
+  height: 36px;
 }
 
 .homeless-quests-btn {
-  background: linear-gradient(
-    135deg,
-    rgba(100, 180, 100, 0.25),
-    rgba(60, 120, 60, 0.35)
-  );
-  color: #88ff88;
-  border-color: #88ff88;
+  background: url("questBtn.png") no-repeat center;
+  background-size: 132% 100%;
+  width: 100px;
+  height: 36px;
 }
 
 .homeless-storage-btn {
-  background: linear-gradient(
-    135deg,
-    rgba(180, 100, 180, 0.25),
-    rgba(120, 60, 120, 0.35)
-  );
-  color: #ff88ff;
-  border-color: #ff88ff;
+  background: url("bagBtn.png") no-repeat center;
+  background-size: 132% 100%;
+  width: 100px;
+  height: 36px;
 }
 
 .homeless-button:hover {
-  box-shadow: 0 0 25px currentColor;
   transform: scale(1.07);
 }
 
@@ -109,6 +89,8 @@
 /* Диалог аренды */
 .homeless-rent-dialog {
   height: 450px;
+  background: url("homeless-bag-bg.png") no-repeat center;
+  background-size: 100% 100%;
 }
 
 .homeless-text-cost {
@@ -118,7 +100,10 @@
 }
 
 .homeless-rent-input {
-  width: 120px;
+  position: absolute;
+  bottom: 3%;
+  left: 3%;
+  width: 100px;
   padding: 10px;
   font-size: 24px;
   text-align: center;
@@ -126,7 +111,6 @@
   border: 2px solid #ffb366;
   color: #ffb366;
   border-radius: 6px;
-  margin: 16px 0;
 }
 
 .homeless-rent-buttons {
@@ -136,13 +120,19 @@
 }
 
 .homeless-rent-ok {
+  position: absolute;
+  bottom: 2%;
+  left: 34%;
+  width: 130px;
   padding: 14px 32px;
-  font-size: 18px;
-  background: linear-gradient(135deg, #00cc00, #009900);
-  color: white;
+  background: url("okBtn.png") no-repeat center;
+  background-size: 100% 100%;
   border: none;
   border-radius: 6px;
   cursor: pointer;
+}
+.homeless-rent-ok:hover {
+  transform: scale(1.06);
 }
 
 /* Большой интерфейс хранилища */
@@ -154,11 +144,8 @@
   width: 94vw;
   height: 88vh;
   max-height: 820px;
-  background: linear-gradient(
-    135deg,
-    rgba(10, 8, 6, 0.96),
-    rgba(20, 12, 8, 0.92)
-  );
+  background: url("homeless-in-bag-bg.png") no-repeat center;
+  background-size: 100% 100%;
   border: 3px solid #ff88ff;
   border-radius: 12px;
   color: #ffccff;
@@ -193,35 +180,34 @@
   flex: 1;
   display: flex;
   justify-content: space-between;
-  gap: 20px;
   overflow: hidden;
 }
 
-.homeless-player-inventory,
-.homeless-storage-inventory {
+.homeless-player-inventory {
+  position: relative;
+  top: 8%;
+  left: 0.5%;
   flex: 1;
   display: flex;
   flex-direction: column;
-  background: rgba(0, 0, 0, 0.5);
-  border: 2px solid #aa66aa;
-  border-radius: 10px;
   padding: 12px;
 }
-
-.homeless-player-inventory h3,
-.homeless-storage-inventory h3 {
-  margin: 0 0 12px 0;
-  text-align: center;
-  color: #ff88ff;
+.homeless-storage-inventory {
+  position: relative;
+  top: 8%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
 }
 
 .homeless-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 8px;
+  gap: 1px;
   flex: 1;
-  overflow-y: auto;
-  padding: 8px;
+  overflow: hidden;
+  padding: 10px;
 }
 
 .homeless-slot {
@@ -231,8 +217,8 @@
   border-radius: 8px;
   position: relative;
   cursor: pointer;
-  width: 90%;
-  height: 80%;
+  width: 80%;
+  height: 70%;
   transition: all 0.15s;
 }
 
@@ -283,12 +269,16 @@
 }
 
 #homelessPutBtn {
-  background: linear-gradient(135deg, #0066ff, #0033aa);
+  background: url("putBtn.png") no-repeat center;
+  background-size: 100% 100%;
   color: white;
+  width: 180px;
+  height: 36px;
 }
 
 #homelessTakeBtn {
-  background: linear-gradient(135deg, #ff0066, #aa0033);
+  background: url("takeBtn.png") no-repeat center;
+  background-size: 100% 100%;
   color: white;
 }
 
@@ -300,19 +290,37 @@
 
 /* Общие элементы */
 .homeless-close-btn {
+  position: absolute;
+  bottom: 2%;
+  left: 65%;
   padding: 12px 24px;
   font-size: 16px;
-  background: linear-gradient(135deg, #ffb366, #ff5500);
+  width: 130px;
+  height: 29px;
+  background: url("cancelBtn.png") no-repeat center;
+  background-size: 100% 100%;
   border: none;
-  color: #0a0503;
   border-radius: 6px;
   cursor: pointer;
-  box-shadow: 0 0 15px rgba(255, 140, 0, 0.8);
 }
 
 .homeless-close-btn:hover {
   transform: scale(1.06);
-  box-shadow: 0 0 25px rgba(255, 140, 0, 1);
+}
+
+#homeless-close-btn-bag{
+  position: absolute;
+  bottom: 2%;
+  left: 45%;
+  padding: 12px 24px;
+  font-size: 16px;
+  width: 130px;
+  height: 29px;
+  background: url("cancelBtn.png") no-repeat center;
+  background-size: 100% 100%;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 /* Анимации */
@@ -339,12 +347,12 @@
   padding: 10px;
   background: rgba(0, 0, 0, 0.4);
   border-radius: 6px;
-  width: 100%;
+  width: 80%;
   max-width: 200px;
   align-self: center;
   position: absolute;
-  top: 65%;
-  left: 41.7%;
+  bottom: 11%;
+  left: 41.4%;
 }
 
 .homeless-cyber-text {
@@ -375,6 +383,9 @@
 }
 
 .homeless-text-rent-info {
+  position: absolute;
+  bottom: 17%;
+  right: 1%;
   color: #00ff88;
   font-size: 16px;
   font-weight: bold;
@@ -384,20 +395,21 @@
 }
 
 .homeless-rent-bag {
+  position: absolute;
+  bottom: 9%;
+  left: 43%;
   padding: 14px 32px;
-  font-size: 18px;
-  background: linear-gradient(135deg, #ffaa00, #cc8800);
-  color: #0a0503;
+  background: url("bagBtn.png") no-repeat center;
+  background-size: 100% 100%;
+  width: 190px;
+  height: 36px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-weight: bold;
-  box-shadow: 0 0 15px rgba(255, 170, 0, 0.7);
 }
 
 .homeless-rent-bag:hover {
   transform: scale(1.06);
-  box-shadow: 0 0 25px rgba(255, 170, 0, 1);
 }
 
 /* Адаптив */

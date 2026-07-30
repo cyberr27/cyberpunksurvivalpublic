@@ -1,0 +1,10 @@
+.rd-button-healt {
+  background: url("healing.png") no-repeat center;
+  background-size: 100% 100%;
+  width: 100px;
+  height: 10px;
+}
+
+.rd-button-healt:hover {
+  transform: scale(1.07);
+}

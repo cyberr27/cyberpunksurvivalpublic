@@ -77,57 +77,37 @@
 .jack-button-buyback {
   pointer-events: all;
   padding: 12px 24px;
-  font-size: 15px;
-  font-family: "Courier New", monospace;
-  font-weight: bold;
-  border: 2px solid transparent;
   border-radius: 8px;
   cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  text-shadow: 0 0 8px rgba(0, 255, 255, 0.9);
-  transition: all 0.3s ease;
-  box-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
   min-width: 130px;
   text-align: center;
   user-select: none;
-  backdrop-filter: blur(4px);
 }
 
 .jack-button-talk {
-  background: linear-gradient(
-    135deg,
-    rgba(0, 255, 255, 0.25),
-    rgba(0, 150, 150, 0.35)
-  );
-  color: #00ffff;
-  border-color: #00ffff;
+  background: url("thimblerigger-talk-btn.png") no-repeat center;
+  background-size: 100% 100%;
+  width: 100px;
+  height: 10px;
 }
 
 .jack-button-shop {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 0, 255, 0.25),
-    rgba(150, 0, 150, 0.35)
-  );
-  color: #ff00ff;
-  border-color: #ff00ff;
+  background: url("shopBtn.png") no-repeat center;
+  background-size: 100% 100%;
+  width: 100px;
+  height: 10px;
 }
 
 .jack-button-buyback {
-  background: linear-gradient(
-    135deg,
-    rgba(0, 255, 0, 0.25),
-    rgba(0, 136, 0, 0.35)
-  );
-  color: #00ff00;
-  border-color: #00ff00;
+  background: url("buyingUpBtn.png") no-repeat center;
+  background-size: 100% 100%;
+  width: 100px;
+  height: 10px;
 }
 
 .jack-button-talk:hover,
 .jack-button-shop:hover,
 .jack-button-buyback:hover {
-  box-shadow: 0 0 25px currentColor;
   transform: scale(1.07);
 }
 

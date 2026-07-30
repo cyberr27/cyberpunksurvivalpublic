@@ -1,9 +1,14 @@
 /* potion-styles.css — стили только для Potion с префиксом */
 
-.potion-text {
-  color: #00ffcc;
-  text-shadow: 0 0 8px #00ffff;
-  line-height: 1.55;
+.potion-quests-btn {
+  background: url("potions.png") no-repeat center;
+  background-size: 100% 100%;
+  width: 100px;
+  height: 10px;
+}
+
+.potion-quests-btn:hover {
+  transform: scale(1.07);
 }
 
 div.potion-dialog1 {
@@ -17,4 +22,13 @@ div.potion-dialog2 {
 }
 div.potion-dialog3 {
   background: url("cook_book3.png") center no-repeat;
+}
+.potion-dialog-talk {
+  background: url("potion-talk-bg.png") center no-repeat !important;
+}
+.potion-dialog-potions {
+  background: url("potion-potion-bg.png") center no-repeat !important;
+}
+.potion-dialog-quests {
+  background: url("potion-quest-bg.png") center no-repeat !important;
 }

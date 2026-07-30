@@ -31,7 +31,9 @@
 
   display: none; /* по умолчанию скрыто, JS меняет на flex */
   flex-direction: column;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(255, 0, 255, 0.3);
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.5),
+    0 0 30px rgba(255, 0, 255, 0.3);
   animation: neonPulse 2s infinite alternate;
   overflow: hidden;
   box-sizing: border-box;
@@ -95,50 +97,18 @@ body.npc-dialog-active {
 .npc-button {
   pointer-events: all;
   padding: 12px 24px;
-  font-size: 15px;
-  font-family: "Courier New", monospace;
-  font-weight: bold;
-  border: 2px solid transparent;
   border-radius: 8px;
   cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  text-shadow: 0 0 8px rgba(0, 255, 255, 0.9);
-  transition: all 0.3s ease;
-  box-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
   min-width: 130px;
-  text-align: center;
   user-select: none;
-  backdrop-filter: blur(4px);
 }
 
-.npc-talk-btn {
-  background: linear-gradient(
-    135deg,
-    rgba(0, 255, 255, 0.25),
-    rgba(0, 150, 150, 0.35)
-  );
-  color: #00ffff;
-  border-color: #00ffff;
-}
 .npc-quests-btn {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 0, 255, 0.25),
-    rgba(150, 0, 150, 0.35)
-  );
-  color: #ff00ff;
-  border-color: #ff00ff;
+  background: url("questBtn.png") no-repeat center;
+  background-size: 100% 100%;
 }
 
-.npc-talk-btn:hover {
-  background: rgba(0, 255, 255, 0.45);
-  box-shadow: 0 0 25px rgba(0, 255, 255, 1);
-  transform: scale(1.07);
-}
 .npc-quests-btn:hover {
-  background: rgba(255, 0, 255, 0.45);
-  box-shadow: 0 0 25px rgba(255, 0, 255, 1);
   transform: scale(1.07);
 }
 
@@ -164,7 +134,9 @@ body.npc-dialog-active {
 .npc-title {
   color: #00ffff;
   font-size: 24px;
-  text-shadow: 0 0 8px #00ffff, 0 0 15px #ff00ff;
+  text-shadow:
+    0 0 8px #00ffff,
+    0 0 15px #ff00ff;
   animation: flicker 1.8s infinite alternate;
   margin: 0;
   white-space: nowrap;
@@ -200,7 +172,9 @@ body.npc-dialog-active {
   color: #000;
   border-radius: 6px;
   cursor: pointer;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.8), 0 0 25px rgba(255, 0, 255, 0.6);
+  box-shadow:
+    0 0 15px rgba(0, 255, 255, 0.8),
+    0 0 25px rgba(255, 0, 255, 0.6);
   transition: all 0.3s;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -209,17 +183,39 @@ body.npc-dialog-active {
 }
 
 .neon-btn:hover {
-  box-shadow: 0 0 25px rgba(0, 255, 255, 1), 0 0 40px rgba(255, 0, 255, 0.8);
+  box-shadow:
+    0 0 25px rgba(0, 255, 255, 1),
+    0 0 40px rgba(255, 0, 255, 0.8);
+  transform: scale(1.06);
+}
+
+.neon-btn-ok {
+  position: relative;
+  top: 0%;
+  left: 74%;
+  width: 25%;
+  height: 5%;
+  padding: 14px 28px;
+  background: url(okBtn.png) no-repeat center;
+  background-size: 100% 100%;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.neon-btn-ok:hover {
   transform: scale(1.06);
 }
 
 /* Анимации */
 @keyframes neonPulse {
   0% {
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(255, 0, 255, 0.3);
+    box-shadow:
+      0 0 10px rgba(0, 255, 255, 0.5),
+      0 0 20px rgba(255, 0, 255, 0.3);
   }
   100% {
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.9), 0 0 35px rgba(255, 0, 255, 0.6);
+    box-shadow:
+      0 0 20px rgba(0, 255, 255, 0.9),
+      0 0 35px rgba(255, 0, 255, 0.6);
   }
 }
 
@@ -233,7 +229,9 @@ body.npc-dialog-active {
   56%,
   100% {
     opacity: 1;
-    text-shadow: 0 0 8px #00ffff, 0 0 15px #ff00ff;
+    text-shadow:
+      0 0 8px #00ffff,
+      0 0 15px #ff00ff;
   }
   20%,
   24%,

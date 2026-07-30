@@ -3,7 +3,7 @@
   inset: 0;
   margin: auto;
   width: min(420px, 92vw);
-  height: min(480px, 88vh);
+  height: min(420px, 88vh);
   background: url("trash_bg.png") center/cover no-repeat;
   border: 2px solid #44ff44;
   border-radius: 12px;
@@ -101,19 +101,19 @@
 }
 .suit-btn.hearts {
   position: absolute;
-  top: 42%;
-  left: 16%;
+  top: 41%;
+  left: 19%;
   background: url("hearts.png") center/cover no-repeat;
 }
 .suit-btn.diamonds {
   position: absolute;
-  top: 42%;
-  left: 69%;
+  top: 41%;
+  left: 66%;
   background: url("diamonds.png") center/cover no-repeat;
 }
 .suit-btn.clubs {
   position: absolute;
-  top: 65.5%;
+  top: 67%;
   left: 42.5%;
   background: url("clubs.png") center/cover no-repeat;
 }
@@ -126,7 +126,7 @@
 .trash-message {
   position: absolute;
   top: 87%;
-  left: 25%;
+  left: 19%;
   font-size: 18px;
   min-height: 60px;
   line-height: 1.4;

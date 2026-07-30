@@ -96,21 +96,26 @@
   text-shadow: 0 0 8px rgba(0, 255, 255, 0.9);
   min-width: 130px;
   text-align: center;
-  backdrop-filter: blur(4px);
 }
 
 .toremidos-talk-btn {
-  border: 2px solid #00ffff;
-  background: rgba(0, 255, 255, 0.15);
-  color: #00ffff;
-  box-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
+  background: url("thimblerigger-talk-btn.png") no-repeat center;
+  background-size: 100% 100%;
+  width: 100px;
+  height: 10px;
+}
+.toremidos-talk-btn:hover {
+  transform: scale(1.07);
 }
 
 .toremidos-skills-btn {
-  border: 2px solid #ff00ff;
-  background: rgba(255, 0, 255, 0.15);
-  color: #ff00ff;
-  box-shadow: 0 0 12px rgba(255, 0, 255, 0.5);
+  background: url("skillsBtn.png") no-repeat center;
+  background-size: 100% 100%;
+  width: 100px;
+  height: 10px;
+}
+.toremidos-skills-btn:hover {
+  transform: scale(1.07);
 }
 
 @keyframes flicker {

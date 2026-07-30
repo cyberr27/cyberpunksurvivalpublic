@@ -106,54 +106,32 @@
 .torestos-button {
   pointer-events: all;
   padding: 12px 24px;
-  font-size: 15px;
-  font-weight: bold;
-  border: 2px solid transparent;
   border-radius: 8px;
   cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  text-shadow: 0 0 8px rgba(0, 170, 255, 0.9);
-  transition: all 0.3s ease;
-  box-shadow: 0 0 12px rgba(0, 170, 255, 0.5);
   min-width: 130px;
-  text-align: center;
   user-select: none;
-  backdrop-filter: blur(4px);
 }
 
 .torestos-talk-btn {
-  background: linear-gradient(
-    135deg,
-    rgba(0, 170, 255, 0.25),
-    rgba(0, 100, 150, 0.35)
-  );
-  color: #00aaff;
-  border-color: #00aaff;
+  background: url("thimblerigger-talk-btn.png") no-repeat center;
+  background-size: 100% 100%;
+  width: 100px;
+  height: 10px;
 }
 .torestos-upgrade-btn {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 170, 0, 0.25),
-    rgba(180, 120, 0, 0.35)
-  );
-  color: #ffaa00;
-  border-color: #ffaa00;
+  background: url("createBtn.png") no-repeat center;
+  background-size: 100% 100%;
+  width: 100px;
+  height: 10px;
 }
 .torestos-collection-btn {
-  background: linear-gradient(
-    135deg,
-    rgba(170, 0, 255, 0.25),
-    rgba(120, 0, 180, 0.35)
-  );
-  color: #aa00ff;
-  border-color: #aa00ff;
+  background: url("questBtn.png") no-repeat center;
+  background-size: 100% 100%;
+  width: 100px;
+  height: 10px;
 }
 
 .torestos-button:hover {
-  box-shadow:
-    0 0 25px currentColor,
-    0 0 40px currentColor;
   transform: scale(1.07);
 }
 

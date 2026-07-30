@@ -1,33 +1,29 @@
 .thimblerigger-talk-btn {
-  background: linear-gradient(
-    135deg,
-    rgba(0, 255, 255, 0.25),
-    rgba(0, 150, 150, 0.35)
-  );
-  color: #00ffff;
-  border-color: #00ffff;
+  background: url("thimblerigger-talk-btn.png") no-repeat center;
+  background-size: 100% 100%;
+  box-shadow: none;
+  width: 100px;
+  height: 10px;
 }
 
 .thimblerigger-play-btn {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 215, 0, 0.25),
-    rgba(200, 150, 0, 0.35)
-  );
-  color: #ffd700;
-  border-color: #ffd700;
+  background: url("thimblerigger-play-btn.png") no-repeat center;
+  background-size: 100% 100%;
+  box-shadow: none;
+  width: 100px;
+  height: 10px;
 }
 
 .thimblerigger-talk-btn:hover,
 .thimblerigger-play-btn:hover {
   transform: scale(1.07);
-  box-shadow: 0 0 25px rgba(255, 215, 0, 1);
 }
 
 .thimble-game-container {
   position: relative;
+  top: 40%;
   width: 100%;
-  height: 400px;
+  height: 190px;
   background-size: 100% 100%;
   border-radius: 12px;
   overflow: hidden;
@@ -37,7 +33,7 @@
 #gameArea {
   position: relative;
   width: 100%;
-  height: 225px;
+  height: 190px;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -48,7 +44,6 @@
   position: absolute;
   width: 160px;
   height: 120px;
-  bottom: 10px;
   background: url("thimble-cup.png") center no-repeat;
   background-size: 100% 100%;
   cursor: pointer;
@@ -94,8 +89,8 @@
 
 .neon-btn-neon {
   position: relative;
-  top: -75%;
-  left: 19.8%;
+  top: 47%;
+  left: 40%;
   width: 25%;
   height: 10%;
   padding: 14px 28px;
@@ -104,14 +99,51 @@
   border-radius: 6px;
   cursor: pointer;
   margin-top: 12px;
+  border: none;
+}
+
+.neon-btn-thimblerigger {
+  position: relative;
+  top: 0%;
+  left: 74%;
+  width: 25%;
+  height: 7%;
+  padding: 14px 28px;
+  background: url(cancelBtn.png) no-repeat center;
+  background-size: 100% 100%;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+}
+
+.neon-btn-thimblerigger:hover {
+  transform: scale(1.06);
+}
+
+.neon-btn-thimblerigger-ok {
+  position: relative;
+  top: 0%;
+  left: 74%;
+  width: 25%;
+  height: 5%;
+  padding: 14px 28px;
+  background: url(okBtn.png) no-repeat center;
+  background-size: 100% 100%;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.neon-btn-thimblerigger-ok:hover {
+  transform: scale(1.06);
 }
 
 #startBtn {
   position: relative;
-  top: -2%;
-  left: 3%;
+  top: 120%;
+  left: 22.5%;
   background: url(okBtn.png) no-repeat center;
   background-size: 100% 100%;
+  border: none;
 }
 
 .neon-btn-neon:hover {
@@ -126,6 +158,101 @@
   overflow: hidden;
   padding-right: 10px;
   margin-top: 10px;
+}
+
+.npc-dialog.open {
+  background-size: cover !important;
+  background-position: center !important;
+  transition: background-image 0.4s ease;
+}
+
+/* Чтобы текст был читаемым на новых фонах */
+.npc-dialog-content {
+  background: rgba(0, 0, 0, 0.65);
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.thimblerigger-talk-topics {
+  position: relative;
+  top: 10%;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-right: 10px;
+  max-height: 320px;
+}
+
+.thimblerigger-talk-topic {
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(0, 255, 255, 0.4);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 15px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+}
+
+.thimblerigger-talk-topic:hover {
+  background: rgba(0, 255, 255, 0.12);
+  border-color: #00ffff;
+  transform: translateX(6px);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
+}
+
+.thimblerigger-talk-topic-title {
+  color: #ffd700;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.thimblerigger-npc-text {
+  margin: 15px 0 10px 0;
+}
+
+/* Полноэкранный текст темы */
+.thimblerigger-fullscreen {
+  position: relative;
+  top: 10%;
+  margin: 0;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  border-radius: 8px;
+  font-size: 17px;
+  min-height: 262px;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  overflow-y: auto;
+}
+
+.thimblerigger-talk-text-content {
+  flex: 1;
+  line-height: 1.55;
+  color: #fbff00;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.9);
+}
+
+/* Убираем конфликт с общими классами */
+.npc-dialog[data-npc="thimblerigger-talk"] .talk-topics,
+.npc-dialog[data-npc="thimblerigger-talk"] #talkTopics {
+  display: none !important;
+}
+
+.bet-input {
+  position: relative;
+  top: 125%;
+  left: -23%;
+  width: 120px;
+  font-size: 24px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid #ffb366;
+  color: #ffb366;
+  border-radius: 6px;
 }
 
 /* Адаптив для мобильных: уменьшаем чашки/шарик на маленьких экранах */

@@ -244,9 +244,103 @@
 }
 
 .talk-topic-color {
-  color: #ffae00;
+  color: #ff4000;
   font-weight: bold;
   font-size: 16px;
+}
+
+.john-dialog-talk.open {
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.john-dialog-talk .npc-dialog-content {
+  flex: 1;
+  overflow: hidden;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+/* Список тем */
+.john-talk-topics {
+  position: relative;
+  top: 6%;
+  flex-direction: column;
+  overflow-y: hidden;
+  padding-right: 10px;
+  max-height: 360px;
+}
+
+.john-talk-topic {
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(0, 255, 255, 0.4);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 15px;
+}
+
+.john-talk-topic:hover {
+  background: rgba(0, 255, 255, 0.12);
+  border-color: #00ffff;
+  transform: translateX(6px);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0x3);
+}
+
+/* Fullscreen текст темы */
+.john-talk-fullscreen {
+  position: relative;
+  top: 0%;
+  margin: 0;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(0, 255, 255, 0.5);
+  border-radius: 8px;
+  font-size: 17px;
+  height: 90%;
+  width: 90%;
+  min-height: 262px;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  overflow-y: auto;
+}
+
+.john-talk-text-content {
+  flex: 1;
+  line-height: 1.55;
+  color: #ff3300;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.9);
+  text-align: left;
+  overflow-y: hidden;
+}
+
+/* Кнопка закрытия / назад (используем тот же cancelBtn, что у наперсточника) */
+.john-talk-close-btn {
+  position: relative;
+  top: 0%;
+  left: 74%;
+  width: 25%;
+  height: 7%;
+  padding: 14px 28px;
+  background: url(cancelBtn.png) no-repeat center;
+  background-size: 100% 100%;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+}
+
+.john-talk-close-btn:hover {
+  transform: scale(1.06);
+}
+
+/* Скрытый список при открытой теме */
+.john-talk-topics.hidden,
+.talk-topics-full.hidden {
+  display: none !important;
 }
 
 /* Адаптив */

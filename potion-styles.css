@@ -32,3 +32,141 @@ div.potion-dialog3 {
 .potion-dialog-quests {
   background: url("potion-quest-bg.png") center no-repeat !important;
 }
+
+/* ===== Talk-диалог Potion (по образцу Thimblerigger) ===== */
+
+.potion-talk-topics {
+  position: relative;
+  top: 10%;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-right: 10px;
+  max-height: 320px;
+}
+
+.potion-talk-topic {
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(0, 255, 136, 0.4);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 15px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  transition: all 0.2s ease;
+}
+
+.potion-talk-topic:hover {
+  background: rgba(0, 255, 136, 0.12);
+  border-color: #00ff88;
+  transform: translateX(6px);
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.3);
+}
+
+.potion-talk-topic-title {
+  color: #00ffcc;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.potion-fullscreen {
+  position: relative;
+  top: 10%;
+  margin: 0;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(0, 255, 136, 0.5);
+  border-radius: 8px;
+  font-size: 17px;
+  min-height: 262px;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  overflow-y: auto;
+}
+
+.potion-talk-text-content {
+  flex: 1;
+  line-height: 1.55;
+  color: #aaffcc;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.9);
+}
+
+/* чтобы не конфликтовало с общими классами */
+.npc-dialog[data-npc="potion-talk"] .talk-topics,
+.npc-dialog[data-npc="potion-talk"] #talkTopics {
+  display: none !important;
+}
+
+.potion-ok-btn {
+  position: relative;
+  top: 0%;
+  left: 74%;
+  width: 25%;
+  height: 5%;
+  padding: 14px 28px;
+  background: url(okBtn.png) no-repeat center;
+  background-size: 100% 100%;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.potion-ok-btn:hover {
+  transform: scale(1.06);
+}
+
+.potion-yes-btn {
+  position: absolute;
+  top: 82%;
+  left: 0%;
+  width: 40%;
+  height: 15%;
+  padding: 14px 28px;
+  background: url(yesBookBtn.png) no-repeat center;
+  background-size: 100% 100%;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+}
+
+.potion-yes-btn:hover {
+  transform: scale(1.06);
+}
+
+.potion-cancel-btn {
+  position: absolute;
+  top: 89%;
+  left: 65%;
+  width: 30%;
+  height: 6%;
+  padding: 14px 28px;
+  background: url(cancelBtn.png) no-repeat center;
+  background-size: 100% 100%;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+}
+
+.potion-cancel-btn:hover {
+  transform: scale(1.06);
+}
+
+.potion-return-book {
+  position: absolute;
+  top: 82%;
+  left: 0%;
+  width: 40%;
+  height: 15%;
+  padding: 14px 28px;
+  background: url(returnBookBtn.png) no-repeat center;
+  background-size: 100% 100%;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+}
+
+.potion-return-book:hover {
+  transform: scale(1.06);
+}

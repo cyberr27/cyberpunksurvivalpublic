@@ -378,6 +378,73 @@
   }
 }
 
+/* ===== Talk-диалог Jack (стандарт Thimblerigger + универсальные npc-dialog) ===== */
+
+.jack-talk-topics {
+  position: relative;
+  top: 8%;
+  flex-direction: column;
+  overflow-y: hidden;
+  padding-right: 10px;
+  max-height: 320px;
+}
+
+.jack-talk-topic {
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(0, 255, 255, 0.4);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 15px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  transition: all 0.2s ease;
+}
+
+.jack-talk-topic:hover {
+  background: rgba(0, 255, 255, 0.12);
+  border-color: #00ffff;
+  transform: translateX(6px);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
+}
+
+.jack-talk-topic-title {
+  color: #ffd700;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.jack-fullscreen {
+  position: relative;
+  top: 8%;
+  margin: 0;
+  padding: 18px;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  border-radius: 8px;
+  font-size: 16px;
+  min-height: 240px;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  overflow-y: auto;
+}
+
+.jack-talk-text-content {
+  flex: 1;
+  line-height: 1.55;
+  color: #fbff00;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.9);
+}
+
+/* защита от старых классов */
+.npc-dialog[data-npc="jack-talk"] .talk-topics,
+.npc-dialog[data-npc="jack-talk"] #talkTopics {
+  display: none !important;
+}
+
 /* Адаптив */
 @media (max-width: 768px) {
   .jack-dialog {

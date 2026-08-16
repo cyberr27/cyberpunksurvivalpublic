@@ -27,7 +27,7 @@ body {
 .auth-box {
   background: rgba(5, 5, 5, 0.9);
   padding: 30px;
-  border: 2px solid #00ffff;
+  border: 2px solid #002424;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
   width: 300px;
@@ -35,11 +35,13 @@ body {
 }
 
 .neon-text {
-  color: #00ffff;
+  position: relative;
+  left: 18%;
+  color: #ff0000;
   text-shadow:
-    0 0 5px #00ffff,
-    0 0 10px #00ffff,
-    0 0 20px #ff00ff;
+    0 0 5px #a7970f,
+    0 0 10px #ff4800,
+    0 0 20px #ff0000;
   animation: flicker 1.5s infinite alternate;
 }
 
@@ -52,32 +54,48 @@ body {
   padding: 10px;
   margin: 10px 0;
   background: #0d0d0d;
-  border: 1px solid #00ffff;
   color: rgb(255, 0, 153);
   font-size: 16px;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  border: 1px solid #ff3300;
+  position: relative;
+  left: -3%;
 }
 
 .neon-input:focus {
   outline: none;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+  box-shadow: 0 0 15px rgba(255, 38, 0, 0.7);
 }
 
-.neon-btn {
-  padding: 10px 20px;
-  background: linear-gradient(135deg, #00ffff, #ff00ff);
+.loginBtn {
+  background: url("spaceBtn.png") center no-repeat;
+  background-size: 142% 120%;
+  width: 90%;
+  height: 40px;
   border: none;
-  color: #000;
+  color: #fff;
   font-size: 16px;
-  border-radius: 5px;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
   transition: all 0.3s;
 }
 
-.neon-btn:hover {
-  box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
+#loginBtn:hover {
+  transform: scale(1.05);
+}
+
+#registerBtn {
+  background: url("registerSpaceBtn.png") center no-repeat;
+  background-size: 142% 120%;
+  width: 90%;
+  height: 40px;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#registerBtn:hover {
   transform: scale(1.05);
 }
 
@@ -107,7 +125,7 @@ body {
   width: 30px;
   height: 20px;
   position: absolute;
-  top: 81.5%;
+  top: 95%;
   left: 52%;
 }
 
@@ -116,8 +134,8 @@ body {
   width: 30px;
   height: 20px;
   position: absolute;
-  top: 81.5%;
-  left: 46%;
+  top: 95%;
+  left: 44.5%;
 }
 
 /* Анимация мерцания */
@@ -330,6 +348,81 @@ body {
   box-shadow: none;
 }
 
+#implantHotbarContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.implant-hotbar-slot {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.75);
+  box-shadow:
+    0 0 10px rgba(0, 255, 255, 0.45),
+    inset 0 0 8px rgba(0, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+  font-size: 28px;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+  transition: all 0.2s ease;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.implant-hotbar-slot:hover {
+  border-color: #ff00ff;
+  box-shadow:
+    0 0 16px rgba(255, 0, 255, 0.7),
+    inset 0 0 10px rgba(0, 255, 255, 0.35);
+  transform: scale(1.08);
+}
+
+.implant-hotbar-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* === ИНДИВИДУАЛЬНОЕ ПОЗИЦИОНИРОВАНИЕ КАЖДОЙ ЯЧЕЙКИ === */
+/* Меняй top / left / right / bottom свободно — они независимы */
+
+.implant-hotbar-0 {
+  bottom: 127px;
+  left: 94.5%;
+}
+
+.implant-hotbar-1 {
+  bottom: 115px;
+  left: 90%;
+}
+
+.implant-hotbar-2 {
+  bottom: 70px;
+  left: 87%;
+}
+
+.implant-hotbar-3 {
+  bottom: 10px;
+  left: 87.5%;
+}
+
+/* Пустой слот чуть прозрачнее (логика уже есть в updateHotbarDisplay) */
+.implant-hotbar-slot:empty,
+.implant-hotbar-slot:not(:has(img)) {
+  opacity: 0.45;
+}
+
 /* Адаптация для мобильных устройств (max-width: 500px) */
 @media (max-width: 500px) {
   body {
@@ -393,5 +486,31 @@ body {
     position: absolute;
     top: 97%;
     font-size: 14px;
+  }
+
+  .implant-hotbar-slot {
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+  }
+
+  .implant-hotbar-0 {
+    bottom: 105px;
+    left: 86%;
+  }
+
+  .implant-hotbar-1 {
+    bottom: 105px;
+    left: 72%;
+  }
+
+  .implant-hotbar-2 {
+    bottom: 58px;
+    left: 64%;
+  }
+
+  .implant-hotbar-3 {
+    bottom: 4px;
+    left: 65%;
   }
 }

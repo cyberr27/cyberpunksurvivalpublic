@@ -7,7 +7,8 @@
   height: 100vh;
   background: rgba(5, 10, 20, 0.92);
   border: 2px solid #00ffff;
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.6),
+  box-shadow:
+    0 0 30px rgba(0, 255, 255, 0.6),
     inset 0 0 20px rgba(0, 255, 255, 0.2);
   display: none;
   flex-direction: column;
@@ -25,7 +26,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
+  background:
+    linear-gradient(
       45deg,
       transparent 49%,
       rgba(255, 0, 255, 0.03) 50%,
@@ -44,11 +46,13 @@
 
 @keyframes cyberPulse {
   0% {
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.6),
+    box-shadow:
+      0 0 30px rgba(0, 255, 255, 0.6),
       inset 0 0 20px rgba(0, 255, 255, 0.2);
   }
   100% {
-    box-shadow: 0 0 50px rgba(0, 255, 255, 0.8),
+    box-shadow:
+      0 0 50px rgba(0, 255, 255, 0.8),
       inset 0 0 30px rgba(0, 255, 255, 0.4);
   }
 }
@@ -68,7 +72,9 @@
   font-size: 24px;
   text-align: center;
   margin-bottom: 15px;
-  text-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff;
+  text-shadow:
+    0 0 10px #00ffff,
+    0 0 20px #ff00ff;
   text-transform: uppercase;
   letter-spacing: 3px;
 }
@@ -143,6 +149,49 @@
   color: #ffff00; /* Жёлтый для выделения */
   font-weight: bold;
   text-shadow: 0 0 8px #ffff00; /* Неоновый эффект */
+}
+
+.chat-message.private-message {
+  color: #ff99ff;
+  font-style: italic;
+  text-shadow: 0 0 6px rgba(255, 100, 255, 0.7);
+}
+
+/* === Вкладки чата === */
+#chatTabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  z-index: 1;
+  position: relative;
+}
+
+.chat-tab {
+  background: rgba(0, 20, 40, 0.85);
+  border: 1px solid #00ffff;
+  color: #00ccff;
+  font-family: "Orbitron", sans-serif;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+}
+
+.chat-tab:hover {
+  background: rgba(0, 40, 60, 0.95);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+
+.chat-tab.active {
+  background: rgba(0, 255, 255, 0.15);
+  border-color: #ff00ff;
+  color: #ff99ff;
+  box-shadow: 0 0 12px rgba(255, 0, 255, 0.5);
 }
 
 /* Мобильная адаптация чата */

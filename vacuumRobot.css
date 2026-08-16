@@ -1,0 +1,75 @@
+/* =========================================================
+   vacuumRobot.css
+   Стили диалога ВАКУУМ-9000
+   Фон: vacuumRobotBg.png
+   Только кнопка "ПОНЯЛ, УХОЖУ"
+   ========================================================= */
+
+.npc-dialog.vacuum-robot-dialog {
+  position: fixed;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+
+  width: min(450px, 92vw);
+  height: min(500px, 85vh);
+  min-height: 380px;
+
+  display: none; /* управляется через JS */
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+  background-image: url("vacuumRobotBg.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  border: 2px solid #00ff9d;
+  border-radius: 12px;
+  box-shadow:
+    0 0 25px rgba(0, 255, 157, 0.45),
+    0 0 60px rgba(0, 255, 157, 0.15),
+    inset 0 0 30px rgba(0, 0, 0, 0.6);
+
+  overflow: hidden;
+  padding: 0 0 28px 0;
+  box-sizing: border-box;
+}
+
+/* Кнопка внутри диалога вакуума */
+.vacuum-close-btn {
+  position: absolute;
+  color: red;
+  top: 38%;
+  left: 33%;
+  z-index: 2;
+  margin-bottom: 12px;
+  width: 38%;
+  background: none;
+  height: 24%;
+  border-radius: 50%;
+  padding: 14px 28px;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.vacuum-close-btn:hover {
+  background-color: rgba(255, 0, 0, 0.1);
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
+}
+
+/* Небольшой fallback на случай отсутствия картинки */
+.npc-dialog.vacuum-robot-dialog::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 20, 15, 0.15) 0%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}

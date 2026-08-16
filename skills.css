@@ -127,4 +127,9 @@
     width: 70px;
     height: 70px;
   }
+
+  #skillsBtn {
+  position: absolute;
+  top: 73%;
+}
 }

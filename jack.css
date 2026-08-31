@@ -68,7 +68,6 @@
   pointer-events: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
   transition: all 0.2s ease;
 }
 
@@ -205,100 +204,105 @@
   transform: translateX(5px);
 }
 
-/* Магазин */
-.shop-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 12px;
-  margin-top: 15px;
-  overflow: visible;
+/* === Окно скупки Jack (визуально идентично cristina-sell) === */
+.jack-sell-dialog {
+  display: flex !important;
+  flex-direction: column;
+  width: 480px !important;
+  height: 520px !important;
+  max-width: 95vw !important;
+  max-height: 90vh !important;
 }
 
-.shop-item {
-  background: rgba(0, 0, 0, 0.85);
-  padding: 12px;
-  cursor: pointer;
-  border: 1px solid #00ffff;
-  border-radius: 5px;
-  color: #00ffff;
-  font-size: 14px;
-  text-shadow: 0 0 5px rgba(0, 255, 255, 0.7);
-  box-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s;
-  display: flex;
-  align-items: center;
+.jack-sell-content {
   position: relative;
+  top: 13%;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 16px;
 }
 
-.shop-item:hover {
-  transform: scale(1.05);
-  box-shadow:
-    0 0 15px rgba(0, 255, 255, 0.7),
-    0 0 20px rgba(255, 0, 255, 0.5);
-}
-
-.shop-item.selected {
-  border: 2px solid #ff00ff;
-  box-shadow: 0 0 12px rgba(255, 0, 255, 0.8);
-}
-
-.shop-reward {
-  color: #ff00ff;
-  font-weight: bold;
-  text-shadow: 0 0 5px rgba(255, 0, 255, 0.7);
-}
-
-/* Скупка */
-#buybackInventoryGrid {
+.jack-sell-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  gap: 8px;
-  width: 100%;
-  height: 400px;
+  gap: 10px;
   justify-items: center;
-  align-items: center;
-  margin: 15px 0;
 }
 
-.buyback-inventory-slot {
-  width: 50px;
-  height: 50px;
-  border: 2px solid rgba(0, 255, 255, 0.3);
-  background: rgba(0, 0, 0, 0.7);
+.jack-sell-slot {
+  width: 56px;
+  height: 56px;
+  border: 2px solid rgba(0, 255, 255, 0.4); /* cyan-тема Джека вместо orange */
+  background: rgba(0, 0, 0, 0.65);
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  user-select: none;
   position: relative;
-  border-radius: 5px;
-  transition: all 0.2s;
+  transition: all 0.15s ease;
 }
 
-.buyback-inventory-slot:hover {
-  border-color: #ff0066;
-  box-shadow:
-    0 0 10px rgba(255, 0, 102, 0.7),
-    inset 0 0 5px rgba(255, 0, 102, 0.3);
+.jack-sell-slot:hover {
+  border-color: #00ffff;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
   transform: scale(1.05);
 }
 
-.buyback-inventory-slot.selected {
-  border: 2px solid #ff00ff;
-  box-shadow: 0 0 12px rgba(255, 0, 255, 0.8);
+.jack-sell-slot.selected {
+  border-color: #ff00ff;
+  box-shadow: 0 0 14px rgba(255, 0, 255, 0.6);
 }
 
-.buyback-inventory-slot div {
-  color: #00ccff;
-  font-size: 12px;
-  font-family: "Orbitron", sans-serif;
-  text-shadow: 0 0 5px rgba(0, 204, 255, 0.7);
+.jack-sell-qty {
   position: absolute;
   bottom: 2px;
-  right: 2px;
+  right: 4px;
+  font-size: 12px;
+  color: #00ccff;
+  text-shadow: 0 0 4px #000;
+}
+
+.jack-sell-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 12px 16px;
+  flex-shrink: 0;
+}
+
+#jack-sell-close {
+  position: absolute;
+  top: 90%;
+  left: 75%;
+  width: 20%;
+  background: url("cancelBtn.png") center no-repeat;
+  background-size: 100% 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.jack-sell-confirm-btn {
+  position: absolute;
+  top: 90%;
+  left: 33%;
+  width: 35%;
+  height: 32px;
+  background: url("sellBtn.png") no-repeat center;
+  background-size: 100% 100%;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.jack-sell-confirm-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.jack-sell-confirm-btn:hover:not(:disabled) {
+  transform: scale(1.06);
 }
 
 /* Кнопки внутри диалога (купить/продать/закрыть) */
@@ -483,5 +487,200 @@
 @media (max-height: 600px) {
   .jack-dialog {
     height: 92vh;
+  }
+}
+
+/* === Магазин Jack (структура и поведение 1-в-1 как у Cristina, автономные классы) === */
+.jack-shop-dialog {
+  display: flex !important;
+  flex-direction: column;
+  width: 70vw !important;
+  height: 74vh !important;
+  max-width: 1100px !important;
+  max-height: 90vh !important;
+  min-width: 320px;
+}
+
+.jack-shop-dialog .jack-shop-content {
+  flex: 1;
+  overflow-y: auto !important;
+  overflow-x: hidden;
+  padding: 12px 16px 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #00ffff rgba(0, 0, 0, 0.5);
+  max-height: 87.7%;
+}
+
+.jack-shop-dialog .jack-shop-content::-webkit-scrollbar {
+  width: 8px;
+}
+.jack-shop-dialog .jack-shop-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+}
+.jack-shop-dialog .jack-shop-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00ffff, #ff00ff);
+  border-radius: 4px;
+}
+
+.jack-shop-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.jack-shop-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.jack-shop-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid #00ffff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  min-height: 78px;
+}
+
+.jack-shop-item:hover {
+  background: rgba(0, 255, 255, 0.2);
+  transform: scale(1.02);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
+}
+
+.jack-shop-item.selected {
+  border-color: #ff00ff;
+  background: rgba(255, 0, 255, 0.18);
+  box-shadow: 0 0 14px rgba(255, 0, 255, 0.55);
+}
+
+.jack-shop-item img {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-top: 2px;
+}
+
+.jack-shop-item-info {
+  flex: 1;
+  min-width: 0;
+  overflow: visible;
+}
+
+.jack-shop-item-name {
+  font-size: 13px;
+  color: #eee;
+  line-height: 1.35;
+  word-break: break-word;
+  white-space: normal;
+  overflow: visible;
+}
+
+.jack-shop-item-price {
+  font-size: 12px;
+  color: #00ffff;
+  margin-top: 4px;
+  font-weight: bold;
+}
+
+/* Кнопки магазина Jack */
+.jack-shop-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px 14px;
+  flex-shrink: 0;
+}
+
+#jack-shop-close {
+  position: absolute;
+  top: 92%;
+  left: 78%;
+  width: 13%;
+  background: url("cancelBtn.png") center no-repeat;
+  background-size: 100% 100%;
+  border: none;
+  padding: 10px 22px;
+  font-size: 15px;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#jack-shop-close:hover {
+  transform: scale(1.07);
+}
+
+.jack-buy-confirm-btn {
+  position: absolute;
+  top: 92%;
+  left: 39.5%;
+  height: 32px;
+  width: 20%;
+  padding: 10px 22px;
+  font-size: 15px;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  background: url("buyBtn.png") no-repeat center;
+  background-size: 100% 100%;
+  border: none;
+  color: #000;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.jack-buy-confirm-btn:hover:not(:disabled) {
+  transform: scale(1.06);
+}
+
+.jack-buy-confirm-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Адаптив магазина Jack (копия логики Cristina) */
+@media (max-width: 1100px) {
+  .jack-shop-dialog {
+    width: 92vw !important;
+    height: 80vh !important;
+  }
+  .jack-shop-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .jack-shop-dialog {
+    width: 96vw !important;
+    height: 88vh !important;
+  }
+  .jack-shop-grid {
+    grid-template-columns: 1fr;
+  }
+  .jack-shop-item-name {
+    font-size: 12px;
+  }
+}
+
+@media (max-height: 700px) {
+  .jack-shop-dialog {
+    height: 92vh !important;
+  }
+  .jack-shop-item {
+    min-height: 70px;
+    padding: 8px 10px;
   }
 }

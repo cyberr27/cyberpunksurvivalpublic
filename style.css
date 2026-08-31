@@ -12,9 +12,9 @@ body {
 
 /* Стили для окна авторизации */
 .auth-container {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: absolute;
+  top: 18%;
+  left: -22%;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0);
@@ -25,11 +25,8 @@ body {
 }
 
 .auth-box {
-  background: rgba(5, 5, 5, 0.9);
+  background: none;
   padding: 30px;
-  border: 2px solid #002424;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
   width: 300px;
   text-align: center;
 }
@@ -106,7 +103,7 @@ body {
 }
 
 .switch-text span {
-  color: #00ffff;
+  color: #ffffff;
   cursor: pointer;
   text-decoration: underline;
 }
@@ -125,8 +122,8 @@ body {
   width: 30px;
   height: 20px;
   position: absolute;
-  top: 95%;
-  left: 52%;
+  top: 78%;
+  left: 51%;
 }
 
 .ukBtn {
@@ -134,8 +131,8 @@ body {
   width: 30px;
   height: 20px;
   position: absolute;
-  top: 95%;
-  left: 44.5%;
+  top: 78%;
+  left: 46%;
 }
 
 /* Анимация мерцания */

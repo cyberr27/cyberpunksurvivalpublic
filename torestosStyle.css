@@ -96,9 +96,8 @@
   pointer-events: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
   left: 50%;
-  top: 50%;
+  top: 55%;
   transform: translate(-50%, -50%);
   transition: all 0.2s ease;
 }

@@ -251,9 +251,10 @@
 /* Мобильная адаптация экипировки */
 @media (max-width: 500px) {
   #equipmentContainer {
-    width: 66%;
-    height: 53.5%;
-    top: 46%;
+    width: 74%;
+    height: 55%;
+    top: 49%;
+    left: 56%;
     padding: 10px;
   }
 

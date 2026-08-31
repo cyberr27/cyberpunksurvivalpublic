@@ -98,6 +98,9 @@
   display: flex;
   margin-top: 15px;
   gap: 10px;
+  align-items: center;
+  position: relative;
+  z-index: 5;
 }
 
 #chatInput {
@@ -146,9 +149,9 @@
 
 /* Системные сообщения в чате */
 .chat-message.system-message {
-  color: #ffff00; /* Жёлтый для выделения */
+  color: #ff4400; /* Жёлтый для выделения */
   font-weight: bold;
-  text-shadow: 0 0 8px #ffff00; /* Неоновый эффект */
+  text-shadow: 0 0 8px #ff0000; /* Неоновый эффект */
 }
 
 .chat-message.private-message {
@@ -194,6 +197,245 @@
   box-shadow: 0 0 12px rgba(255, 0, 255, 0.5);
 }
 
+/* ========== СМАЙЛЫ В СООБЩЕНИЯХ ========== */
+.chat-smile {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  margin: 0 2px;
+  border-radius: 4px;
+  image-rendering: auto;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.chat-smile:hover {
+  transform: scale(1.25);
+}
+
+/* ========== КНОПКА СМАЙЛОВ ========== */
+#chatSmileBtn {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 20, 40, 0.9);
+  border: 2px solid #00ffff;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #00ffff;
+  font-size: 22px;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+  transition: all 0.25s ease;
+  position: relative;
+  z-index: 6;
+}
+
+#chatSmileBtn:hover {
+  background: rgba(0, 40, 70, 0.95);
+  border-color: #ff00ff;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.55);
+  transform: scale(1.06);
+}
+
+#chatSmileBtn.active {
+  background: rgba(255, 0, 255, 0.18);
+  border-color: #ff00ff;
+  color: #ff99ff;
+  box-shadow: 0 0 22px rgba(255, 0, 255, 0.7);
+}
+
+.smile-btn-icon {
+  filter: drop-shadow(0 0 6px #00ffff);
+  line-height: 1;
+}
+
+/* ========== ПАНЕЛЬ СМАЙЛОВ ========== */
+#chatSmilePanel {
+  position: absolute;
+  bottom: 90px;
+  right: 20px;
+  width: min(420px, calc(100vw - 40px));
+  max-height: min(380px, 55vh);
+  background: rgba(5, 12, 28, 0.97);
+  border: 2px solid #00ffff;
+  border-radius: 12px;
+  box-shadow:
+    0 0 30px rgba(0, 255, 255, 0.55),
+    0 0 60px rgba(255, 0, 255, 0.25),
+    inset 0 0 20px rgba(0, 255, 255, 0.08);
+  display: none;
+  flex-direction: column;
+  z-index: 2100;
+  overflow: hidden;
+  font-family: "Orbitron", sans-serif;
+  animation: smilePanelIn 0.22s ease-out;
+}
+
+#chatSmilePanel.open {
+  display: flex;
+}
+
+@keyframes smilePanelIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.smile-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.35);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 40, 60, 0.6),
+    rgba(40, 0, 50, 0.5)
+  );
+}
+
+.smile-panel-title {
+  color: #00ffff;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px #00ffff;
+  text-transform: uppercase;
+}
+
+.smile-panel-close {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ff00ff;
+  background: rgba(30, 0, 40, 0.8);
+  color: #ff99ff;
+  font-size: 20px;
+  line-height: 1;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.smile-panel-close:hover {
+  background: rgba(255, 0, 255, 0.25);
+  box-shadow: 0 0 12px rgba(255, 0, 255, 0.6);
+  transform: scale(1.08);
+}
+
+.smile-panel-hint {
+  font-size: 11px;
+  color: rgba(0, 204, 255, 0.65);
+  padding: 6px 14px 4px;
+  letter-spacing: 0.5px;
+}
+
+.smile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
+  gap: 8px;
+  padding: 10px 12px 14px;
+  overflow-y: auto;
+  max-height: 290px;
+  scrollbar-width: thin;
+  scrollbar-color: #00ffff rgba(0, 20, 40, 0.6);
+}
+
+.smile-grid::-webkit-scrollbar {
+  width: 8px;
+}
+.smile-grid::-webkit-scrollbar-track {
+  background: rgba(0, 20, 40, 0.5);
+  border-radius: 4px;
+}
+.smile-grid::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00ffff, #ff00ff);
+  border-radius: 4px;
+}
+
+.smile-item {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  padding: 4px;
+  background: rgba(0, 15, 30, 0.85);
+  border: 1px solid rgba(0, 255, 255, 0.35);
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.18s ease;
+  overflow: hidden;
+}
+
+.smile-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 0 4px rgba(0, 255, 255, 0.3));
+}
+
+.smile-item .smile-num {
+  position: absolute;
+  bottom: 2px;
+  right: 4px;
+  font-size: 9px;
+  color: rgba(0, 255, 255, 0.55);
+  pointer-events: none;
+  text-shadow: 0 0 4px #000;
+  font-family: "Courier New", monospace;
+}
+
+.smile-item:hover {
+  border-color: #ff00ff;
+  background: rgba(30, 0, 45, 0.9);
+  box-shadow: 0 0 16px rgba(255, 0, 255, 0.55);
+  transform: scale(1.08);
+  z-index: 2;
+}
+
+.smile-item:hover .smile-num {
+  color: #ff99ff;
+}
+
+.smile-item:active {
+  transform: scale(0.95);
+}
+
+.smile-item.just-inserted {
+  animation: smileInserted 0.35s ease;
+}
+
+@keyframes smileInserted {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.8);
+    transform: scale(1);
+  }
+  40% {
+    box-shadow: 0 0 20px 6px rgba(0, 255, 255, 0.6);
+    transform: scale(1.12);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 255, 0);
+    transform: scale(1);
+  }
+}
+
 /* Мобильная адаптация чата */
 @media (max-width: 500px) {
   #chatMessages {
@@ -204,5 +446,28 @@
     font-size: 10px;
     padding: 6px;
     width: 92.5%;
+  }
+
+  #chatSmileBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  #chatSmilePanel {
+    bottom: 70px;
+    right: 10px;
+    width: calc(100vw - 20px);
+    max-height: 50vh;
+  }
+
+  .smile-grid {
+    grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+    gap: 6px;
+  }
+
+  .chat-smile {
+    width: 22px;
+    height: 22px;
   }
 }

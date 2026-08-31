@@ -190,10 +190,12 @@
   }
 
   #inventoryContainer {
-    width: 260px;
-    height: 420px;
+    width: 280px;
+    height: 488px;
     padding: 10px;
     bottom: 10%;
+    left: 17%;
+    top: 12%;
   }
 
   #inventoryContainer .inventory-slot {

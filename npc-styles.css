@@ -87,7 +87,6 @@ body.npc-dialog-active {
   pointer-events: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);

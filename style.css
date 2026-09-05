@@ -110,10 +110,12 @@ body {
 
 .error-text {
   position: absolute;
-  top: 77%;
-  left: 43%;
-  color: #ff4444;
-  font-size: 14px;
+  top: 70%;
+  left: 41%;
+  color: #ff0000;
+  text-shadow: 0 0 5px #ff006f;
+  font-size: 18px;
+  font-weight: bold;
   margin-top: 10px;
 }
 

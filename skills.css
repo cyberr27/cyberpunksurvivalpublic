@@ -8,22 +8,15 @@
 #skillsContainer {
   position: absolute;
   top: 50%;
-  left: 74%; /* было 75% — теперь по центру, безопаснее */
+  left: 74%;
   transform: translate(-50%, -50%);
-  width: min(520px, 94vw); /* адаптивная ширина */
-  height: min(500px, 82vh); /* адаптивная высота */
-  max-height: 90vh;
+  width: 520px;
+  height: 600px;
   background: url("skills_bg.png") no-repeat center center;
   background-size: cover;
-  border: 2px solid #007878;
-  border-radius: 12px;
-  box-shadow:
-    0 0 30px rgba(0, 255, 255, 0.6),
-    inset 0 0 20px rgba(0, 255, 255, 0.2);
   z-index: 200;
   display: none; /* управляется JS */
-  grid-template-rows: 1fr auto;
-  padding: 16px;
+  grid-template-rows: 420px 120px;
   font-family: "Courier New", monospace;
   color: #00ffff;
   box-sizing: border-box;
@@ -31,27 +24,30 @@
 }
 
 #skillsGrid {
+  position: relative;
+  top: 19%;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 12px;
-  padding: 8px;
-  overflow-y: auto; /* если вдруг мало места */
-  min-height: 0; /* важно для grid + overflow */
+  grid-template-columns: repeat(5, 72px);
+  grid-template-rows: repeat(4, 67px);
+  gap: 17px;
+  justify-content: center;
+  align-content: start;
+  width: 100%;
+  height: 420px;
+  padding: 0;
+  overflow: hidden;
 }
 
 .skill-slot {
-  width: 100%;
-  aspect-ratio: 1 / 1; /* квадрат на любых экранах */
-  max-width: 80px;
-  max-height: 80px;
-  margin: 0 auto;
-  background: rgba(20, 20, 40, 0.7);
-  border: 2px solid #4444ff;
+  width: 60px;
+  height: 60px;
+  box-sizing: border-box;
   border-radius: 8px;
   position: relative;
   cursor: pointer;
-  transition: all 0.15s;
   overflow: hidden;
+  justify-self: center;
+  align-self: center;
 }
 
 .skill-slot:hover {
@@ -73,6 +69,20 @@
   pointer-events: none;
 }
 
+.skill-slot-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-style: dashed;
+  color: rgba(0, 255, 255, 0.7);
+  font-size: clamp(18px, 4vw, 28px);
+}
+
+.skill-slot-placeholder::before {
+  content: "?";
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
+
 .skill-slot .level-badge {
   position: absolute;
   bottom: 4px;
@@ -89,27 +99,30 @@
 }
 
 #skillsDescription {
+  position: relative;
+  top: 4%;
+  left: 8%;
+  width: 70%;
+  height: 120px;
+  box-sizing: border-box;
   padding: 12px 14px;
-  background: rgba(0, 0, 0, 0.6);
   border-top: 1px solid #00ffff;
   color: #e0e0ff;
-  font-size: clamp(13px, 2.8vw, 15px);
-  min-height: 70px;
-  max-height: 130px;
-  overflow-y: auto;
-  box-sizing: border-box;
+  min-width: 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 #skillsDescription h3 {
-  margin: 0 0 6px 0;
-  color: #ff00ff;
-  text-shadow: 0 0 8px #ff00ff;
+  margin: 0 0 0 0;
+  color: #ff8800;
   font-size: clamp(15px, 3.2vw, 18px);
 }
 
 #skillsDescription p {
   margin: 4px 0;
   line-height: 1.35;
+  color: rgb(255, 89, 0);
 }
 
 /* === Адаптация под разные устройства === */
@@ -117,13 +130,15 @@
 /* Планшеты и средние экраны */
 @media (max-width: 900px) {
   #skillsContainer {
-    width: min(480px, 92vw);
-    height: min(420px, 78vh);
-    padding: 14px;
+    width: 480px;
+    height: 540px;
+    grid-template-rows: 380px 110px;
   }
 
   #skillsGrid {
+    grid-template-rows: repeat(4, 60px);
     gap: 10px;
+    height: 380px;
   }
 }
 
@@ -131,22 +146,22 @@
 @media (max-width: 600px) {
   #skillsContainer {
     width: 80vw;
-    height: 58vh;
-    max-height: 82vh;
-    padding: 12px;
+    height: 500px;
+    grid-template-rows: 370px 110px;
     left: 56%;
     top: 49%;
   }
 
   #skillsGrid {
-    grid-template-columns: repeat(4, 1fr); /* как у тебя было */
+    grid-template-columns: repeat(4, 52px);
+    grid-template-rows: repeat(5, 52px);
     gap: 8px;
-    padding: 6px;
+    height: 370px;
   }
 
   .skill-slot {
-    max-width: 68px;
-    max-height: 68px;
+    width: 52px;
+    height: 52px;
   }
 
   #skillsBtn {
@@ -154,45 +169,53 @@
   }
 
   #skillsDescription {
-    max-height: 110px;
+    height: 110px;
     font-size: 13.5px;
   }
 }
 
 /* Очень узкие телефоны */
 @media (max-width: 380px) {
+  #skillsContainer {
+    height: 530px;
+    grid-template-rows: 400px 110px;
+  }
+
   #skillsGrid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 52px);
+    grid-template-rows: repeat(7, 52px);
     gap: 6px;
+    height: 400px;
   }
 
   .skill-slot {
-    max-width: 62px;
-    max-height: 62px;
+    width: 52px;
+    height: 52px;
   }
 }
 
 /* Landscape на телефонах / низкие экраны */
 @media (max-height: 500px) and (orientation: landscape) {
   #skillsContainer {
-    height: 92vh;
-    max-height: 94vh;
-    width: min(520px, 88vw);
-    padding: 10px;
+    height: 600px;
+    width: 520px;
+    grid-template-rows: 470px 120px;
   }
 
   #skillsGrid {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 60px);
+    grid-template-rows: repeat(4, 60px);
     gap: 6px;
+    height: 470px;
   }
 
   .skill-slot {
-    max-width: 56px;
-    max-height: 56px;
+    width: 60px;
+    height: 60px;
   }
 
   #skillsDescription {
-    max-height: 80px;
+    height: 120px;
     padding: 8px 10px;
     font-size: 13px;
   }
@@ -201,6 +224,6 @@
 /* Очень высокие экраны (не растягиваем слишком) */
 @media (min-height: 900px) {
   #skillsContainer {
-    height: min(480px, 70vh);
+    height: 600px;
   }
 }

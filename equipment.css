@@ -3,13 +3,11 @@
   position: fixed;
   background: url("equipment_background.png") center no-repeat;
   background-size: cover;
-  top: 50%;
-  left: 42%;
+  top: 55%;
+  left: 42.5%;
   transform: translate(-50%, -50%);
   width: 300px;
   height: 480px;
-  box-shadow: 0 0 15px rgba(255, 0, 102, 0.5);
-  border-radius: 13px;
   z-index: 1000;
   padding: 10px;
   display: flex;
@@ -19,20 +17,17 @@
 
 #damageDisplay {
   position: absolute;
-  top: 3%;
-  left: 20%;
+  top: 7%;
+  left: 23.5%;
   transform: translateX(-50%) scale(1);
   min-width: 80px;
   padding: 6px 12px;
   font-family: "Orbitron", sans-serif;
-  font-size: 14px;
+  font-size: 9px;
+  font-weight: bold;
   text-align: center;
-  background: rgba(0, 0, 0);
   border-radius: 6px;
   z-index: 10;
-  transition:
-    transform 0.2s ease,
-    font-size 0.2s ease;
 }
 
 #equipmentGrid {
@@ -67,73 +62,73 @@
 /* Индивидуальные стили для каждого слота экипировки */
 .head-slot {
   position: relative;
-  top: -20%;
-  left: -8%;
-  width: 80px;
-  height: 80px;
+  top: 35%;
+  left: -10.5%;
+  width: 50px;
+  height: 50px;
   z-index: 4;
 }
 
 .chest-slot {
   position: relative;
-  top: -10%;
-  left: -10%;
-  width: 80px;
-  height: 80px;
+  top: 130%;
+  left: 84%;
+  width: 48px;
+  height: 48px;
   z-index: 3;
 }
 
 .pants-slot {
   position: absolute;
-  top: 28%;
-  left: -8%;
-  width: 80px;
-  height: 80px;
+  top: 188%;
+  left: -103%;
+  width: 50px;
+  height: 50px;
   z-index: 1;
 }
 
 .belt-slot {
   position: relative;
-  top: 0%;
-  left: -10%;
-  width: 80px;
-  height: 80px;
+  top: 300%;
+  left: 84%;
+  width: 50px;
+  height: 50px;
   z-index: 2;
 }
 
 .boots-slot {
   position: relative;
-  top: 40%;
-  left: -8%;
-  width: 80px;
-  height: 80px;
+  top: 260%;
+  left: -10.5%;
+  width: 50px;
+  height: 50px;
   z-index: 0;
 }
 
 .weapon-slot {
   position: relative;
-  top: 100%;
-  left: 0%;
-  width: 80px;
-  height: 80px;
+  top: 270%;
+  left: -24%;
+  width: 50px;
+  height: 50px;
   z-index: 0;
 }
 
 .gloves-slot {
   position: relative;
-  top: 66%;
-  left: -23%;
-  width: 80px;
-  height: 80px;
+  top: 126%;
+  left: 6%;
+  width: 50px;
+  height: 50px;
   z-index: 4;
 }
 
 .offhand-slot {
   position: relative;
-  top: 85%; /* Чуть ниже gloves-slot */
-  left: -23%;
-  width: 80px;
-  height: 80px;
+  top: 154%; /* Чуть ниже gloves-slot */
+  left: 5%;
+  width: 50px;
+  height: 50px;
   z-index: 4;
 }
 
@@ -176,62 +171,31 @@
 
 .implant1-slot {
   position: absolute;
-  top: 15%;
-  left: 8%;
-  width: 55px;
-  height: 55px;
-  border: 1px solid #ff00ff;
-  box-shadow:
-    0 0 12px rgba(255, 0, 255, 0.6),
-    inset 0 0 8px rgba(255, 0, 255, 0.4);
-  background: rgba(10, 0, 20, 0.85);
+  top: 21%;
+  left: 17%;
+  width: 40px;
+  height: 40px;
 }
 .implant2-slot {
   position: absolute;
-  top: 15%;
-  left: 68%;
-  width: 55px;
-  height: 55px;
-  border: 1px solid #ff00ff;
-  box-shadow:
-    0 0 12px rgba(255, 0, 255, 0.6),
-    inset 0 0 8px rgba(255, 0, 255, 0.4);
-  background: rgba(10, 0, 20, 0.85);
+  top: 21.5%;
+  left: 64%;
+  width: 40px;
+  height: 40px;
 }
 .implant3-slot {
   position: absolute;
-  top: 79%;
-  left: 5%;
-  width: 55px;
-  height: 55px;
-  border: 1px solid #ff00ff;
-  box-shadow:
-    0 0 12px rgba(255, 0, 255, 0.6),
-    inset 0 0 8px rgba(255, 0, 255, 0.4);
-  background: rgba(10, 0, 20, 0.85);
+  top: 124%;
+  left: 14.5%;
+  width: 40px;
+  height: 40px;
 }
 .implant4-slot {
   position: absolute;
-  top: 73%;
-  left: 70%;
-  width: 55px;
-  height: 55px;
-  border: 1px solid #ff00ff;
-  box-shadow:
-    0 0 12px rgba(255, 0, 255, 0.6),
-    inset 0 0 8px rgba(255, 0, 255, 0.4);
-  background: rgba(10, 0, 20, 0.85);
-}
-
-.implant1-slot:hover,
-.implant2-slot:hover,
-.implant3-slot:hover,
-.implant4-slot:hover {
-  border-color: #00ffff;
-  box-shadow:
-    0 0 18px rgba(0, 255, 255, 0.8),
-    inset 0 0 10px rgba(255, 0, 255, 0.6);
-  transform: scale(1.08);
+  top: 124%;
+  left: 66.5%;
+  width: 40px;
+  height: 40px;
 }
 
 /* Позиционирование имплант-слотов внизу */

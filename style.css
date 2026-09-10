@@ -194,75 +194,50 @@ body {
 /* Стили для статистики */
 #stats {
   position: absolute;
-  top: -1%;
-  left: -2%;
+  top: 1%;
+  left: 0.5%;
   font-size: 20px;
   font-family: "Courier New", monospace;
   z-index: 50;
   background: url("led.png") center no-repeat;
-  width: 350px;
-  height: 180px;
+  background-size: 100% 100%;
+  width: 320px;
+  height: 140px;
 }
 
 #stats .health {
   position: absolute;
-  top: 15%;
-  left: 18%;
+  top: 10%;
+  left: 11%;
   color: #ff0000;
-  text-shadow:
-    0 0 5px #ff0000,
-    0 0 10px #ff0000,
-    0 0 15px #ff00ff;
-  animation: flicker 1.5s infinite alternate;
 }
 
 #stats .energy {
   position: absolute;
-  top: 28%;
-  left: 19%;
+  top: 25%;
+  left: 11%;
   color: #00ff00;
-  text-shadow:
-    0 0 5px #00ff00,
-    0 0 10px #00ff00,
-    0 0 15px #00ffff;
-  animation: flicker 1.5s infinite alternate;
 }
 
 #stats .food {
   position: absolute;
-  top: 54%;
-  left: 19%;
+  top: 55%;
+  left: 11%;
   color: #ffff00;
-  text-shadow:
-    0 0 5px #ffff00,
-    0 0 10px #ffff00,
-    0 0 15px #ff00ff;
-  animation: flicker 1.5s infinite alternate;
 }
 
 #stats .water {
   position: absolute;
-  top: 41%;
-  left: 19%;
-  color: #0000ff;
-  text-shadow:
-    0 0 5px #0000ff,
-    0 0 10px #0000ff,
-    0 0 15px #00ffff;
-  animation: flicker 1.5s infinite alternate;
+  top: 40%;
+  left: 11%;
+  color: #0080ff90;
 }
 
 #stats .armor {
   position: absolute;
-  top: 67%;
-  left: 19%;
+  top: 68%;
+  left: 11%;
   color: #ff4500;
-  text-shadow:
-    0 0 5px #ff4500,
-    0 0 10px #ff4500,
-    0 0 15px #ff00ff,
-    0 0 20px #ff4500;
-  animation: flicker 1.5s infinite alternate;
 }
 
 /* Координаты */
@@ -271,68 +246,56 @@ body {
   top: 10px;
   right: 10px;
   color: #00ffff;
-  font-size: 18px;
+  font-size: 14px;
   font-family: "Courier New", monospace;
-  text-shadow:
-    0 0 5px #00ffff,
-    0 0 10px #00ffff,
-    0 0 15px #ff00ff;
-  animation: cyberFlicker 2s infinite alternate;
-  text-align: right;
+  text-align: center;
   z-index: 50;
+
+  /* === Размер контейнера (рамка, в которой живёт картинка) === */
+  width: 80px; /* ширина всей плашки */
+  height: 50px; /* высота всей плашки */
+
+  /* === Фон === */
+  background: url(images/coords.png) no-repeat;
+  background-size: 100% 100%; /* или 110% 110% / contain / cover — пробуй */
+
+  /* === САМОЕ ВАЖНОЕ: сдвиг картинки независимо от текста === */
+  background-position: center 40%; /* ← вот здесь крути */
+
+  /* === Чтобы текст был ВНУТРИ картинки === */
+  padding-top: 10px; /* сдвигает текст вниз */
+  padding-bottom: 4px;
+  box-sizing: border-box; /* обязательно, иначе padding раздует размер */
 }
 
-/* Анимация мерцания в стиле киберпанка */
-@keyframes cyberFlicker {
-  0%,
-  19%,
-  21%,
-  23%,
-  25%,
-  54%,
-  56%,
-  100% {
-    opacity: 1;
-    text-shadow:
-      0 0 5px #00ffff,
-      0 0 10px #00ffff,
-      0 0 15px #ff00ff;
-  }
-  20%,
-  24%,
-  55% {
-    opacity: 0.6;
-    text-shadow:
-      0 0 2px #00ffff,
-      0 0 5px #00ffff,
-      0 0 10px #ff00ff;
-  }
-}
-
-#onlineCount {
-  position: absolute;
-  top: 50px;
-  right: 20px;
-  color: #ffffff;
-  font-size: 12px;
-  font-family: "Courier New", monospace;
-  text-shadow:
-    0 0 5px #00ffff,
-    0 0 10px #00ffff,
-    0 0 15px #ff00ff;
-  animation: flicker 1.5s infinite alternate;
-  text-align: right;
-  z-index: 50;
-}
-
+#levelDisplay,
 .level-display {
   position: absolute;
-  bottom: 0px;
-  left: 2px;
+  bottom: -9px;
+  left: 1px;
   color: #ff8800;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 700;
   z-index: 1000;
+  text-align: center;
+  white-space: nowrap;
+  text-shadow: none;
+
+  /* === Размер контейнера (рамка под картинку) === */
+  width: 330px; /* подгони под реальный размер level.png */
+  height: 46px; /* подгони под реальный размер level.png */
+
+  /* === Фон === */
+  background: url(images/level.png) no-repeat;
+  background-size: 100% 100%; /* или contain / 110% 110% */
+
+  /* === Сдвиг картинки независимо от текста === */
+  background-position: center 45%; /* ← крути это значение */
+
+  /* === Чтобы текст был ВНУТРИ картинки === */
+  padding-top: 14px; /* сдвигает текст вниз */
+  padding-bottom: 4px;
+  box-sizing: border-box;
 }
 
 .xp-effect {
@@ -355,22 +318,39 @@ body {
 
 /* Стили для кнопок прокачки */
 .upgrade-btn {
+  position: absolute; /* ← обязательно */
   font-size: 14px;
   color: white;
   font-weight: bold;
   background: none;
   border: none;
   box-shadow: none;
+  z-index: 60; /* чтобы были поверх фона led.png */
+  pointer-events: auto;
+  transition: opacity 0.15s ease;
 }
 
-#implantHotbarContainer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 0;
-  z-index: 100;
-  pointer-events: none;
+/* === ИНДИВИДУАЛЬНОЕ ПОЗИЦИОНИРОВАНИЕ КАЖДОЙ КНОПКИ === */
+/* Меняй top / left / right / bottom свободно — они независимы */
+
+.upgrade-btn-health {
+  top: 10.5%;
+  left: 83%;
+}
+
+.upgrade-btn-energy {
+  top: 26%;
+  left: 83%;
+}
+
+.upgrade-btn-food {
+  top: 59%;
+  left: 81%;
+}
+
+.upgrade-btn-water {
+  top: 43%;
+  left: 83%;
 }
 
 .implant-hotbar-slot {
@@ -409,27 +389,98 @@ body {
   pointer-events: none;
 }
 
-/* === ИНДИВИДУАЛЬНОЕ ПОЗИЦИОНИРОВАНИЕ КАЖДОЙ ЯЧЕЙКИ === */
-/* Меняй top / left / right / bottom свободно — они независимы */
+/* === ПАНЕЛЬ ХОТБАРА ИМПЛАНТОВ + ФОН === */
+#implantHotbarContainer {
+  position: absolute;
+  bottom: -0.5%;
+  right: -2.5%;
+  width: 280px; /* подгони под реальный размер hotbarBg */
+  height: 220px; /* подгони под реальный размер hotbarBg */
+  z-index: 100;
+  pointer-events: none;
 
+  /* Фон панели */
+  background: url(images/hotbarBg.png) no-repeat center bottom;
+  background-size: contain; /* или 100% 100% — смотри как лучше */
+}
+
+/* Общие стили слотов (без изменений логики) */
+.implant-hotbar-slot {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.75);
+  box-shadow:
+    0 0 10px rgba(0, 255, 255, 0.45),
+    inset 0 0 8px rgba(0, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+  font-size: 28px;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+  transition: all 0.2s ease;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.implant-hotbar-slot:hover {
+  border-color: #ff00ff;
+  box-shadow:
+    0 0 16px rgba(255, 0, 255, 0.7),
+    inset 0 0 10px rgba(0, 255, 255, 0.35);
+  transform: scale(1.08);
+}
+
+.implant-hotbar-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* === ИНДИВИДУАЛЬНОЕ ПОЗИЦИОНИРОВАНИЕ СЛОТОВ ВНУТРИ ПАНЕЛИ === */
+/* Теперь координаты относительно #implantHotbarContainer */
 .implant-hotbar-0 {
-  bottom: 127px;
-  left: 94.5%;
+  bottom: 165px;
+  right: 61px;
 }
 
 .implant-hotbar-1 {
-  bottom: 115px;
-  left: 90%;
+  bottom: 155px;
+  right: 137px;
 }
 
 .implant-hotbar-2 {
-  bottom: 70px;
-  left: 87%;
+  bottom: 100px;
+  right: 185px;
 }
 
 .implant-hotbar-3 {
-  bottom: 10px;
-  left: 87.5%;
+  bottom: 32px;
+  right: 185px;
+}
+
+/* Пустой слот чуть прозрачнее */
+.implant-hotbar-slot:empty,
+.implant-hotbar-slot:not(:has(img)) {
+  opacity: 0.45;
+}
+
+/* Онлайн теперь внутри панели */
+#onlineCount {
+  position: absolute;
+  bottom: 15px;
+  left: 126px;
+  color: #ffffff;
+  font-size: 11px;
+  font-family: "Courier New", monospace;
+  text-align: left;
+  z-index: 110;
+  pointer-events: none;
+  white-space: nowrap;
 }
 
 /* Пустой слот чуть прозрачнее (логика уже есть в updateHotbarDisplay) */
@@ -497,10 +548,33 @@ body {
     position: absolute;
   }
 
+  #levelDisplay,
   .level-display {
-    position: absolute;
     top: 97%;
-    font-size: 14px;
+    bottom: auto;
+    left: 2px;
+    width: 180px;
+    height: 30px;
+    font-size: 12px;
+    padding-top: 6px;
+    background-position: center 40%;
+  }
+
+  .upgrade-btn-health {
+    top: 6%;
+    left: 72%;
+  }
+  .upgrade-btn-energy {
+    top: 21%;
+    left: 72%;
+  }
+  .upgrade-btn-food {
+    top: 51%;
+    left: 72%;
+  }
+  .upgrade-btn-water {
+    top: 36%;
+    left: 72%;
   }
 
   .implant-hotbar-slot {

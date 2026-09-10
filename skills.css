@@ -2,7 +2,8 @@
 
 #skillsBtn {
   position: absolute;
-  top: 69%;
+  top: 70%;
+  left: -0.3%;
 }
 
 #skillsContainer {
@@ -85,8 +86,8 @@
 
 .skill-slot .level-badge {
   position: absolute;
-  bottom: 4px;
-  right: 4px;
+  bottom: 1px;
+  right: 1px;
   background: #020202;
   color: white;
   font-size: clamp(10px, 2.2vw, 12px);
@@ -94,7 +95,6 @@
   border-radius: 10px;
   min-width: 18px;
   text-align: center;
-  box-shadow: 0 0 8px #002aff;
   line-height: 1.2;
 }
 

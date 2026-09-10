@@ -4,9 +4,8 @@
   width: 6%;
   height: 12%;
   cursor: pointer;
-  transition: all 0.2s;
   z-index: 60;
-  box-sizing: border-box;
+  border-radius: 50%;
 }
 
 .cyber-btn-img:hover {
@@ -20,36 +19,43 @@
 /* Позиционирование кнопок */
 #chatBtn {
   position: absolute;
-  top: 10%;
-  left: 92.2%;
+  width: 3%;
+  height: 6%;
+  top: 90%;
+  left: 1px;
   z-index: 2100;
 }
 
 #inventoryBtn {
   position: absolute;
   top: 30%;
-  left: 0%;
+  height: 12%;
+  left: -0.6%;
+  width: 7%;
 }
 
 #equipmentBtn {
   position: absolute;
   top: 43%;
-  left: 0%;
+  left: -0.3%;
 }
 
 #tradeBtn {
   position: absolute;
   top: 57%;
-  left: 0.5%;
+  left: -0.3%;
 }
 
 /* Специфичные стили для combatBtn */
 #combatBtn {
   position: absolute;
-  width: 10%;
-  height: 20%;
+  width: 6%;
+  height: 12%;
   top: 80%;
-  left: 90%;
+  left: 91.5%;
+  border-radius: 50%;
+  border: none;
+  z-index: 1100;
 }
 
 /* Анимация красного мигания при атаке */

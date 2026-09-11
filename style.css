@@ -194,8 +194,8 @@ body {
 /* Стили для статистики */
 #stats {
   position: absolute;
-  top: 1%;
-  left: 0.5%;
+  top: 3px;
+  left: 3px;
   font-size: 20px;
   font-family: "Courier New", monospace;
   z-index: 50;
@@ -396,7 +396,7 @@ body {
   right: -2.5%;
   width: 280px; /* подгони под реальный размер hotbarBg */
   height: 220px; /* подгони под реальный размер hotbarBg */
-  z-index: 100;
+  z-index: 1100;
   pointer-events: none;
 
   /* Фон панели */

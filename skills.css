@@ -8,8 +8,8 @@
 
 #skillsContainer {
   position: absolute;
-  top: 50%;
-  left: 74%;
+  top: 50.8%;
+  left: 73%;
   transform: translate(-50%, -50%);
   width: 520px;
   height: 600px;
@@ -26,11 +26,11 @@
 
 #skillsGrid {
   position: relative;
-  top: 19%;
+  top: 20%;
   display: grid;
   grid-template-columns: repeat(5, 72px);
   grid-template-rows: repeat(4, 67px);
-  gap: 17px;
+  gap: 8px;
   justify-content: center;
   align-content: start;
   width: 100%;
@@ -100,13 +100,12 @@
 
 #skillsDescription {
   position: relative;
-  top: 4%;
-  left: 8%;
+  top: -15%;
+  left: 11%;
   width: 70%;
   height: 120px;
   box-sizing: border-box;
   padding: 12px 14px;
-  border-top: 1px solid #00ffff;
   color: #e0e0ff;
   min-width: 0;
   overflow-y: hidden;

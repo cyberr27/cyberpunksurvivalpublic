@@ -25,14 +25,6 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-
-  border: 2px solid #00ff9d;
-  border-radius: 12px;
-  box-shadow:
-    0 0 25px rgba(0, 255, 157, 0.45),
-    0 0 60px rgba(0, 255, 157, 0.15),
-    inset 0 0 30px rgba(0, 0, 0, 0.6);
-
   overflow: hidden;
   padding: 0 0 28px 0;
   box-sizing: border-box;
@@ -42,13 +34,13 @@
 .vacuum-close-btn {
   position: absolute;
   color: red;
-  top: 38%;
-  left: 33%;
+  top: 44%;
+  left: 34%;
   z-index: 2;
   margin-bottom: 12px;
-  width: 38%;
+  width: 32%;
   background: none;
-  height: 24%;
+  height: 19%;
   border-radius: 50%;
   padding: 14px 28px;
   font-size: 16px;

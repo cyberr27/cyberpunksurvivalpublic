@@ -138,19 +138,13 @@
 .homeless-storage-dialog {
   position: fixed;
   top: 50%;
-  left: 50%;
+  left: 46.5%;
   transform: translate(-50%, -50%);
-  width: 94vw;
+  width: 80%;
   height: 88vh;
   max-height: 820px;
   background: url("homeless-in-bag-bg.png") no-repeat center;
   background-size: 100% 100%;
-  border: 3px solid #ff88ff;
-  border-radius: 12px;
-  color: #ffccff;
-  font-family: "Courier New", monospace;
-  padding: 20px;
-  box-shadow: 0 0 40px rgba(255, 0, 255, 0.6);
   z-index: 1003;
   display: none;
   flex-direction: column;
@@ -167,6 +161,8 @@
   align-items: center;
   margin-bottom: 16px;
   flex-shrink: 0;
+  position: relative; /* ← создаёт локальный stacking context */
+  z-index: 20; /* ← header + кнопка выше content */
 }
 
 .homeless-storage-header h2 {
@@ -178,63 +174,70 @@
 .homeless-storage-content {
   flex: 1;
   display: flex;
-  justify-content: space-between;
   overflow: hidden;
 }
 
 .homeless-player-inventory {
   position: relative;
-  top: 8%;
-  left: 0.5%;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 12px;
-}
-.homeless-storage-inventory {
-  position: relative;
-  top: 8%;
+  top: 19.5%;
+  left: 10%;
   flex: 1;
   display: flex;
   flex-direction: column;
   padding: 12px;
 }
 
-.homeless-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1px;
+.homeless-storage-inventory {
+  position: relative;
+  top: 18.6%;
+  left: 9.8%;
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+}
+
+/* === ВОТ ЗДЕСЬ КРУТИТЬ РАССТОЯНИЕ МЕЖДУ ЯЧЕЙКАМИ === */
+.homeless-grid {
+  position: absolute;
+  top: 0%;
+  left: -1.8%;
+  display: grid;
+  row-gap: 10px; /* можно оставить 0 или чуть добавить */
+  column-gap: 13px;
+  grid-template-columns: repeat(4, 72px); /* ← фиксированная ширина */
+  grid-template-rows: repeat(5, 60px); /* ← фиксированная высота */
+  justify-content: center; /* или center — как нужно по фону */
+  align-content: center;
+  flex: none; /* убираем растягивание */
   overflow: hidden;
-  padding: 10px;
+  padding: 0;
 }
 
 .homeless-slot {
   aspect-ratio: 1;
-  background: rgba(40, 30, 40, 0.7);
-  border: 2px solid #664466;
   border-radius: 8px;
   position: relative;
   cursor: pointer;
-  width: 80%;
-  height: 70%;
+  width: 72px; /* должен совпадать с размером трека */
+  height: 60px;
   transition: all 0.15s;
 }
 
 .homeless-slot:hover {
-  border-color: #aa88aa;
-  box-shadow: 0 0 12px rgba(255, 100, 255, 0.5);
+  border-color: #ffb300;
+  box-shadow: 0 0 12px rgba(255, 225, 0, 0.5);
 }
 
 .homeless-slot.selected {
-  border-color: #ff44ff;
-  box-shadow: 0 0 20px #ff44ff;
+  border-color: #ff7300;
+  box-shadow: 0 0 20px #ff9244;
   transform: scale(1.06);
 }
 
 .homeless-slot img {
-  width: 100%;
-  height: 100%;
+  width: 86%;
+  height: 86%;
   object-fit: contain;
   pointer-events: none;
 }
@@ -268,17 +271,31 @@
 }
 
 #homelessPutBtn {
-  background: url("putBtn.png") no-repeat center;
-  background-size: 100% 100%;
-  color: white;
-  width: 180px;
+  position: absolute;
+  top: 39%;
+  left: 43%;
+  background: none;
+  width: 148px;
   height: 36px;
 }
 
+#homelessPutBtn:hover {
+  border-color: #ff7300;
+  box-shadow: 0 0 20px #ff9244;
+}
+
 #homelessTakeBtn {
-  background: url("takeBtn.png") no-repeat center;
-  background-size: 100% 100%;
-  color: white;
+  position: absolute;
+  top: 49%;
+  left: 43%;
+  background: none;
+  width: 148px;
+  height: 36px;
+}
+
+#homelessTakeBtn:hover {
+  border-color: #ff7300;
+  box-shadow: 0 0 20px #ff9244;
 }
 
 #homelessPutBtn:disabled,
@@ -309,31 +326,22 @@
 
 #homeless-close-btn-bag {
   position: absolute;
-  bottom: 2%;
-  left: 45%;
+  top: 430px;
+  left: 42.8%;
   padding: 12px 24px;
   font-size: 16px;
-  width: 130px;
-  height: 29px;
-  background: url("cancelBtn.png") no-repeat center;
+  width: 148px;
+  height: 36px;
+  background: none;
   background-size: 100% 100%;
-  border: none;
   border-radius: 6px;
   cursor: pointer;
+  z-index: 30; /* ← ключевое: выше всего контента */
+  pointer-events: auto; /* ← на всякий случай, чтобы клики доходили */
 }
-
-/* Анимации */
-@keyframes neonPulseHomeless {
-  0% {
-    box-shadow:
-      0 0 10px rgba(255, 140, 0, 0.5),
-      0 0 20px rgba(180, 100, 0, 0.3);
-  }
-  100% {
-    box-shadow:
-      0 0 20px rgba(255, 140, 0, 0.9),
-      0 0 35px rgba(180, 100, 0, 0.7);
-  }
+#homeless-close-btn-bag:hover {
+  border-color: #ff3700;
+  box-shadow: 0 0 20px #ff6044;
 }
 
 /* Форма ввода количества для стекаемых предметов */
@@ -344,14 +352,13 @@
   gap: 6px;
   margin: 12px 0;
   padding: 10px;
-  background: rgba(0, 0, 0, 0.4);
   border-radius: 6px;
   width: 80%;
   max-width: 200px;
   align-self: center;
   position: absolute;
-  bottom: 11%;
-  left: 41.4%;
+  bottom: 22%;
+  left: 39.6%;
 }
 
 .homeless-cyber-text {
@@ -362,13 +369,11 @@
 }
 
 .homeless-cyber-input {
-  top: 100%;
-  width: 80px;
+  width: 132px;
   padding: 6px 10px;
   font-size: 16px;
   text-align: center;
-  background: rgba(0, 0, 0, 0.6);
-  border: 2px solid #00ffff;
+  background: none;
   color: #00ffff;
   border-radius: 4px;
   font-family: "Courier New", monospace;
@@ -411,7 +416,7 @@
   transform: scale(1.06);
 }
 
-/* ===== Talk-диалог Homeless (по образцу Thimblerigger) ===== */
+/* ===== Talk-диалог Homeless ===== */
 
 .homeless-talk-topics {
   position: relative;

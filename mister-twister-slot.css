@@ -1,12 +1,41 @@
-/* mister-twister-slot.css */
+/* mister-twister-slot.css
+   Полностью автономные стили диалога Мистера Твистера.
+   Не зависят от npc-styles.css (border и box-shadow убраны).
+*/
 
 .npc-dialog.open.twister-full-window {
-  background: url("mister_twister_slot_bg.png") center/cover no-repeat;
-  min-height: 520px;
+  /* === Скопированные + переопределённые свойства из npc-styles.css === */
+  position: fixed;
+  top: 53%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  padding: 20px;
+  color: #00ffff;
+  font-family: "Courier New", monospace;
+  text-align: center;
+  z-index: 1001;
+
+  /* Размеры (как у хронометра / общих NPC) */
+  width: 500px;
+  max-width: 92vw;
+  height: 550px;
+  max-height: 88vh;
+
+  display: none; /* по умолчанию скрыто, JS меняет на flex */
+  flex-direction: column;
   overflow: hidden;
-  position: relative;
+  box-sizing: border-box;
+
+  /* === Специфика Твистера === */
+  background: url("mister_twister_slot_bg.png") center/cover no-repeat;
+
+  /* === УБИРАЕМ border и тень === */
+  border: none !important;
+  box-shadow: none !important;
 }
 
+/* Контент */
 .npc-dialog-content-mt {
   padding: 16px;
   margin: 12px;
@@ -36,16 +65,20 @@
 
 .digital-slots {
   display: flex;
-  justify-content: center; /* расстояние между табло — настраивай здесь */
+  justify-content: center;
   margin: 32px 0 40px;
-  perspective: 800px; /* для лёгкого 3D-эффекта при желании */
+  perspective: 800px;
+  position: relative;
+  top: 19.5%;
 }
 
 .digital-reel {
-  width: 95px;
-  height: 75px;
+  width: 66px;
+  height: 68px;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.8);
+  position: relative;
+  left: 0%;
 }
 
 .digital-reel canvas {
@@ -56,25 +89,28 @@
 }
 
 #reel1 {
-  transform: translateY(60px) translateX(-40px);
-}
-#reel2 {
   transform: translateY(60px) translateX(-38px);
 }
+#reel2 {
+  transform: translateY(60px) translateX(-37px);
+}
 #reel3 {
-  transform: translateY(60px) rotate(0.5deg) translateX(-35px);
+  transform: translateY(60px) rotate(0.2deg) translateX(-36px);
 }
 
 .spin-button-mt {
   position: fixed;
+  top: 41%;
+  left: 49.6%;
   transform: translateY(29px) translateX(113px);
-  width: 14%;
-  height: 6%;
+  width: 11%;
+  height: 6.5%;
   text-align: center;
   background: none;
   color: yellow;
   font-size: 25px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .spin-button-mt:disabled {
@@ -96,86 +132,121 @@
 .bonus-light {
   width: 24px;
   height: 24px;
-  border-radius: 20%;
+  border-radius: 10%;
 }
 
 /* Индивидуальные классы для позиционирования */
 .bonus-light-0 {
-  width: 4%;
-  height: 25%;
-  transform: translate(64px, 7px) rotate(13deg);
+  width: 2.8%;
+  height: 1%;
+  transform: translate(64px, 7px) rotate(10deg);
+  border-radius: 10px;
+  position: absolute;
+  top: 83.5%;
+  left: 74.6px;
 }
 .bonus-light-1 {
-  width: 4.5%;
-  height: 30%;
-  transform: translate(46px, -3px) rotate(10deg);
+  width: 2.8%;
+  height: 1%;
+  transform: translate(46px, -3px) rotate(8deg);
+  position: absolute;
+  top: 83.4%;
+  left: 100px;
 }
 .bonus-light-2 {
-  width: 5%;
-  height: 30%;
+  width: 3%;
+  height: 1%;
   transform: translate(15px, -15px) rotate(10deg);
+  position: absolute;
+  top: 83.5%;
+  left: 25.8%;
 }
 .bonus-light-3 {
-  width: 4%;
-  height: 30%;
+  width: 3%;
+  height: 1%;
   transform: translate(-16px, -28px) rotate(10deg);
+  position: absolute;
+  top: 83.8%;
+  left: 31.8%;
 }
 .bonus-light-4 {
-  width: 6%;
-  height: 33%;
-  transform: translate(-62px, -40px) rotate(10deg);
+  width: 3.4%;
+  height: 1%;
+  transform: translate(-62px, -40px) rotate(7deg);
+  position: absolute;
+  top: 83.6%;
+  left: 40%;
 }
 .bonus-light-5 {
-  width: 5%;
-  height: 33%;
-  transform: translate(-103px, -53px) rotate(6deg);
+  width: 3.4%;
+  height: 1%;
+  transform: translate(-103px, -53px) rotate(2deg);
+  position: absolute;
+  top: 83.8%;
+  left: 47.1%;
 }
 .bonus-light-6 {
-  width: 6%;
-  height: 30%;
-  transform: translate(-152px, -64px) rotate(4deg);
+  width: 3.4%;
+  height: 1%;
+  transform: translate(-152px, -64px) rotate(5deg);
+  position: absolute;
+  top: 83.6%;
+  left: 55%;
 }
 .bonus-light-7 {
-  width: 6%;
-  height: 30%;
+  width: 3.4%;
+  height: 1%;
   transform: translate(-195px, -75px) rotate(-2deg);
+  position: absolute;
+  top: 83.4%;
+  left: 62.4%;
 }
 .bonus-light-8 {
-  width: 5%;
-  height: 30%;
-  transform: translate(-230px, -94px) rotate(-10deg);
+  width: 3.4%;
+  height: 1%;
+  transform: translate(-230px, -94px) rotate(-6deg);
+  position: absolute;
+  top: 83.7%;
+  left: 69.7%;
 }
 .bonus-light-9 {
-  width: 5%;
-  height: 30%;
+  width: 3.4%;
+  height: 1%;
   transform: translate(-250px, -108px) rotate(-10deg);
+  position: absolute;
+  top: 83.8%;
+  left: 75%;
 }
 .bonus-light-10 {
-  transform: translate(-265px, -135px) rotate(-10deg);
-  width: 6%;
-  border-radius: 50%;
+  transform: translate(-265px, -135px) rotate(-12deg);
+  width: 3.4%;
+  height: 1%;
+  position: absolute;
+  top: 86%;
+  left: 80%;
 }
 
 .bonus-light.active {
-  background: #ff1900;
+  background: #ff0000;
   box-shadow:
-    0 0 20px #ff1900,
-    inset 0 0 12px #ff1900;
+    0 0 20px #ff3300,
+    inset 0 0 12px #ff5900;
 }
 
 #twister-result {
   position: absolute;
-  left: 50%;
-  top: 75%;
-  color: #ff0000;
+  left: 43%;
+  top: 72%;
+  color: #ff6200;
   text-shadow: 0 0 8px #ff0000;
-  font-size: 25px;
+  font-size: 18px;
   font-weight: bold;
   text-align: center;
   min-height: 3em;
   margin-top: 12px;
 }
 
+/* ===================== АДАПТИВ ===================== */
 @media (max-width: 500px) {
   .npc-dialog.open.twister-full-window {
     overflow: hidden;

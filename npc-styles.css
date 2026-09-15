@@ -10,12 +10,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: linear-gradient(
-    135deg,
-    rgba(10, 10, 10, 0.95),
-    rgba(20, 20, 20, 0.9)
-  );
-  border: 2px solid #00ffff;
   border-radius: 10px;
   padding: 20px;
   color: #00ffff;
@@ -31,10 +25,6 @@
 
   display: none; /* по умолчанию скрыто, JS меняет на flex */
   flex-direction: column;
-  box-shadow:
-    0 0 20px rgba(0, 255, 255, 0.5),
-    0 0 30px rgba(255, 0, 255, 0.3);
-  animation: neonPulse 2s infinite alternate;
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -83,10 +73,11 @@ body.npc-dialog-active {
 /* Кнопки над NPC — теперь фиксированы к экрану и не вылезают */
 .npc-buttons-container {
   position: fixed;
-  z-index: 2100;
+  z-index: 1000;
   pointer-events: none;
   display: flex;
   flex-direction: column;
+  gap: 12px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);

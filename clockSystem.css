@@ -11,6 +11,7 @@
 #clockDialog {
   background: url("chronometer.png") no-repeat center;
   background-size: cover;
+  border: none;
 }
 
 #clockTime {

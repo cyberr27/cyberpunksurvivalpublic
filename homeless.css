@@ -57,28 +57,19 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 420px;
+  width: 450px;
   max-width: 92vw;
-  height: 380px;
+  height: 500px;
   max-height: 88vh;
-  background: linear-gradient(
-    135deg,
-    rgba(18, 12, 8, 0.96),
-    rgba(28, 18, 12, 0.92)
-  );
   border: 2px solid #ffb366;
   border-radius: 10px;
   color: #ffb366;
   font-family: "Courier New", monospace;
   padding: 20px;
-  box-shadow:
-    0 0 20px rgba(255, 140, 0, 0.5),
-    0 0 30px rgba(180, 100, 0, 0.4);
   display: none;
   flex-direction: column;
   overflow: hidden;
   z-index: 1002;
-  animation: neonPulseHomeless 2.4s infinite alternate;
 }
 
 .homeless-main-dialog.open {
@@ -90,6 +81,7 @@
   height: 450px;
   background: url("homeless-bag-bg.png") no-repeat center;
   background-size: 100% 100%;
+  border: none;
 }
 
 .homeless-text-cost {
@@ -100,9 +92,10 @@
 
 .homeless-rent-input {
   position: absolute;
-  bottom: 3%;
-  left: 3%;
-  width: 100px;
+  bottom: 11%;
+  left: 13%;
+  width: 75px;
+  height: 18px;
   padding: 10px;
   font-size: 24px;
   text-align: center;
@@ -388,8 +381,8 @@
 
 .homeless-text-rent-info {
   position: absolute;
-  bottom: 17%;
-  right: 1%;
+  bottom: 32%;
+  right: 13%;
   color: #00ff88;
   font-size: 16px;
   font-weight: bold;
@@ -420,7 +413,8 @@
 
 .homeless-talk-topics {
   position: relative;
-  top: 10%;
+  top: 18%;
+  left: 2px;
   flex-direction: column;
   overflow-y: auto;
   padding-right: 10px;
@@ -454,7 +448,7 @@
 
 .homeless-fullscreen {
   position: relative;
-  top: 10%;
+  top: 18%;
   margin: 0;
   padding: 20px;
   background: rgba(0, 0, 0, 0.85);

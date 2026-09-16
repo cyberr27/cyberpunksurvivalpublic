@@ -195,42 +195,6 @@ body.npc-dialog-active {
   transform: scale(1.06);
 }
 
-/* Анимации */
-@keyframes neonPulse {
-  0% {
-    box-shadow:
-      0 0 10px rgba(0, 255, 255, 0.5),
-      0 0 20px rgba(255, 0, 255, 0.3);
-  }
-  100% {
-    box-shadow:
-      0 0 20px rgba(0, 255, 255, 0.9),
-      0 0 35px rgba(255, 0, 255, 0.6);
-  }
-}
-
-@keyframes flicker {
-  0%,
-  19%,
-  21%,
-  23%,
-  25%,
-  54%,
-  56%,
-  100% {
-    opacity: 1;
-    text-shadow:
-      0 0 8px #00ffff,
-      0 0 15px #ff00ff;
-  }
-  20%,
-  24%,
-  55% {
-    opacity: 0.6;
-    text-shadow: 0 0 3px #00ffff;
-  }
-}
-
 /* ===================== АДАПТИВ ===================== */
 @media (max-width: 768px) {
   .npc-dialog {

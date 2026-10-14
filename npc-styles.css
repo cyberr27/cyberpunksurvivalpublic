@@ -27,6 +27,10 @@
   flex-direction: column;
   overflow: hidden;
   box-sizing: border-box;
+
+  /* Убраны рамка и любое свечение/пульсация окна */
+  border: none;
+  box-shadow: none;
 }
 
 /* Когда диалог открыт — показываем и блокируем скролл страницы */
@@ -127,7 +131,6 @@ body.npc-dialog-active {
   text-shadow:
     0 0 8px #00ffff,
     0 0 15px #ff00ff;
-  animation: flicker 1.8s infinite alternate;
   margin: 0;
   white-space: nowrap;
 }

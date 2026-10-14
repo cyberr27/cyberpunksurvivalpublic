@@ -35,6 +35,8 @@
     <link rel="stylesheet" href="viktorStyle.css" />
     <link rel="stylesheet" href="danielStyle.css" />
     <link rel="stylesheet" href="warmanStyle.css" />
+    <link rel="stylesheet" href="madDoctor.css" />
+    <link rel="stylesheet" href="YuriStyle.css" />
     <link rel="stylesheet" href="style.css" />
     <title>Sector 12</title>
   </head>
@@ -110,7 +112,20 @@
 
     <!-- Игровой контейнер (скрыт по умолчанию) -->
     <div id="gameContainer" style="display: none">
-      <canvas id="gameCanvas"></canvas>
+      <canvas
+        id="game3DCanvas"
+        style="
+          position: fixed;
+          inset: 0;
+          width: 100vw;
+          height: 100vh;
+          display: none;
+          z-index: 0;
+          pointer-events: auto;
+          background: #050b16;
+        "
+      ></canvas>
+      <canvas id="gameCanvas" style="position: relative; z-index: 1"></canvas>
       <div id="stats">
         <span id="health" data-i18n="stats_health">Здоровье</span><br />
         <span id="energy" data-i18n="stats_energy">Энергия</span><br />
@@ -118,13 +133,20 @@
         <span id="water" data-i18n="stats_water">Вода</span><br />
         <span id="armor" data-i18n="stats_armor">Броня</span>
       </div>
-        <div id="coords"></div>
+      <div id="coords"></div>
       <div id="onlineCount" class="cyber-text"></div>
       <img
         id="chatBtn"
         class="cyber-btn-img"
         src="images/chat.png"
         data-i18n="chat_label"
+        data-i18n-attr="alt"
+      />
+      <img
+        id="rendererModeBtn"
+        class="cyber-btn-img"
+        src="images/settings.png"
+        data-i18n="renderer_mode_button"
         data-i18n-attr="alt"
       />
       <img
@@ -160,6 +182,53 @@
           />
         </div>
       </div>
+      <dialog
+        id="rendererModeDialog"
+        class="renderer-mode-dialog"
+        aria-labelledby="rendererModeTitle"
+      >
+        <section class="renderer-mode-panel">
+          <h2 id="rendererModeTitle" data-i18n="renderer_mode_title">
+            Режим отображения
+          </h2>
+          <div class="renderer-mode-instructions">
+            <h3 data-i18n="renderer_mode_instructions_title">Как играть</h3>
+            <ul>
+              <li data-i18n="renderer_mode_move_instruction">
+                WASD или стрелки — перемещение
+              </li>
+              <li data-i18n="renderer_mode_camera_instruction">
+                Колесо мыши — масштаб; правая кнопка мыши и перетаскивание —
+                поворот камеры в 3D
+              </li>
+            </ul>
+          </div>
+          <label class="renderer-mode-option">
+            <span data-i18n="renderer_3d_toggle">Включить 3D режим</span>
+            <span class="renderer-mode-switch">
+              <input id="renderer3DToggle" type="checkbox" />
+              <span class="renderer-mode-switch-track"></span>
+            </span>
+          </label>
+          <p class="renderer-mode-escape-hint" data-i18n="renderer_mode_escape">
+            Esc — выход
+          </p>
+          <p
+            id="rendererModeStatus"
+            class="renderer-mode-status"
+            role="status"
+            aria-live="polite"
+          ></p>
+          <button
+            id="rendererModeCancelBtn"
+            class="renderer-mode-cancel"
+            type="button"
+            data-i18n="cancel_btn"
+          >
+            Отмена
+          </button>
+        </section>
+      </dialog>
       <div id="inventoryContainer">
         <div id="inventoryScreen"></div>
         <div id="inventoryActions">
@@ -184,11 +253,24 @@
       <script src="vendingMachine.js"></script>
       <script src="misterTwister.js"></script>
       <script src="joystick.js"></script>
+      <script src="inputSystem.js"></script>
       <script src="movement.js"></script>
       <script src="chat.js"></script>
       <script src="lights.js"></script>
       <script src="tradeSystem.js"></script>
       <script src="worldSystem.js"></script>
+      <script src="worldSceneSystem.js"></script>
+      <script src="staticGeometrySystem.js"></script>
+      <script src="s12Corp3D.js"></script>
+      <script src="s12Citadel3D.js"></script>
+      <script src="s12IndustrialComplex3D.js"></script>
+      <script src="s12DefenseHeadquarters.js"></script>
+      <script src="s12GuildOfMasters.js"></script>
+      <script src="s12Shop3D.js"></script>
+      <script src="s12Bank3D.js"></script>
+      <script src="s12Arena3D.js"></script>
+      <script src="s12Medcore3D.js"></script>
+      <script src="sceneEntitySystem.js"></script>
       <script src="equipmentSystem.js"></script>
       <script src="combatSystem.js"></script>
       <script src="enemySystem.js"></script>
@@ -221,8 +303,22 @@
       <script src="viktorNpc.js"></script>
       <script src="danielNpc.js"></script>
       <script src="warmanNpc.js"></script>
+      <script src="madDoctor.js"></script>
+      <script src="Yuri.js"></script>
       <script src="i18n.js"></script>
       <script src="soundSystem.js"></script>
+      <script src="coordinateSystem3D.js"></script>
+      <script src="cameraSystem3D.js"></script>
+      <script src="gltfAssetSystem3D.js"></script>
+      <script src="playerSystem3D.js"></script>
+      <script src="playerVisualConfig.js"></script>
+      <script src="vanilla3DRenderer.js"></script>
+      <script src="rendererSystem.js"></script>
+      <script src="rendererModeDialog.js"></script>
+      <script src="foundationEditor3D.js"></script>
+      <script src="editorPerformance3D.js"></script>
+      <script src="foundationEditorPanel3D.js"></script>
+      <script src="gameLoopSystem.js"></script>
       <script src="code.js"></script>
     </div>
   </body>

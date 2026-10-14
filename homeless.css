@@ -58,9 +58,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 450px;
-  max-width: 92vw;
   height: 500px;
-  max-height: 88vh;
   border: 2px solid #ffb366;
   border-radius: 10px;
   color: #ffb366;

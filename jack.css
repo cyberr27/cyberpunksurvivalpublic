@@ -5,22 +5,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: linear-gradient(
-    135deg,
-    rgba(10, 10, 10, 0.95),
-    rgba(20, 20, 20, 0.9)
-  );
-  border: 2px solid #00ffff;
   border-radius: 10px;
   padding: 20px;
   color: #00ffff;
   font-family: "Courier New", monospace;
   text-align: center;
   z-index: 1000;
-  box-shadow:
-    0 0 20px rgba(0, 255, 255, 0.5),
-    0 0 30px rgba(255, 0, 255, 0.3);
-  animation: neonPulse 2s infinite alternate;
   overflow: auto;
   display: flex;
   flex-direction: column;
@@ -204,19 +194,32 @@
   transform: translateX(5px);
 }
 
-/* === Окно скупки Jack (визуально идентично cristina-sell) === */
+/* === Окно скупки Jack (визуально идентично cristina-sell)
+   Все размеры ячеек и отступы — ТОЛЬКО здесь.
+   Меняешь 4 переменные ниже → сетка перестраивается автономно.
+   Не влияет на shop / talk / другие NPC.
+*/
 .jack-sell-dialog {
+  /* ─── РЕГУЛИРУЕМЫЕ ПАРАМЕТРЫ (меняй только их) ─── */
+  --jack-sell-slot-width: 78px; /* ширина ячейки */
+  --jack-sell-slot-height: 37px; /* высота ячейки */
+  --jack-sell-gap-x: 8px; /* отступ между колонками */
+  --jack-sell-gap-y: 6px; /* отступ между строками */
+  /* ─────────────────────────────────────────────── */
+
   display: flex !important;
   flex-direction: column;
-  width: 480px !important;
-  height: 520px !important;
+  width: 500px !important;
+  height: 550px !important;
   max-width: 95vw !important;
   max-height: 90vh !important;
+  border: none;
 }
 
 .jack-sell-content {
   position: relative;
-  top: 13%;
+  top: 38%;
+  left: 0%;
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
@@ -225,16 +228,17 @@
 
 .jack-sell-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(4, var(--jack-sell-slot-width));
+  column-gap: var(--jack-sell-gap-x);
+  row-gap: var(--jack-sell-gap-y);
+  justify-content: center; /* сетка по центру при фиксированной ширине колонок */
   justify-items: center;
 }
 
 .jack-sell-slot {
-  width: 56px;
-  height: 56px;
-  border: 2px solid rgba(0, 255, 255, 0.4); /* cyan-тема Джека вместо orange */
-  background: rgba(0, 0, 0, 0.65);
+  width: var(--jack-sell-slot-width);
+  height: var(--jack-sell-slot-height);
+  background: none;
   border-radius: 6px;
   display: flex;
   align-items: center;
@@ -242,6 +246,7 @@
   cursor: pointer;
   position: relative;
   transition: all 0.15s ease;
+  box-sizing: border-box; /* чтобы border не раздувал размер */
 }
 
 .jack-sell-slot:hover {
@@ -274,24 +279,26 @@
 
 #jack-sell-close {
   position: absolute;
-  top: 90%;
-  left: 75%;
-  width: 20%;
-  background: url("cancelBtn.png") center no-repeat;
-  background-size: 100% 100%;
-  border: none;
+  top: 84.1%;
+  left: 61.6%;
+  width: 30%;
+  background: none;
+  border-radius: 10px;
   cursor: pointer;
+}
+#jack-sell-close:hover {
+  transform: none;
+  box-shadow: 0 0 10px rgb(255, 0, 0);
 }
 
 .jack-sell-confirm-btn {
   position: absolute;
-  top: 90%;
-  left: 33%;
-  width: 35%;
+  top: 84.1%;
+  left: 8.4%;
+  width: 30%;
   height: 32px;
-  background: url("sellBtn.png") no-repeat center;
-  background-size: 100% 100%;
-  border: none;
+  background: none;
+  border-radius: 10px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -302,34 +309,7 @@
 }
 
 .jack-sell-confirm-btn:hover:not(:disabled) {
-  transform: scale(1.06);
-}
-
-/* Кнопки внутри диалога (купить/продать/закрыть) */
-.jack-button {
-  background: linear-gradient(135deg, #00ffff, #ff00ff);
-  border: none;
-  color: #000;
-  padding: 10px 20px;
-  margin: 10px 5px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 16px;
-  font-weight: bold;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-  box-shadow:
-    0 0 10px rgba(0, 255, 255, 0.5),
-    0 0 15px rgba(255, 0, 255, 0.3);
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s;
-}
-
-.jack-button:hover {
-  transform: scale(1.05);
-  box-shadow:
-    0 0 15px rgba(0, 255, 255, 0.7),
-    0 0 20px rgba(255, 0, 255, 0.5);
+  box-shadow: 0 0 10px rgb(255, 191, 0);
 }
 
 .jack-button:disabled {
@@ -345,48 +325,11 @@
   gap: 15px;
   margin-top: 15px;
 }
-
-/* Анимации */
-@keyframes neonPulse {
-  0% {
-    box-shadow:
-      0 0 10px rgba(0, 255, 255, 0.5),
-      0 0 20px rgba(255, 0, 255, 0.3);
-  }
-  100% {
-    box-shadow:
-      0 0 20px rgba(0, 255, 255, 0.9),
-      0 0 35px rgba(255, 0, 255, 0.6);
-  }
-}
-
-@keyframes flicker {
-  0%,
-  19%,
-  21%,
-  23%,
-  25%,
-  54%,
-  56%,
-  100% {
-    opacity: 1;
-    text-shadow:
-      0 0 8px #00ffff,
-      0 0 15px #ff00ff;
-  }
-  20%,
-  24%,
-  55% {
-    opacity: 0.6;
-    text-shadow: 0 0 3px #00ffff;
-  }
-}
-
 /* ===== Talk-диалог Jack (стандарт Thimblerigger + универсальные npc-dialog) ===== */
 
 .jack-talk-topics {
   position: relative;
-  top: 8%;
+  top: 2%;
   flex-direction: column;
   overflow-y: hidden;
   padding-right: 10px;
@@ -441,6 +384,21 @@
   line-height: 1.55;
   color: #fbff00;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.9);
+}
+
+.jack-btn-thimblerigger {
+  position: relative;
+  top: -10%;
+  left: 68.6%;
+  width: 26.8%;
+  height: 6%;
+  padding: 14px 28px;
+  background: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.jack-btn-thimblerigger:hover {
+  box-shadow: 0 0 10px rgb(255, 0, 0);
 }
 
 /* защита от старых классов */
@@ -499,6 +457,8 @@
   max-width: 1100px !important;
   max-height: 90vh !important;
   min-width: 320px;
+  border: none;
+  box-shadow: none;
 }
 
 .jack-shop-dialog .jack-shop-content {
@@ -508,7 +468,11 @@
   padding: 12px 16px 8px;
   scrollbar-width: thin;
   scrollbar-color: #00ffff rgba(0, 0, 0, 0.5);
-  max-height: 87.7%;
+  max-height: 60%;
+  width: 92%;
+  position: relative;
+  top: 12%;
+  left: 2%;
 }
 
 .jack-shop-dialog .jack-shop-content::-webkit-scrollbar {
@@ -540,7 +504,7 @@
   align-items: flex-start;
   gap: 10px;
   padding: 10px 12px;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 1);
   border: 1px solid #00ffff;
   border-radius: 6px;
   cursor: pointer;
@@ -602,46 +566,35 @@
 
 #jack-shop-close {
   position: absolute;
-  top: 92%;
-  left: 78%;
-  width: 13%;
-  background: url("cancelBtn.png") center no-repeat;
-  background-size: 100% 100%;
-  border: none;
-  padding: 10px 22px;
-  font-size: 15px;
-  font-family: "Courier New", monospace;
-  font-weight: bold;
+  top: 82.4%;
+  left: 70%;
+  width: 21%;
+  height: 6.6%;
+  background: none;
+
   cursor: pointer;
 }
 
 #jack-shop-close:hover {
-  transform: scale(1.07);
+  transform: none;
+  box-shadow: 0 0 10px red;
 }
 
 .jack-buy-confirm-btn {
   position: absolute;
-  top: 92%;
-  left: 39.5%;
-  height: 32px;
-  width: 20%;
-  padding: 10px 22px;
-  font-size: 15px;
-  font-family: "Courier New", monospace;
-  font-weight: bold;
-  background: url("buyBtn.png") no-repeat center;
-  background-size: 100% 100%;
-  border: none;
+  top: 82.4%;
+  left: 8.4%;
+  height: 6.6%;
+  width: 21%;
+  background: none;
+  border-radius: 10px;
   color: #000;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 .jack-buy-confirm-btn:hover:not(:disabled) {
-  transform: scale(1.06);
+  box-shadow: 0 0 10px yellow;
 }
 
 .jack-buy-confirm-btn:disabled {

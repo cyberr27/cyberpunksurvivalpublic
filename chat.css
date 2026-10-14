@@ -16,6 +16,187 @@
   animation: cyberPulse 4s infinite alternate;
 }
 
+.renderer-mode-dialog {
+  box-sizing: border-box;
+  width: 94vw;
+  height: 90vh;
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  border: 1px solid rgba(0, 204, 255, 0.65);
+  border-radius: 10px;
+  background:
+    linear-gradient(rgba(5, 11, 22, 0.82), rgba(5, 11, 22, 0.9)),
+    url("backgr.png") center / cover no-repeat;
+  color: #00ccff;
+  box-shadow:
+    0 0 24px rgba(0, 204, 255, 0.4),
+    inset 0 0 24px rgba(0, 204, 255, 0.08);
+  font-family: "Orbitron", sans-serif;
+}
+
+.renderer-mode-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(3px);
+}
+
+.renderer-mode-panel {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 24px;
+  text-align: center;
+}
+
+.renderer-mode-panel h2 {
+  margin: 0;
+  color: #00ccff;
+  font-size: clamp(18px, 3vw, 30px);
+  text-shadow: 0 0 10px rgba(0, 204, 255, 0.8);
+}
+
+.renderer-mode-instructions {
+  width: min(620px, 100%);
+  padding: 18px 22px;
+  border: 1px solid rgba(0, 204, 255, 0.45);
+  border-radius: 8px;
+  background: rgba(5, 11, 22, 0.72);
+  box-shadow: inset 0 0 18px rgba(0, 204, 255, 0.08);
+  text-align: left;
+}
+
+.renderer-mode-instructions h3 {
+  margin: 0 0 12px;
+  color: #00ccff;
+  font-size: clamp(15px, 2vw, 20px);
+  text-align: center;
+  text-shadow: 0 0 8px rgba(0, 204, 255, 0.6);
+}
+
+.renderer-mode-instructions ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 22px;
+  color: #e2faff;
+  font-family: Arial, sans-serif;
+  font-size: clamp(13px, 1.6vw, 16px);
+  line-height: 1.5;
+}
+
+.renderer-mode-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  font-size: clamp(14px, 2vw, 20px);
+}
+
+.renderer-mode-escape-hint {
+  margin: -18px 0 0;
+  color: rgba(226, 250, 255, 0.8);
+  font: 13px Arial, sans-serif;
+}
+
+.renderer-mode-switch {
+  position: relative;
+  display: inline-flex;
+  width: 58px;
+  height: 32px;
+  flex: 0 0 auto;
+}
+
+.renderer-mode-switch input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.renderer-mode-switch-track {
+  width: 100%;
+  border: 1px solid rgba(0, 204, 255, 0.65);
+  border-radius: 18px;
+  background: #18212e;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.renderer-mode-switch-track::before {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #a8b5c4;
+  content: "";
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.renderer-mode-switch input:checked + .renderer-mode-switch-track {
+  background: rgba(0, 204, 255, 0.28);
+  box-shadow: 0 0 12px rgba(0, 204, 255, 0.5);
+}
+
+.renderer-mode-switch input:checked + .renderer-mode-switch-track::before {
+  transform: translateX(26px);
+  background: #00ccff;
+}
+
+.renderer-mode-switch input:focus-visible + .renderer-mode-switch-track {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.renderer-mode-status {
+  min-height: 1.4em;
+  margin: 0;
+  color: #ff8a8a;
+  font-size: 14px;
+}
+
+.renderer-mode-cancel {
+  min-width: 140px;
+  padding: 12px 24px;
+  border: 1px solid rgba(0, 204, 255, 0.75);
+  border-radius: 4px;
+  background: rgba(0, 204, 255, 0.12);
+  color: #00ccff;
+  font: 700 14px "Orbitron", sans-serif;
+  cursor: pointer;
+}
+
+.renderer-mode-cancel:hover,
+.renderer-mode-cancel:focus-visible {
+  background: rgba(0, 204, 255, 0.28);
+  outline: 2px solid #00ccff;
+  outline-offset: 2px;
+}
+
+@media (max-width: 500px) {
+  .renderer-mode-panel {
+    gap: 18px;
+    padding: 16px;
+  }
+
+  .renderer-mode-instructions {
+    padding: 14px;
+  }
+}
+
 /* Сообщения */
 #chatMessages {
   flex: none;

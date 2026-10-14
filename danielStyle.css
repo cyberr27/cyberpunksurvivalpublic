@@ -167,7 +167,7 @@
 /* === Сумка 40 слотов === */
 .daniel-storage-dialog {
   position: fixed;
-  top: 50%;
+  top: 48%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 94vw;
@@ -175,16 +175,15 @@
   max-height: 820px;
   background: url("danielInBagBg.png") no-repeat center;
   background-size: 100% 100%;
-  border: 3px solid #7ec8ff;
   border-radius: 12px;
   color: #a0e0ff;
   font-family: "Courier New", monospace;
   padding: 20px;
-  box-shadow: 0 0 40px rgba(126, 200, 255, 0.6);
   z-index: 1003;
   display: none;
   flex-direction: column;
   overflow: hidden;
+  z-index: 1110;
 }
 
 .daniel-storage-dialog.open {
@@ -208,17 +207,17 @@
 
 .daniel-player-inventory {
   position: relative;
-  top: 8%;
-  left: 0.5%;
+  top: 20.5%;
+  left: 6.9%;
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 12px;
 }
 
 .daniel-storage-inventory {
   position: relative;
-  top: 8%;
+  top: 16%;
+  left: 112px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -226,31 +225,57 @@
   overflow-y: auto;
 }
 
-.daniel-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1px;
-  flex: 1;
-  overflow: hidden;
-  padding: 10px;
+/* === Настройки размеров и отступов двух сеток ===
+   Меняй значения отдельно для каждой сетки. */
+.daniel-storage-dialog {
+  --daniel-player-slot-width: 68px;
+  --daniel-player-slot-height: 46px;
+  --daniel-player-column-gap: 8px;
+  --daniel-player-row-gap: 4px;
+
+  --daniel-storage-slot-width: 64px;
+  --daniel-storage-slot-height: 42px;
+  --daniel-storage-column-gap: 4px;
+  --daniel-storage-row-gap: 1px;
 }
 
-/* 40 слотов: 5×8 */
-.daniel-grid-40 {
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(8, 1fr);
-  overflow-y: auto;
+.daniel-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 50px);
+  column-gap: 4px;
+  row-gap: 4px;
+  justify-content: start;
+  align-content: start;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ЛЕВЫЙ ИНВЕНТАРЬ: 5 колонок × 4 ряда = 20 */
+#danielPlayerGrid {
+  grid-template-columns: repeat(5, var(--daniel-player-slot-width));
+  grid-template-rows: repeat(4, var(--daniel-player-slot-height));
+  column-gap: var(--daniel-player-column-gap);
+  row-gap: var(--daniel-player-row-gap);
+}
+
+/* ПРАВЫЙ СКЛАД: 5 колонок × 8 рядов = 40 */
+#danielStorageGrid {
+  grid-template-columns: repeat(5, var(--daniel-storage-slot-width));
+  grid-template-rows: repeat(8, var(--daniel-storage-slot-height));
+  column-gap: var(--daniel-storage-column-gap);
+  row-gap: var(--daniel-storage-row-gap);
+  overflow: hidden;
 }
 
 .daniel-slot {
-  aspect-ratio: 1;
-  background: rgba(20, 30, 45, 0.7);
-  border: 2px solid #445566;
+  box-sizing: border-box;
   border-radius: 8px;
   position: relative;
   cursor: pointer;
-  width: 80%;
-  height: 70%;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
   transition: all 0.15s;
 }
 
@@ -261,7 +286,7 @@
 
 .daniel-slot.selected {
   border-color: #00ccff;
-  box-shadow: 0 0 20px #00ccff;
+  box-shadow: 0 0 10px #00ccff;
   transform: scale(1.06);
 }
 
@@ -291,21 +316,33 @@
 }
 
 #danielPutBtn {
-  background: url("putBtn.png") no-repeat center;
-  background-size: 100% 100%;
-  width: 180px;
-  height: 36px;
+  position: relative;
+  top: 18.8%;
+  left: 6%;
+  background: none;
+  border-radius: 10px;
+  width: 220px;
+  height: 40px;
   border: none;
   cursor: pointer;
 }
+#danielPutBtn:hover {
+  box-shadow: 0 0 12px rgba(255, 140, 0, 0.35);
+}
 
 #danielTakeBtn {
-  background: url("takeBtn.png") no-repeat center;
-  background-size: 100% 100%;
-  width: 180px;
-  height: 36px;
+  position: relative;
+  top: -12px;
+  left: 14px;
+  background: none;
+  border-radius: 10px;
+  width: 220px;
+  height: 40px;
   border: none;
   cursor: pointer;
+}
+#danielTakeBtn:hover {
+  box-shadow: 0 0 12px rgba(255, 140, 0, 0.35);
 }
 
 #danielPutBtn:disabled,
@@ -316,14 +353,17 @@
 
 #daniel-close-btn-bag {
   position: absolute;
-  bottom: 2%;
-  left: 45%;
-  width: 130px;
-  height: 29px;
-  background: url("cancelBtn.png") no-repeat center;
-  background-size: 100% 100%;
-  border: none;
+  bottom: 4.5%;
+  left: 40.5%;
+  width: 250px;
+  height: 45px;
+  background: none;
+  border-radius: 10px;
   cursor: pointer;
+}
+#daniel-close-btn-bag:hover {
+  box-shadow: 0 0 12px rgb(255, 0, 0);
+  transform: none;
 }
 
 .daniel-stack-form {
@@ -335,28 +375,21 @@
   padding: 10px;
   background: rgba(0, 0, 0, 0.4);
   border-radius: 6px;
-  width: 80%;
+  width: 200px;
   max-width: 200px;
   align-self: center;
   position: absolute;
-  bottom: 11%;
-  left: 41.4%;
-}
-
-.daniel-cyber-text {
-  color: #00ffff;
-  font-size: 14px;
-  text-shadow: 0 0 5px rgba(0, 255, 255, 0.7);
-  text-transform: uppercase;
+  bottom: 14.5%;
+  left: 41.6%;
 }
 
 .daniel-cyber-input {
-  width: 80px;
+  width: 168px;
+  height: 14px;
   padding: 6px 10px;
   font-size: 16px;
   text-align: center;
-  background: rgba(0, 0, 0, 0.6);
-  border: 2px solid #00ffff;
+  background: none;
   color: #00ffff;
   border-radius: 4px;
   font-family: "Courier New", monospace;

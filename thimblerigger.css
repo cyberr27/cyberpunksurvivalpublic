@@ -89,68 +89,87 @@
 
 .neon-btn-neon {
   position: relative;
-  top: 47%;
-  left: 40%;
-  width: 25%;
+  top: 47.5%;
+  left: 35%;
+  width: 23%;
   height: 10%;
   padding: 14px 28px;
-  background: url(cancelBtn.png) no-repeat center;
-  background-size: 100% 100%;
-  border-radius: 6px;
+  background: none;
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
   margin-top: 12px;
-  border: none;
+}
+.neon-btn-neon:hover {
+  box-shadow: 0 0 12px red;
+  transform: none;
 }
 
 .neon-btn-thimblerigger {
   position: relative;
-  top: 0%;
-  left: 74%;
-  width: 25%;
-  height: 7%;
+  top: -5.4%;
+  left: 34.5%;
+  width: 31%;
+  height: 8%;
   padding: 14px 28px;
-  background: url(cancelBtn.png) no-repeat center;
-  background-size: 100% 100%;
-  border-radius: 6px;
-  cursor: pointer;
+  background: none;
   border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .neon-btn-thimblerigger:hover {
-  transform: scale(1.06);
+  transform: none;
+  box-shadow: 0 0 20px red;
 }
 
 .neon-btn-thimblerigger-ok {
   position: relative;
-  top: 0%;
-  left: 74%;
-  width: 25%;
-  height: 5%;
+  top: -2.2%;
+  left: 34%;
+  width: 32%;
+  height: 8.4%;
   padding: 14px 28px;
-  background: url(okBtn.png) no-repeat center;
-  background-size: 100% 100%;
-  border-radius: 6px;
+  background: none;
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
 }
-
 .neon-btn-thimblerigger-ok:hover {
-  transform: scale(1.06);
+  transform: none;
+  box-shadow: 0 0 20px red;
+}
+
+#greetingOkBtn {
+  position: relative;
+  top: -2.2%;
+  left: 34%;
+  width: 32%;
+  height: 8.4%;
+  padding: 14px 28px;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+#greetingOkBtn:hover {
+  transform: none;
+  box-shadow: 0 0 20px rgb(111, 255, 0);
 }
 
 #startBtn {
   position: relative;
-  top: 120%;
-  left: 22.5%;
-  background: url(okBtn.png) no-repeat center;
-  background-size: 100% 100%;
+  top: 135.6%;
+  left: -12.4%;
+  width: 24.5%;
+  height: 12%;
+  background: none;
   border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
-
-.neon-btn-neon:hover {
-  box-shadow:
-    0 0 2px rgba(0, 255, 255, 1),
-    0 0 5px rgba(255, 0, 255, 0.8);
-  transform: scale(1.06);
+#startBtn:hover {
+  box-shadow: 0 0 12px green;
 }
 
 .npc-dialog-content {
@@ -175,7 +194,7 @@
 
 .thimblerigger-talk-topics {
   position: relative;
-  top: 10%;
+  top: 7%;
   flex-direction: column;
   overflow-y: auto;
   padding-right: 10px;
@@ -190,7 +209,7 @@
   text-align: left;
   font-size: 15px;
   padding: 12px 14px;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .thimblerigger-talk-topic:hover {
@@ -213,14 +232,14 @@
 /* Полноэкранный текст темы */
 .thimblerigger-fullscreen {
   position: relative;
-  top: 10%;
+  top: 6%;
   margin: 0;
   padding: 20px;
   background: rgba(0, 0, 0, 0.85);
   border: 1px solid rgba(255, 215, 0, 0.5);
   border-radius: 8px;
   font-size: 17px;
-  min-height: 262px;
+  min-height: 250px;
   flex: 1;
   display: flex;
   align-items: flex-start;
@@ -244,15 +263,16 @@
 
 .bet-input {
   position: relative;
-  top: 125%;
-  left: -23%;
-  width: 120px;
+  top: 137%;
+  left: -12.8%;
+  width: 92px;
+  height: 8px;
   font-size: 24px;
   text-align: center;
-  background: rgba(0, 0, 0, 0.6);
-  border: 2px solid #ffb366;
+  background: none;
+  border: none;
   color: #ffb366;
-  border-radius: 6px;
+  border-radius: 10px;
 }
 
 /* Адаптив для мобильных: уменьшаем чашки/шарик на маленьких экранах */

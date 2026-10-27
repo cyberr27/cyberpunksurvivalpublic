@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="inventory.css" />
+    <link rel="stylesheet" href="trade.css" />
+    <link rel="stylesheet" href="npc-styles.css" />
+    <link rel="stylesheet" href="npcStyle.css" />
+    <link rel="stylesheet" href="neon-npc.css" />
+    <link rel="stylesheet" href="clockSystem.css" />
+    <link rel="stylesheet" href="vacuumRobot.css" />
+    <link rel="stylesheet" href="outpostCaptain.css" />
+    <link rel="stylesheet" href="corporateRobot.css" />
+    <link rel="stylesheet" href="robotDoctorStyle.css" />
+    <link rel="stylesheet" href="trash-styles.css" />
+    <link rel="stylesheet" href="thimblerigger.css" />
+    <link rel="stylesheet" href="torestosStyle.css" />
+    <link rel="stylesheet" href="toremidosStyle.css" />
+    <link rel="stylesheet" href="homeless.css" />
+    <link rel="stylesheet" href="recipeViewerStyle.css" />
+    <link rel="stylesheet" href="jack.css" />
+    <link rel="stylesheet" href="equipment.css" />
+    <link rel="stylesheet" href="chat.css" />
+    <link rel="stylesheet" href="rendererModeDialog.css" />
+    <link rel="stylesheet" href="buttons.css" />
+    <link rel="stylesheet" href="welcomeGuide.css" />
+    <link rel="stylesheet" href="joystick.css" />
+    <link rel="stylesheet" href="notifications.css" />
+    <link rel="stylesheet" href="mister-twister-slot.css" />
+    <link rel="stylesheet" href="skills.css" />
+    <link rel="stylesheet" href="guard-styles.css" />
+    <link rel="stylesheet" href="potion-styles.css" />
+    <link rel="stylesheet" href="cristinaStyle.css" />
+    <link rel="stylesheet" href="linaStyle.css" />
+    <link rel="stylesheet" href="viktorStyle.css" />
+    <link rel="stylesheet" href="danielStyle.css" />
+    <link rel="stylesheet" href="warmanStyle.css" />
+    <link rel="stylesheet" href="madDoctor.css" />
+    <link rel="stylesheet" href="YuriStyle.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Sector 12</title>
+  </head>
+  <body>
+    <!-- Окно авторизации/регистрации -->
+    <div id="authContainer" class="auth-container">
+      <div class="auth-box">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        ></div>
+        <div id="loginForm" class="form">
+          <h2 data-i18n="login_heading">Вход</h2>
+          <input
+            type="text"
+            id="loginUsername"
+            class="neon-input"
+            data-i18n="username_placeholder"
+            data-i18n-attr="placeholder"
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            class="neon-input"
+            data-i18n="password_placeholder"
+            data-i18n-attr="placeholder"
+          />
+          <button id="loginBtn" class="loginBtn" data-i18n="login_btn">
+            Войти
+          </button>
+          <p class="switch-text">
+            <span data-i18n="no_account">Нет аккаунта?</span>
+            <span id="toRegister" data-i18n="register_btn"
+              >Зарегистрироваться</span
+            >
+          </p>
+          <p id="loginError" class="error-text"></p>
+        </div>
+        <div id="registerForm" class="form" style="display: none">
+          <h2 data-i18n="register_heading">Регистрация</h2>
+          <input
+            type="text"
+            id="registerUsername"
+            class="neon-input"
+            data-i18n="username_placeholder"
+            data-i18n-attr="placeholder"
+          />
+          <input
+            type="password"
+            id="registerPassword"
+            class="neon-input"
+            data-i18n="password_placeholder"
+            data-i18n-attr="placeholder"
+          />
+          <button id="registerBtn" class="" data-i18n="register_btn">
+            Зарегистрироваться
+          </button>
+          <p class="switch-text">
+            <span data-i18n="have_account">Уже есть аккаунт?</span>
+            <span id="toLogin" data-i18n="login_btn">Войти</span>
+          </p>
+          <p id="registerError" class="error-text"></p>
+        </div>
+      </div>
+      <div id="langButtons" style="display: flex; gap: 8px">
+        <button id="btnRu" class="ukBtn"></button>
+        <button id="btnEn" class="enBtn"></button>
+      </div>
+    </div>
+
+    <!-- Игровой контейнер (скрыт по умолчанию) -->
+    <div id="gameContainer" style="display: none">
+      <canvas
+        id="game3DCanvas"
+        style="
+          position: fixed;
+          inset: 0;
+          width: 100vw;
+          height: 100vh;
+          display: none;
+          z-index: 0;
+          pointer-events: auto;
+          background: #050b16;
+        "
+      ></canvas>
+      <canvas id="gameCanvas" style="position: relative; z-index: 1"></canvas>
+      <div id="stats">
+        <span id="health" data-i18n="stats_health">Здоровье</span><br />
+        <span id="energy" data-i18n="stats_energy">Энергия</span><br />
+        <span id="food" data-i18n="stats_food">Еда</span><br />
+        <span id="water" data-i18n="stats_water">Вода</span><br />
+        <span id="armor" data-i18n="stats_armor">Броня</span>
+      </div>
+      <div id="coords"></div>
+      <div id="onlineCount" class="cyber-text"></div>
+      <img
+        id="chatBtn"
+        class="cyber-btn-img"
+        src="images/chat.png"
+        data-i18n="chat_label"
+        data-i18n-attr="alt"
+      />
+      <img
+        id="rendererModeBtn"
+        class="cyber-btn-img"
+        src="images/settings.png"
+        data-i18n="renderer_mode_button"
+        data-i18n-attr="alt"
+      />
+      <img
+        id="inventoryBtn"
+        class="cyber-btn-img"
+        src="images/inventory.png"
+        data-i18n="inventory"
+        data-i18n-attr="alt"
+      />
+      <img
+        id="combatBtn"
+        class="cyber-btn-img"
+        data-i18n="combat"
+        data-i18n-attr="alt"
+      />
+      <img
+        id="skillsBtn"
+        class="cyber-btn-img"
+        src="images/skills.png"
+        data-i18n="skills"
+        data-i18n-attr="alt"
+      />
+      <div id="chatContainer">
+        <div id="chatMessages"></div>
+        <div id="chatInputContainer">
+          <input
+            type="text"
+            id="chatInput"
+            maxlength="200"
+            data-i18n="chat_input_placeholder"
+            data-i18n-attr="placeholder"
+            placeholder="ВВЕДИ СООБЩЕНИЕ..."
+          />
+        </div>
+      </div>
+      <dialog
+        id="rendererModeDialog"
+        class="renderer-mode-dialog"
+        aria-labelledby="rendererModeTitle"
+      >
+        <section class="renderer-mode-panel">
+          <h2 id="rendererModeTitle" data-i18n="renderer_mode_title">
+            Режим отображения
+          </h2>
+          <div class="renderer-mode-instructions">
+            <h3 data-i18n="renderer_mode_instructions_title">Как играть</h3>
+            <ul>
+              <li data-i18n="renderer_mode_move_instruction">
+                WASD или стрелки — перемещение
+              </li>
+              <li data-i18n="renderer_mode_camera_instruction">
+                Колесо мыши — масштаб; правая кнопка мыши и перетаскивание —
+                поворот камеры в 3D
+              </li>
+            </ul>
+          </div>
+          <label class="renderer-mode-option">
+            <span data-i18n="renderer_3d_toggle">Включить 3D режим</span>
+            <span class="renderer-mode-switch">
+              <input id="renderer3DToggle" type="checkbox" />
+              <span class="renderer-mode-switch-track"></span>
+            </span>
+          </label>
+          <div id="rendererGraphicsSettings" class="renderer-graphics-settings">
+            <h3>Настройки графики 3D</h3>
+
+            <label class="renderer-graphics-row">
+              <span class="renderer-graphics-description">
+                <strong>PBR-материалы</strong>
+                <small>Реалистичное освещение и материалы зданий</small>
+              </span>
+              <span class="renderer-mode-switch">
+                <input id="rendererPbrToggle" type="checkbox" />
+                <span class="renderer-mode-switch-track"></span>
+              </span>
+            </label>
+
+            <label class="renderer-graphics-row">
+              <span class="renderer-graphics-description">
+                <strong>Bloom / Glow</strong>
+                <small>Мягкое свечение неоновых элементов</small>
+              </span>
+              <span class="renderer-mode-switch">
+                <input id="rendererBloomToggle" type="checkbox" />
+                <span class="renderer-mode-switch-track"></span>
+              </span>
+            </label>
+
+            <div class="renderer-bloom-control">
+              <label for="rendererBloomIntensity">
+                Интенсивность свечения
+                <output id="rendererBloomValue" for="rendererBloomIntensity">
+                  0.42
+                </output>
+              </label>
+              <input
+                id="rendererBloomIntensity"
+                type="range"
+                min="0"
+                max="2"
+                step="0.05"
+                value="0.42"
+              />
+            </div>
+
+            <label class="renderer-graphics-row">
+              <span class="renderer-graphics-description">
+                <strong>LOD</strong>
+                <small>Оптимизация детализации дальних моделей</small>
+              </span>
+              <span class="renderer-mode-switch">
+                <input id="rendererLodToggle" type="checkbox" />
+                <span class="renderer-mode-switch-track"></span>
+              </span>
+            </label>
+
+            <label class="renderer-graphics-row">
+              <span class="renderer-graphics-description">
+                <strong>Frustum Culling</strong>
+                <small>Не отрисовывать объекты вне камеры</small>
+              </span>
+              <span class="renderer-mode-switch">
+                <input id="rendererCullingToggle" type="checkbox" />
+                <span class="renderer-mode-switch-track"></span>
+              </span>
+            </label>
+
+            <button
+              id="rendererGraphicsResetBtn"
+              class="renderer-graphics-reset"
+              type="button"
+            >
+              Сбросить настройки графики
+            </button>
+          </div>
+          <p class="renderer-mode-escape-hint" data-i18n="renderer_mode_escape">
+            Esc — выход
+          </p>
+          <p
+            id="rendererModeStatus"
+            class="renderer-mode-status"
+            role="status"
+            aria-live="polite"
+          ></p>
+          <button
+            id="rendererModeCancelBtn"
+            class="renderer-mode-cancel"
+            type="button"
+            data-i18n="cancel_btn"
+          >
+            Отмена
+          </button>
+        </section>
+      </dialog>
+      <div id="inventoryContainer">
+        <div id="inventoryScreen"></div>
+        <div id="inventoryActions">
+          <button id="useBtn" class="use-btn" disabled data-i18n="use_btn">
+            Использовать
+          </button>
+          <button id="dropBtn" class="drop-btn" disabled data-i18n="drop_btn">
+            Выбросить
+          </button>
+        </div>
+      </div>
+      <div id="skillsContainer" style="display: none">
+        <div id="skillsGrid"></div>
+        <div id="skillsDescription"></div>
+      </div>
+      <script src="barriersClient.js"></script>
+      <script src="inventory.js"></script>
+      <script src="levelSystem.js"></script>
+      <script src="npc.js"></script>
+      <script src="outpostCaptain.js"></script>
+      <script src="jack.js"></script>
+      <script src="vendingMachine.js"></script>
+      <script src="misterTwister.js"></script>
+      <script src="joystick.js"></script>
+      <script src="inputSystem.js"></script>
+      <script src="movement.js"></script>
+      <script src="chat.js"></script>
+      <script src="lights.js"></script>
+      <script src="tradeSystem.js"></script>
+      <script src="worldSystem.js"></script>
+      <script src="worldSceneSystem.js"></script>
+      <script src="staticGeometrySystem.js"></script>
+      <script src="s12PerimeterWall3D.js"></script>
+      <script src="s12Corp3D.js"></script>
+      <script src="s12Citadel3D.js"></script>
+      <script src="s12IndustrialComplex3D.js"></script>
+      <script src="s12DefenseHeadquarters.js"></script>
+      <script src="s12GuildOfMasters.js"></script>
+      <script src="s12Shop3D.js"></script>
+      <script src="s12Bank3D.js"></script>
+      <script src="s12Arena3D.js"></script>
+      <script src="s12Medcore3D.js"></script>
+      <script src="sceneEntitySystem.js"></script>
+      <script src="engineSceneBridge.js"></script>
+      <script src="engineToolsBridge.js"></script>
+      <script src="sector12SceneAdapter.js"></script>
+      <script src="equipmentSystem.js"></script>
+      <script src="combatSystem.js"></script>
+      <script src="enemySystem.js"></script>
+      <script src="npcDialogSystem.js"></script>
+      <script src="neon_npc.js"></script>
+      <script src="vacuumRobot.js"></script>
+      <script src="cockroachSystem.js"></script>
+      <script src="droneSystem.js"></script>
+      <script src="bonfireSystem.js"></script>
+      <script src="clockSystem.js"></script>
+      <script src="corporateRobot.js"></script>
+      <script src="robot_doctor.js"></script>
+      <script src="thimblerigger.js"></script>
+      <script src="torestos.js"></script>
+      <script src="toremidos.js"></script>
+      <script src="homeless.js"></script>
+      <script src="recipeViewer.js"></script>
+      <script src="trashCans.js"></script>
+      <script src="welcomeGuide.js"></script>
+      <script src="notifications.js"></script>
+      <script src="portal.js"></script>
+      <script src="skills.js"></script>
+      <script src="regeneration.js"></script>
+      <script src="strongStrikeSystem.js"></script>
+      <script src="guard_npc.js"></script>
+      <script src="implantsSystem.js"></script>
+      <script src="potionNpc.js"></script>
+      <script src="cristinaNpc.js"></script>
+      <script src="linaNpc.js"></script>
+      <script src="viktorNpc.js"></script>
+      <script src="danielNpc.js"></script>
+      <script src="warmanNpc.js"></script>
+      <script src="madDoctor.js"></script>
+      <script src="Yuri.js"></script>
+      <script src="i18n.js"></script>
+      <script src="soundSystem.js"></script>
+      <script src="engineConfig.js"></script>
+      <script src="coordinateSystem3D.js"></script>
+      <script src="cameraSystem3D.js"></script>
+      <script src="gltfAssetSystem3D.js"></script>
+      <script src="playerSystem3D.js"></script>
+      <script src="playerVisualConfig.js"></script>
+      <script src="bloomSystem3D.js"></script>
+      <script src="vanilla3DRenderer.js"></script>
+      <script src="rendererSystem.js"></script>
+      <script src="rendererModeDialog.js"></script>
+      <script src="foundationEditor3D.js"></script>
+      <script src="editorPerformance3D.js"></script>
+      <script src="foundationEditorPanel3D.js"></script>
+      <script src="gameLoopSystem.js"></script>
+      <script src="code.js"></script>
+    </div>
+  </body>
+</html>

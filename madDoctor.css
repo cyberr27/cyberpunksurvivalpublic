@@ -1,0 +1,329 @@
+/* madDoctor.css */
+/* Полностью автономные стили с префиксом mad-doctor- */
+
+/* === Контейнер кнопок над NPC === */
+.mad-doctor-buttons-container {
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transform: translateX(-50%);
+}
+
+.mad-doctor-button {
+  pointer-events: all;
+  width: 170px;
+  height: 36px;
+  cursor: pointer;
+  user-select: none;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.15s ease;
+}
+
+.mad-doctor-button:hover {
+  transform: scale(1.07);
+}
+
+.mad-doctor-talk-btn {
+  background: url("thimblerigger-talk-btn.png") no-repeat center;
+  background-size: 100% 100%;
+}
+
+.mad-doctor-bloodbank-btn {
+  background: url("shopBtn.png") no-repeat center;
+  background-size: 100% 100%;
+}
+
+.mad-doctor-blooddonation-btn {
+  background: url("buyingUpBtn.png") no-repeat center;
+  background-size: 100% 100%;
+}
+
+/* === Диалоги madDoctor === */
+.mad-doctor-dialog.npc-dialog {
+  border: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+/* Кнопка OK */
+.mad-doctor-ok-btn {
+  position: relative;
+  bottom: 3.5%;
+  left: 37%;
+  width: 27%;
+  height: 6%;
+  padding: 14px 28px;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.mad-doctor-ok-btn:hover {
+  transform: none;
+  box-shadow: 0 0 20px red;
+}
+
+#madDoctor-greeting-ok:hover {
+  box-shadow: 0 0 20px rgb(21, 255, 0);
+}
+
+/* === Магазин Банк крови (структура как у Cristina) === */
+.mad-doctor-shop-dialog {
+  display: flex !important;
+  flex-direction: column;
+  width: 480px !important;
+  height: 500px !important;
+  max-width: 95vw !important;
+  max-height: 90vh !important;
+  min-width: 320px;
+}
+
+.mad-doctor-shop-dialog .mad-doctor-shop-content {
+  flex: 1;
+  overflow-y: auto !important;
+  overflow-x: hidden;
+  padding: 16px 18px 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #ff2222 rgba(0, 0, 0, 0.5);
+  max-height: 78%;
+}
+
+.mad-doctor-shop-dialog .mad-doctor-shop-content::-webkit-scrollbar {
+  width: 8px;
+}
+.mad-doctor-shop-dialog .mad-doctor-shop-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+}
+.mad-doctor-shop-dialog .mad-doctor-shop-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff2222, #aa0000);
+  border-radius: 4px;
+}
+
+.mad-doctor-shop-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8%;
+}
+
+.mad-doctor-shop-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid #ff3333;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  min-height: 72px;
+  width: 80%;
+  position: relative;
+  left: 6%;
+}
+
+.mad-doctor-shop-item:hover {
+  background: rgba(255, 40, 40, 0.22);
+  transform: scale(1.02);
+  box-shadow: 0 0 12px rgba(255, 40, 40, 0.5);
+}
+
+.mad-doctor-shop-item.selected {
+  border-color: #ff00aa;
+  background: rgba(255, 0, 80, 0.2);
+  box-shadow: 0 0 14px rgba(255, 0, 80, 0.55);
+}
+
+.mad-doctor-shop-item img {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.mad-doctor-shop-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.mad-doctor-shop-item-name {
+  font-size: 14px;
+  color: #eee;
+  line-height: 1.35;
+  word-break: break-word;
+}
+
+.mad-doctor-shop-item-price {
+  font-size: 13px;
+  color: #ffaa00;
+  margin-top: 4px;
+  font-weight: bold;
+}
+
+/* Кнопки магазина */
+.mad-doctor-shop-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px 14px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+#madDoctor-shop-close {
+  position: absolute;
+  bottom: -25px;
+  left: 54%;
+  width: 24%;
+  height: 28px;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#madDoctor-shop-close:hover {
+  transform: none;
+  box-shadow: 0 0 20px red;
+}
+
+.mad-doctor-buy-confirm-btn {
+  position: absolute;
+  bottom: -25px;
+  left: 22%;
+  height: 36px;
+  width: 24%;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.mad-doctor-buy-confirm-btn:hover:not(:disabled) {
+  transform: none;
+  box-shadow: 0 0 20px green;
+}
+
+.mad-doctor-buy-confirm-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* === Донорство крови === */
+.mad-doctor-donation-dialog {
+  display: flex !important;
+  flex-direction: column;
+  width: 450px !important;
+  height: 500px !important;
+  max-width: 95vw !important;
+  max-height: 90vh !important;
+}
+
+.mad-doctor-donation-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.mad-doctor-donation-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 280px;
+}
+
+.mad-doctor-donation-label {
+  color: #ffcccc;
+  font-family: "Courier New", monospace;
+  font-size: 15px;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
+}
+
+.mad-doctor-donation-input {
+  position: absolute;
+  top: 75.4%;
+  width: 50%;
+  height: 6%;
+  padding: 12px 14px;
+  font-size: 18px;
+  font-family: "Courier New", monospace;
+  text-align: center;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.mad-doctor-donation-input:focus {
+  border-color: #ff00aa;
+  box-shadow: 0 0 12px rgba(255, 0, 80, 0.5);
+}
+
+.mad-doctor-donation-hint {
+  font-size: 13px;
+  color: #ffaa00;
+  font-family: "Courier New", monospace;
+}
+
+.mad-doctor-donation-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px 18px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.mad-doctor-donate-btn {
+  position: relative;
+  bottom: 36%;
+  left: -1.6%;
+  width: 110px;
+  height: 30px;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.mad-doctor-donate-btn:hover {
+  transform: none;
+  box-shadow: 0 0 20px green;
+}
+
+.mad-doctor-cancel-btn {
+  position: relative;
+  bottom: 36%;
+  left: 2%;
+  width: 110px;
+  height: 30px;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.mad-doctor-cancel-btn:hover {
+  transform: none;
+  box-shadow: 0 0 20px red;
+}

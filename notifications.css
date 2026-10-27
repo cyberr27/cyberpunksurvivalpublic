@@ -1,0 +1,37 @@
+/* Уведомления */
+.notification {
+  position: absolute;
+  max-width: 500px;
+  top: 5%; 
+  left: 42%;
+  color: #1900ff;
+  font-size: 18px;
+  font-weight: 700;
+  z-index: 1000;
+  text-shadow: 0 0 5px #1900ff, 0 0 10px #1900ff;
+  animation: fadeInOut 10s ease-in-out; 
+  z-index: 8888;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Мобильная адаптация уведомлений */
+@media (max-width: 500px) {
+  .notification {
+    font-size: 14px;
+    bottom: 95%; 
+  }
+}

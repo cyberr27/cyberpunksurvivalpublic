@@ -1,0 +1,605 @@
+/* Шрифт в стиле киберпанка */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: url(bodyImg.png) center no-repeat;
+  background-size: 100% 100%;
+  font-family: "Courier New", monospace;
+}
+
+/* Стили для окна авторизации */
+.auth-container {
+  position: absolute;
+  top: 18%;
+  left: -22%;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.auth-box {
+  background: none;
+  padding: 30px;
+  width: 300px;
+  text-align: center;
+}
+
+.neon-text {
+  position: relative;
+  left: 18%;
+  color: #ff0000;
+  text-shadow:
+    0 0 5px #a7970f,
+    0 0 10px #ff4800,
+    0 0 20px #ff0000;
+  animation: flicker 1.5s infinite alternate;
+}
+
+.form {
+  margin-top: 20px;
+}
+
+.neon-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background: #0d0d0d;
+  color: rgb(255, 0, 153);
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ff3300;
+  position: relative;
+  left: -3%;
+}
+
+.neon-input:focus {
+  outline: none;
+  box-shadow: 0 0 15px rgba(255, 38, 0, 0.7);
+}
+
+.loginBtn {
+  background: url("spaceBtn.png") center no-repeat;
+  background-size: 142% 120%;
+  width: 90%;
+  height: 40px;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#loginBtn:hover {
+  transform: scale(1.05);
+}
+
+#registerBtn {
+  background: url("registerSpaceBtn.png") center no-repeat;
+  background-size: 142% 120%;
+  width: 90%;
+  height: 40px;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#registerBtn:hover {
+  transform: scale(1.05);
+}
+
+.switch-text {
+  color: #fff;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.switch-text span {
+  color: #ffffff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.error-text {
+  position: absolute;
+  top: 70%;
+  left: 41%;
+  color: #ff0000;
+  text-shadow: 0 0 5px #ff006f;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.enBtn {
+  background: url("enBtn.png") center no-repeat;
+  width: 30px;
+  height: 20px;
+  position: absolute;
+  top: 78%;
+  left: 51%;
+}
+
+.ukBtn {
+  background: url("ukBtn.png") center no-repeat;
+  width: 30px;
+  height: 20px;
+  position: absolute;
+  top: 78%;
+  left: 46%;
+}
+
+/* Анимация мерцания */
+@keyframes flicker {
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    opacity: 1;
+  }
+  20%,
+  24%,
+  55% {
+    opacity: 0.7;
+  }
+}
+
+#gameContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg fill='none' stroke='%2300FFFF' stroke-width='2'%3E%3Ccircle cx='16' cy='16' r='12' stroke-dasharray='4 4'/%3E%3Cline x1='16' y1='4' x2='16' y2='8'/%3E%3Cline x1='16' y1='24' x2='16' y2='28'/%3E%3Cline x1='4' y1='16' x2='8' y2='16'/%3E%3Cline x1='24' y1='16' x2='28' y2='16'/%3E%3C/g%3E%3C/svg%3E")
+      16 16,
+    auto;
+}
+
+#gameCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  z-index: 10;
+}
+
+.pickup-hint {
+  position: absolute;
+  z-index: 20;
+  pointer-events: none;
+  transform: translate(-50%, -100%);
+  color: #d8ffff;
+  font:
+    9px "Courier New",
+    monospace;
+  line-height: 1;
+  white-space: nowrap;
+  text-shadow:
+    0 0 3px #00ffff,
+    0 0 6px rgba(0, 255, 255, 0.8);
+}
+
+/* Стили для статистики */
+#stats {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  font-size: 20px;
+  font-family: "Courier New", monospace;
+  z-index: 50;
+  background: url("led.png") center no-repeat;
+  background-size: 100% 100%;
+  width: 320px;
+  height: 140px;
+}
+
+#stats .health {
+  position: absolute;
+  top: 10%;
+  left: 11%;
+  color: #ff0000;
+}
+
+#stats .energy {
+  position: absolute;
+  top: 25%;
+  left: 11%;
+  color: #00ff00;
+}
+
+#stats .food {
+  position: absolute;
+  top: 55%;
+  left: 11%;
+  color: #ffff00;
+}
+
+#stats .water {
+  position: absolute;
+  top: 40%;
+  left: 11%;
+  color: #0080ff90;
+}
+
+#stats .armor {
+  position: absolute;
+  top: 68%;
+  left: 11%;
+  color: #ff4500;
+}
+
+/* Координаты */
+#coords {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #00ffff;
+  font-size: 14px;
+  font-family: "Courier New", monospace;
+  text-align: center;
+  z-index: 50;
+
+  /* === Размер контейнера (рамка, в которой живёт картинка) === */
+  width: 80px; /* ширина всей плашки */
+  height: 50px; /* высота всей плашки */
+
+  /* === Фон === */
+  background: url(images/coords.png) no-repeat;
+  background-size: 100% 100%; /* или 110% 110% / contain / cover — пробуй */
+
+  /* === САМОЕ ВАЖНОЕ: сдвиг картинки независимо от текста === */
+  background-position: center 40%; /* ← вот здесь крути */
+
+  /* === Чтобы текст был ВНУТРИ картинки === */
+  padding-top: 10px; /* сдвигает текст вниз */
+  padding-bottom: 4px;
+  box-sizing: border-box; /* обязательно, иначе padding раздует размер */
+}
+
+#levelDisplay,
+.level-display {
+  position: absolute;
+  bottom: -9px;
+  left: 1px;
+  color: #ff8800;
+  font-size: 12px;
+  font-weight: 700;
+  z-index: 1000;
+  text-align: center;
+  white-space: nowrap;
+  text-shadow: none;
+
+  /* === Размер контейнера (рамка под картинку) === */
+  width: 330px; /* подгони под реальный размер level.png */
+  height: 46px; /* подгони под реальный размер level.png */
+
+  /* === Фон === */
+  background: url(images/level.png) no-repeat;
+  background-size: 100% 100%; /* или contain / 110% 110% */
+
+  /* === Сдвиг картинки независимо от текста === */
+  background-position: center 45%; /* ← крути это значение */
+
+  /* === Чтобы текст был ВНУТРИ картинки === */
+  padding-top: 14px; /* сдвигает текст вниз */
+  padding-bottom: 4px;
+  box-sizing: border-box;
+}
+
+.xp-effect {
+  color: #00ff00;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  text-shadow: 0 0 5px #00ff00;
+  pointer-events: none;
+}
+
+.level-up-effect {
+  color: #ff00ff;
+  font-family: "Courier New", monospace;
+  font-size: 48px;
+  text-shadow:
+    0 0 10px #ff00ff,
+    0 0 20px #ff00ff;
+  pointer-events: none;
+}
+
+/* Стили для кнопок прокачки */
+.upgrade-btn {
+  position: absolute; /* ← обязательно */
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  background: none;
+  border: none;
+  box-shadow: none;
+  z-index: 60; /* чтобы были поверх фона led.png */
+  pointer-events: auto;
+  transition: opacity 0.15s ease;
+}
+
+/* === ИНДИВИДУАЛЬНОЕ ПОЗИЦИОНИРОВАНИЕ КАЖДОЙ КНОПКИ === */
+/* Меняй top / left / right / bottom свободно — они независимы */
+
+.upgrade-btn-health {
+  top: 10.5%;
+  left: 83%;
+}
+
+.upgrade-btn-energy {
+  top: 26%;
+  left: 83%;
+}
+
+.upgrade-btn-food {
+  top: 59%;
+  left: 81%;
+}
+
+.upgrade-btn-water {
+  top: 43%;
+  left: 83%;
+}
+
+.implant-hotbar-slot {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.75);
+  box-shadow:
+    0 0 10px rgba(0, 255, 255, 0.45),
+    inset 0 0 8px rgba(0, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+  font-size: 28px;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+  transition: all 0.2s ease;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.implant-hotbar-slot:hover {
+  border-color: #ff00ff;
+  box-shadow:
+    0 0 16px rgba(255, 0, 255, 0.7),
+    inset 0 0 10px rgba(0, 255, 255, 0.35);
+  transform: scale(1.08);
+}
+
+.implant-hotbar-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* === ПАНЕЛЬ ХОТБАРА ИМПЛАНТОВ + ФОН === */
+#implantHotbarContainer {
+  position: absolute;
+  bottom: -0.5%;
+  right: -2.5%;
+  width: 280px; /* подгони под реальный размер hotbarBg */
+  height: 220px; /* подгони под реальный размер hotbarBg */
+  z-index: 1100;
+  pointer-events: none;
+
+  /* Фон панели */
+  background: url(images/hotbarBg.png) no-repeat center bottom;
+  background-size: contain; /* или 100% 100% — смотри как лучше */
+}
+
+/* Общие стили слотов (без изменений логики) */
+.implant-hotbar-slot {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.75);
+  box-shadow:
+    0 0 10px rgba(0, 255, 255, 0.45),
+    inset 0 0 8px rgba(0, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+  font-size: 28px;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+  transition: all 0.2s ease;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.implant-hotbar-slot:hover {
+  border-color: #ff00ff;
+  box-shadow:
+    0 0 16px rgba(255, 0, 255, 0.7),
+    inset 0 0 10px rgba(0, 255, 255, 0.35);
+  transform: scale(1.08);
+}
+
+.implant-hotbar-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* === ИНДИВИДУАЛЬНОЕ ПОЗИЦИОНИРОВАНИЕ СЛОТОВ ВНУТРИ ПАНЕЛИ === */
+/* Теперь координаты относительно #implantHotbarContainer */
+.implant-hotbar-0 {
+  bottom: 165px;
+  right: 61px;
+}
+
+.implant-hotbar-1 {
+  bottom: 155px;
+  right: 137px;
+}
+
+.implant-hotbar-2 {
+  bottom: 100px;
+  right: 185px;
+}
+
+.implant-hotbar-3 {
+  bottom: 32px;
+  right: 185px;
+}
+
+/* Пустой слот чуть прозрачнее */
+.implant-hotbar-slot:empty,
+.implant-hotbar-slot:not(:has(img)) {
+  opacity: 0.45;
+}
+
+/* Онлайн теперь внутри панели */
+#onlineCount {
+  position: absolute;
+  bottom: 15px;
+  left: 126px;
+  color: #ffffff;
+  font-size: 11px;
+  font-family: "Courier New", monospace;
+  text-align: left;
+  z-index: 110;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* Пустой слот чуть прозрачнее (логика уже есть в updateHotbarDisplay) */
+.implant-hotbar-slot:empty,
+.implant-hotbar-slot:not(:has(img)) {
+  opacity: 0.45;
+}
+
+/* Адаптация для мобильных устройств (max-width: 500px) */
+@media (max-width: 500px) {
+  body {
+    background: url(bodyImg.png);
+    background-size: 100% 100%;
+  }
+
+  button {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  #stats {
+    font-size: 16px;
+    left: -8%;
+  }
+
+  #coords {
+    font-size: 14px;
+    right: 1.5%;
+  }
+
+  #onlineCount {
+    position: absolute;
+    top: 45px;
+    right: 23%;
+    color: #ffffff;
+    font-size: 12px;
+    font-family: "Courier New", monospace;
+    text-shadow:
+      0 0 5px #00ffff,
+      0 0 10px #00ffff,
+      0 0 15px #ff00ff;
+    animation: flicker 1.5s infinite alternate;
+    z-index: 50;
+
+    /* Главное волшебство ↓ */
+    writing-mode: vertical-rl; /* вертикально, сверху вниз */
+    text-orientation: mixed; /* или upright, если хочешь все символы прямо */
+    text-align: left; /* теперь это выравнивание по "низу" */
+  }
+
+  .auth-box {
+    width: 80%;
+  }
+
+  .auth-container {
+    position: absolute;
+    left: 0%;
+  }
+
+  .auth-box {
+    left: 1%;
+    right: 1%;
+    width: 80%;
+    margin: 0 auto;
+    position: absolute;
+  }
+
+  #levelDisplay,
+  .level-display {
+    top: 97%;
+    bottom: auto;
+    left: 2px;
+    width: 180px;
+    height: 30px;
+    font-size: 12px;
+    padding-top: 6px;
+    background-position: center 40%;
+  }
+
+  .upgrade-btn-health {
+    top: 6%;
+    left: 72%;
+  }
+  .upgrade-btn-energy {
+    top: 21%;
+    left: 72%;
+  }
+  .upgrade-btn-food {
+    top: 51%;
+    left: 72%;
+  }
+  .upgrade-btn-water {
+    top: 36%;
+    left: 72%;
+  }
+
+  .implant-hotbar-slot {
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+  }
+
+  .implant-hotbar-0 {
+    bottom: 105px;
+    left: 86%;
+  }
+
+  .implant-hotbar-1 {
+    bottom: 105px;
+    left: 72%;
+  }
+
+  .implant-hotbar-2 {
+    bottom: 58px;
+    left: 64%;
+  }
+
+  .implant-hotbar-3 {
+    bottom: 4px;
+    left: 65%;
+  }
+}

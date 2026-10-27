@@ -1,0 +1,228 @@
+/* skills.css */
+
+#skillsBtn {
+  position: absolute;
+  top: 67%;
+  left: -0.3%;
+}
+
+#skillsContainer {
+  position: absolute;
+  top: 50.8%;
+  left: 73%;
+  transform: translate(-50%, -50%);
+  width: 520px;
+  height: 600px;
+  background: url("skills_bg.png") no-repeat center center;
+  background-size: cover;
+  z-index: 200;
+  display: none; /* управляется JS */
+  grid-template-rows: 420px 120px;
+  font-family: "Courier New", monospace;
+  color: #00ffff;
+  box-sizing: border-box;
+  overflow: hidden; /* защита от вылезания */
+}
+
+#skillsGrid {
+  position: relative;
+  top: 20%;
+  display: grid;
+  grid-template-columns: repeat(5, 72px);
+  grid-template-rows: repeat(4, 67px);
+  gap: 8px;
+  justify-content: center;
+  align-content: start;
+  width: 100%;
+  height: 420px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.skill-slot {
+  width: 60px;
+  height: 60px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  justify-self: center;
+  align-self: center;
+}
+
+.skill-slot:hover {
+  border-color: #00ffff;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+  transform: scale(1.08);
+}
+
+.skill-slot.active {
+  border-color: #ff00ff;
+  box-shadow: 0 0 25px rgba(255, 0, 255, 0.7);
+  background: rgba(40, 0, 60, 0.5);
+}
+
+.skill-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.skill-slot-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-style: dashed;
+  color: rgba(0, 255, 255, 0.7);
+  font-size: clamp(18px, 4vw, 28px);
+}
+
+.skill-slot-placeholder::before {
+  content: "?";
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
+
+.skill-slot .level-badge {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  background: #020202;
+  color: white;
+  font-size: clamp(10px, 2.2vw, 12px);
+  padding: 2px 5px;
+  border-radius: 10px;
+  min-width: 18px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+#skillsDescription {
+  position: relative;
+  top: -15%;
+  left: 11%;
+  width: 70%;
+  height: 120px;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  color: #e0e0ff;
+  min-width: 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+#skillsDescription h3 {
+  margin: 0 0 0 0;
+  color: #ff8800;
+  font-size: clamp(15px, 3.2vw, 18px);
+}
+
+#skillsDescription p {
+  margin: 4px 0;
+  line-height: 1.35;
+  color: rgb(255, 89, 0);
+}
+
+/* === Адаптация под разные устройства === */
+
+/* Планшеты и средние экраны */
+@media (max-width: 900px) {
+  #skillsContainer {
+    width: 480px;
+    height: 540px;
+    grid-template-rows: 380px 110px;
+  }
+
+  #skillsGrid {
+    grid-template-rows: repeat(4, 60px);
+    gap: 10px;
+    height: 380px;
+  }
+}
+
+/* Мобильные (портрет) */
+@media (max-width: 600px) {
+  #skillsContainer {
+    width: 80vw;
+    height: 500px;
+    grid-template-rows: 370px 110px;
+    left: 56%;
+    top: 49%;
+  }
+
+  #skillsGrid {
+    grid-template-columns: repeat(4, 52px);
+    grid-template-rows: repeat(5, 52px);
+    gap: 8px;
+    height: 370px;
+  }
+
+  .skill-slot {
+    width: 52px;
+    height: 52px;
+  }
+
+  #skillsBtn {
+    top: 73%;
+  }
+
+  #skillsDescription {
+    height: 110px;
+    font-size: 13.5px;
+  }
+}
+
+/* Очень узкие телефоны */
+@media (max-width: 380px) {
+  #skillsContainer {
+    height: 530px;
+    grid-template-rows: 400px 110px;
+  }
+
+  #skillsGrid {
+    grid-template-columns: repeat(3, 52px);
+    grid-template-rows: repeat(7, 52px);
+    gap: 6px;
+    height: 400px;
+  }
+
+  .skill-slot {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+/* Landscape на телефонах / низкие экраны */
+@media (max-height: 500px) and (orientation: landscape) {
+  #skillsContainer {
+    height: 600px;
+    width: 520px;
+    grid-template-rows: 470px 120px;
+  }
+
+  #skillsGrid {
+    grid-template-columns: repeat(5, 60px);
+    grid-template-rows: repeat(4, 60px);
+    gap: 6px;
+    height: 470px;
+  }
+
+  .skill-slot {
+    width: 60px;
+    height: 60px;
+  }
+
+  #skillsDescription {
+    height: 120px;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+}
+
+/* Очень высокие экраны (не растягиваем слишком) */
+@media (min-height: 900px) {
+  #skillsContainer {
+    height: 600px;
+  }
+}

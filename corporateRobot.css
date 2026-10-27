@@ -1,0 +1,125 @@
+.cr-btn-ok {
+  position: relative;
+  top: -4%;
+  left: 67.5%;
+  width: 26%;
+  height: 1%;
+  padding: 14px 28px;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cr-btn-ok:hover {
+  transform: none;
+  box-shadow: 0 0 12px yellow;
+}
+
+.cr-btn-cancel {
+  position: relative;
+  top: -3%;
+  left: 67.2%;
+  width: 11.4%;
+  height: 1%;
+  padding: 14px 28px;
+  background: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cr-btn-cancel:hover {
+  transform: none;
+  box-shadow: 0 0 10px yellow;
+}
+
+.cr-btn-confirm {
+  position: relative;
+  top: -3%;
+  left: 67.2%;
+  width: 11.4%;
+  height: 1%;
+  padding: 14px 28px;
+  background: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cr-btn-confirm:hover {
+  transform: none;
+  box-shadow: 0 0 12px yellow;
+}
+
+/* ================== CR TALK DIALOG (аналог thimblerigger) ================== */
+
+.cr-talk-topic {
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(0, 255, 100, 0.4);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 15px;
+  padding: 12px 14px;
+  margin-bottom: 6px;
+  color: #ffffff;
+}
+
+.cr-talk-topic:hover {
+  background: rgba(0, 255, 100, 0.12);
+  border-color: #00ff64;
+  transform: translateX(2px);
+  box-shadow: 0 0 12px rgba(0, 255, 100, 0.3);
+}
+
+.cr-talk-topic-title {
+  color: #00ff64;
+  font-weight: bold;
+  font-size: 17px;
+  display: block;
+}
+
+.cr-fullscreen {
+  position: relative;
+  top: 12%;
+  margin: 0;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 8px;
+  font-size: 17px;
+  min-height: 230px;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  overflow-y: auto;
+  color: #fbff00;
+  line-height: 1.55;
+}
+
+.cr-talk-topics {
+  position: relative;
+  top: 6%;
+  left: 1%;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-right: 10px;
+  height: 320px;
+}
+
+#crCloseTalkBtn {
+  position: relative;
+  top: -4%;
+  left: 66.8%;
+  width: 27%;
+  height: 7%;
+  padding: 14px 28px;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+#crCloseTalkBtn:hover {
+  transform: none;
+  box-shadow: 0 0 12px red;
+}

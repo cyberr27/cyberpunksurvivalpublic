@@ -1,0 +1,97 @@
+/* recipeViewerStyle.css — оптимизировано 2025 */
+
+.recipe-dialog {
+  position: absolute;
+  top: 50%;
+  left: 53.5%;
+  transform: translate(-50%, -50%);
+  width: 420px;
+  max-width: 92vw;
+  height: 380px;
+  max-height: 88vh;
+  padding: 20px;
+  border-radius: 10%;
+  background-size: cover;
+  font-family: "Courier New", monospace;
+  text-align: center;
+  z-index: 1003;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.recipe-dialog.open {
+  display: flex;
+}
+
+body.recipe-dialog-active {
+  overflow: hidden;
+}
+
+.recipe-close-area {
+  position: absolute;
+  inset: auto 0 20px;
+  transform: translateX(-50%);
+  left: 50%;
+  z-index: 2;
+}
+
+.recipe-neon-btn {
+  padding: 14px 40px;
+  font-size: 20px;
+  color: #f00;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-family: "Courier New", monospace;
+  transition: all 0.18s;
+}
+
+.recipe-neon-btn:hover {
+  transform: scale(1.06);
+  box-shadow:
+    0 0 25px #0ff,
+    0 0 40px #f0f8;
+}
+
+@keyframes neonPulse {
+  to {
+    box-shadow:
+      0 0 20px #0ff9,
+      0 0 35px #f0f6;
+  }
+}
+
+/* ─── Адаптив ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .recipe-dialog {
+    width: 92vw;
+    height: 420px;
+    padding: 15px;
+  }
+  .recipe-neon-btn {
+    padding: 12px 32px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .recipe-dialog {
+    width: 95vw;
+    height: 440px;
+    padding: 12px;
+  }
+  .recipe-neon-btn {
+    padding: 12px 28px;
+    font-size: 15px;
+  }
+}
+
+@media (max-height: 600px) {
+  .recipe-dialog {
+    height: 92vh;
+  }
+}

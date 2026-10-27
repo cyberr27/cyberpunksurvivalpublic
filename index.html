@@ -384,14 +384,19 @@
       <script src="Yuri.js"></script>
       <script src="i18n.js"></script>
       <script src="soundSystem.js"></script>
-      <script src="engineConfig.js"></script>
-      <script src="coordinateSystem3D.js"></script>
-      <script src="cameraSystem3D.js"></script>
-      <script src="gltfAssetSystem3D.js"></script>
-      <script src="playerSystem3D.js"></script>
       <script src="playerVisualConfig.js"></script>
-      <script src="bloomSystem3D.js"></script>
-      <script src="vanilla3DRenderer.js"></script>
+      <script src="engineConfig.js"></script>
+      <script src="engine3DLoader.js"></script>
+      <script>
+        window.engine3DLoader.configure([
+          "coordinateSystem3D.js",
+          "cameraSystem3D.js",
+          "gltfAssetSystem3D.js",
+          "playerSystem3D.js",
+          "bloomSystem3D.js",
+          "vanilla3DRenderer.js",
+        ]);
+      </script>
       <script src="rendererSystem.js"></script>
       <script src="rendererModeDialog.js"></script>
       <script src="foundationEditor3D.js"></script>

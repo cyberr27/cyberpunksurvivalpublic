@@ -1,0 +1,166 @@
+/* Warman NPC — buttons + dialogs */
+
+/* Контейнер кнопок над Warman (как у Lina / Cristina) */
+.warman-buttons-container {
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-50%);
+}
+
+.warman-button {
+  pointer-events: all;
+  width: 170px;
+  height: 36px;
+  cursor: pointer;
+  user-select: none;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.15s ease;
+  margin-bottom: 4px;
+}
+
+.warman-button:hover {
+  transform: scale(1.07);
+}
+
+/* Кнопки — используем существующие спрайты кнопок */
+.warman-talk-btn {
+  background: url("thimblerigger-talk-btn.png") no-repeat center;
+  background-size: 100% 100%;
+  width: 170px;
+  height: 36px;
+}
+
+.warman-training-btn {
+  background: url("trainingBtn.png") no-repeat center;
+  background-size: 100% 100%;
+  width: 170px;
+  height: 36px;
+}
+
+.warman-arena-btn {
+  background: url("arenaBtn.png") no-repeat center;
+  background-size: 100% 100%;
+  width: 170px;
+  height: 36px;
+}
+
+/* Placeholder nameplate (canvas draws the label) */
+.warman-nameplate {
+  position: absolute;
+  pointer-events: none;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  color: #ff0000;
+  text-shadow:
+    0 0 6px #ff4444,
+    0 0 12px #aa0000;
+  white-space: nowrap;
+  z-index: 40;
+}
+
+.warman-arena-dialog {
+  border: none;
+  box-shadow: none;
+}
+
+#warman-nodoc-ok {
+  position: relative;
+  top: -10%;
+  left: 33%;
+  height: 8%;
+  width: 34%;
+  background: none;
+  border-radius: 10px;
+}
+#warman-nodoc-ok:hover {
+  transform: none;
+  box-shadow: 0 0 10px yellow;
+}
+
+#warman-greeting-ok {
+  position: relative;
+  top: -10%;
+  left: 33%;
+  height: 8%;
+  width: 34%;
+  background: none;
+  border-radius: 10px;
+}
+#warman-greeting-ok:hover {
+  transform: none;
+  box-shadow: 0 0 10px yellow;
+}
+
+#warman-talk-close {
+  top: -6.6%;
+  left: 70%;
+  background: none;
+  border-radius: 10px;
+  height: 4%;
+}
+
+#warman-talk-close:hover {
+  transform: none;
+  box-shadow: 0 0 10px red;
+}
+
+#warman-training-enter {
+  position: relative;
+  top: -4%;
+  left: 18%;
+  width: 30%;
+  height: 7%;
+  background: none;
+  border: none;
+}
+#warman-training-enter:hover {
+  transform: none;
+  box-shadow: 0 0 10px yellow;
+}
+
+#warman-training-close {
+  position: relative;
+  top: -11%;
+  left: 52%;
+  width: 30%;
+  height: 7%;
+  background: none;
+  border: none;
+}
+#warman-training-close:hover {
+  transform: none;
+  box-shadow: 0 0 10px rgb(255, 0, 0);
+}
+
+#warman-arena-enter {
+  position: relative;
+  top: -4%;
+  left: 18%;
+  width: 30%;
+  height: 7%;
+  background: none;
+  border: none;
+}
+#warman-arena-enter:hover {
+  transform: none;
+  box-shadow: 0 0 10px yellow;
+}
+
+#warman-arena-close {
+  position: relative;
+  top: -11%;
+  left: 52%;
+  width: 30%;
+  height: 7%;
+  background: none;
+  border: none;
+}
+#warman-arena-close:hover {
+  transform: none;
+  box-shadow: 0 0 10px rgb(255, 0, 0);
+}

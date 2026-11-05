@@ -1,0 +1,56 @@
+/* YuriStyle.css
+ * Стили NPC Yuri.
+ * Диалоги на фоне PNG с прозрачными краями — без border / box-shadow / пульсаций.
+ */
+
+/* Диалог Yuri — поверх универсального .npc-dialog, убираем любые рамки/свечения */
+.yuri-dialog.npc-dialog {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  /* размеры как у остальных NPC-диалогов (из npc-styles.css) */
+}
+
+.yuri-dialog .npc-dialog-content {
+  /* контент пустой — весь текст уже на PNG */
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Кнопка OK — как neon-btn-ok у других NPC */
+.yuri-ok-btn {
+  position: relative;
+  top: 0%;
+  left: 74%;
+  width: 25%;
+  height: 5%;
+  min-height: 28px;
+  padding: 0;
+  border: none;
+  background: url(okBtn.png) no-repeat center;
+  background-size: 100% 100%;
+  border-radius: 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 12px;
+}
+
+.yuri-ok-btn:hover {
+  transform: scale(1.06);
+}
+
+@media (max-width: 768px) {
+  .yuri-ok-btn {
+    left: 70%;
+    width: 28%;
+  }
+}
+
+@media (max-width: 480px) {
+  .yuri-ok-btn {
+    left: 68%;
+    width: 30%;
+  }
+}

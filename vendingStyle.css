@@ -1,0 +1,89 @@
+/* vendingStyle.css — Vending Machine NPC-style Dialog */
+.vending-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  max-width: 90vw;
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 10000;
+  font-family: "Courier New", monospace;
+  color: #00ffff;
+  width: 450px;
+  height: 500px; /* точная высота окна хронометра */
+  max-height: 88vh;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.vending-dialog.open {
+  animation: vendingPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes vendingPop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%) scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.npc-dialog-content {
+  padding: 30px 25px 20px;
+  text-align: center;
+  background: none;
+}
+
+.vending-option {
+  position: relative;
+  top: 30%;
+  width: 35%;
+  color: #002201;
+  padding: 16px 20px;
+  margin: 14px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: left;
+}
+
+.vending-option span {
+  color: #ffff00;
+  font-weight: bold;
+}
+
+#vendingError {
+  color: #ff00ff;
+  margin-top: 15px;
+  font-size: 14px;
+  min-height: 24px;
+  text-align: center;
+  text-shadow: 0 0 8px #ff00ff;
+}
+
+/* Дополнительная защита от конфликтов */
+body .vending-dialog {
+  position: fixed !important;
+}
+
+.vending-large-npc-button {
+  position: relative;
+  top: 33%;
+  left: 13%;
+  height: 10%;
+  width: 14%;
+}
+
+.vending-small-npc-button {
+  position: relative;
+  top: 33%;
+  left: 13%;
+  height: 7%;
+  width: 14%;
+}

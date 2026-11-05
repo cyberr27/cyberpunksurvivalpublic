@@ -1,0 +1,6 @@
+.renderer-mode-dialog {
+  --engine-dialog-accent: #00ccff;
+  background:
+    linear-gradient(rgba(5, 11, 22, 0.82), rgba(5, 11, 22, 0.9)),
+    url("backgr.png") center / cover no-repeat;
+}
